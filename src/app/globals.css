@@ -405,3 +405,83 @@ button { font: inherit; }
   .v2-conclusion img { grid-column: 2; height: 175px; margin-top: -18px; }
   .v2-sources ul { columns: 1; }
 }
+
+/* V2 FIND 001 rebuild */
+.v2-tool-hero-rebuilt { max-width: 1360px; grid-template-columns: minmax(480px, .9fr) minmax(520px, 1.1fr); gap: 44px; padding-bottom: 54px; }
+.v2-tool-hero-rebuilt h1 { max-width: 720px; font-size: clamp(52px, 4.4vw, 70px); }
+.v2-tool-hero-image { margin: 0; align-self: stretch; display: flex; flex-direction: column; background: var(--ink); }
+.v2-tool-hero-image img { width: 100%; height: 100%; min-height: 370px; object-fit: cover; object-position: center; }
+.v2-tool-hero-image figcaption { padding: 13px 17px; color: white; font-size: 11px; font-weight: 720; letter-spacing: .08em; text-transform: uppercase; }
+.v2-quick-rebuilt { padding: 0; overflow: hidden; background: #eef6fd; }
+.v2-quick-heading { min-height: 156px; padding: 30px 34px 0; display: flex; justify-content: space-between; overflow: hidden; }
+.v2-quick-heading img { width: 128px; height: 160px; align-self: end; object-fit: contain; object-position: center top; }
+.v2-quick-heading h2 { margin-bottom: 24px; }
+.v2-quick-rebuilt .v2-short-picks { margin: 0; background: white; }
+.v2-quick-rebuilt .v2-short-picks a { min-height: 142px; padding: 21px 17px; display: flex; flex-direction: column; gap: 8px; color: var(--ink); border-right: 1px solid #b9cee5; text-decoration: none; }
+.v2-quick-rebuilt .v2-short-picks a:last-child { border-right: 0; }
+.v2-quick-rebuilt .v2-short-picks b { color: var(--blue); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+.v2-quick-rebuilt .v2-short-picks strong { font-size: 16px; line-height: 1.15; }
+.v2-quick-rebuilt .v2-short-picks span { padding: 0; min-height: 0; border: 0; font-size: 13px; font-weight: 500; line-height: 1.42; }
+.tool-finder { display: grid; grid-template-columns: 1fr 1fr; gap: 0 26px; }
+.finder-progress, .finder-answer { grid-column: 1 / -1; }
+.tool-finder fieldset { min-width: 0; }
+.tool-finder legend { gap: 9px; }
+.tool-finder legend i { width: 25px; height: 25px; display: inline-grid; place-items: center; color: var(--blue); background: #eaf3ff; border-radius: 50%; font-size: 13px; font-style: normal; }
+.finder-options button[aria-pressed="true"] { box-shadow: inset 0 0 0 2px white; }
+.finder-answer em { margin-top: 10px; color: #d8eaff; font-size: 13px; line-height: 1.45; font-style: normal; }
+.combination-review { grid-template-columns: 88px minmax(0, 1fr); padding: 44px 0; }
+.combination-review-main { min-width: 0; }
+.combination-facts { margin-top: 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 34px; border-top: 1px solid var(--line); }
+.combination-facts > div { padding: 19px 0; border-bottom: 1px solid var(--line); }
+.combination-facts b { color: var(--blue); font-size: 10px; letter-spacing: .09em; }
+.combination-facts p { margin: 7px 0 0; font-size: 15px; line-height: 1.53; }
+.combination-actions { margin-top: 20px; display: flex; justify-content: space-between; align-items: center; gap: 18px; }
+.combination-actions a { color: var(--blue-dark); font-size: 14px; font-weight: 720; text-underline-offset: 4px; }
+.combination-actions span { color: #718097; font-size: 11px; }
+.v2-platform-guide { max-width: 900px; margin: 0 auto 82px; }
+.v2-platform-guide h2 { max-width: 750px; }
+.platform-diagram { margin: 30px 0 34px; padding: 22px; display: flex; align-items: center; justify-content: center; gap: 20px; background: #edf5fc; }
+.platform-diagram span { padding: 13px 16px; color: var(--ink); border: 1px solid #a9c4e3; background: white; font-size: 14px; font-weight: 690; }
+.platform-diagram i { color: var(--blue); font-style: normal; font-size: 21px; }
+.platform-copy { columns: 2; column-gap: 42px; }
+.platform-copy p { margin: 0 0 20px; break-inside: avoid; font-size: 17px; line-height: 1.65; }
+.v2-buy-first-rebuilt article { display: flex; flex-direction: column; }
+.v2-buy-first-rebuilt article p { flex: 1; }
+.v2-buy-first-rebuilt article a { width: fit-content; margin-top: 18px; color: var(--blue-dark); font-size: 13px; font-weight: 700; }
+.v2-conclusion-rebuilt { min-height: 0; padding: 44px 34px 0 44px; color: var(--ink); background: #eaf4fc; border-top: 4px solid var(--blue); }
+.v2-conclusion-rebuilt .section-label { color: var(--blue); }
+.v2-conclusion-rebuilt img { height: 330px; }
+
+@media (max-width: 900px) {
+  .v2-tool-hero-rebuilt { grid-template-columns: 1fr; }
+  .v2-tool-hero-image img { min-height: 0; aspect-ratio: 16 / 9; }
+  .v2-quick-rebuilt .v2-short-picks { grid-template-columns: 1fr 1fr; }
+  .v2-quick-rebuilt .v2-short-picks a:nth-child(2) { border-right: 0; }
+  .v2-quick-rebuilt .v2-short-picks a:nth-child(-n+2) { border-bottom: 1px solid #b9cee5; }
+}
+
+@media (max-width: 600px) {
+  .v2-tool-hero-rebuilt { padding-inline: 16px; }
+  .v2-tool-hero-rebuilt h1 { font-size: 42px; }
+  .v2-tool-hero-image { margin-inline: -16px; }
+  .v2-tool-hero-image figcaption { font-size: 9px; }
+  .v2-quick-heading { min-height: 134px; padding: 26px 18px 0; }
+  .v2-quick-heading h2 { font-size: 31px; }
+  .v2-quick-heading img { width: 96px; height: 126px; margin-right: -8px; }
+  .v2-quick-rebuilt .v2-short-picks { grid-template-columns: 1fr; }
+  .v2-quick-rebuilt .v2-short-picks a { min-height: 0; padding: 17px 20px; border-right: 0; border-bottom: 1px solid #b9cee5; }
+  .tool-finder { grid-template-columns: 1fr; gap: 0; }
+  .tool-finder fieldset { padding: 18px 0; }
+  .finder-options { display: flex; }
+  .finder-options button { min-height: 44px; }
+  .combination-review { grid-template-columns: 1fr; padding: 34px 0; }
+  .combination-facts { grid-template-columns: 1fr; }
+  .combination-facts > div { padding: 15px 0; }
+  .combination-actions { align-items: flex-start; flex-direction: column; }
+  .platform-diagram { padding: 17px 13px; gap: 8px; }
+  .platform-diagram span { padding: 10px 8px; font-size: 11px; text-align: center; }
+  .platform-copy { columns: 1; }
+  .platform-copy p { font-size: 16px; }
+  .v2-conclusion-rebuilt { grid-template-columns: minmax(0, 1fr) 125px; padding: 30px 18px 0; }
+  .v2-conclusion-rebuilt img { height: 180px; }
+}
