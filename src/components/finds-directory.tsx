@@ -20,22 +20,6 @@ function FindVisual({ find }: { find: KumiaFind }) {
   return <a className="find-visual" href={href} aria-label={`Read ${find.title}`}><Image src={find.image} alt="" width={1672} height={941} sizes="(max-width: 900px) calc(100vw - 40px), 460px" /></a>;
 }
 
-function StatusBadge({ result }: { result: KumiaFind["result"] }) {
-  const icon = result === "MATCH" ? "check" : result === "PARTIAL" ? "partial" : "cross";
-  return (
-    <span className={`status-badge status-${result.toLowerCase().replace(" ", "-")}`}>
-      <span className="status-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24">
-          {icon === "check" && <path d="m6.5 12.3 3.3 3.3 7.7-8" />}
-          {icon === "cross" && <path d="m7 7 10 10M17 7 7 17" />}
-          {icon === "partial" && <path d="M12 6.5v6M12 16.8v.2" />}
-        </svg>
-      </span>
-      <strong>{result}</strong>
-    </span>
-  );
-}
-
 export function FindsDirectory({ finds }: { finds: KumiaFind[] }) {
   const [active, setActive] = useState<(typeof filters)[number]["value"]>("ALL");
   const filteredFinds = useMemo(() => active === "ALL" ? finds : finds.filter((find) => find.category === active || find.subCategory === active), [active, finds]);
@@ -55,7 +39,7 @@ export function FindsDirectory({ finds }: { finds: KumiaFind[] }) {
             <FindVisual find={find} />
             <h3><a href={find.href ?? `#${find.slug}`}>{find.title}</a></h3>
             <div className="find-result">
-              <StatusBadge result={find.result} />
+              <span className="pairing-label">RESEARCHED COMBINATION</span>
               <div className="combination"><span>{find.hostItem}</span><b>×</b><span>{find.testedItem}</span></div>
               {find.condition && <p className="find-condition">{find.condition}</p>}
               <a className="read-more" href={find.href ?? `#${find.slug}`} aria-label={`Read ${find.title}`}>Read more <span aria-hidden="true">→</span></a>

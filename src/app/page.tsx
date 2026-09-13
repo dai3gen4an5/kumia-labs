@@ -40,7 +40,8 @@ export default function Home() {
         <div className="hero-copy">
           <Image className="hero-logo" src="/brand/kumia-labs-logo.png" alt="Kumia Labs" width={1086} height={362} priority />
           <div className="hero-message">
-            <h1 id="hero-title">Find what fits. And what doesn’t.</h1>
+            <h1 id="hero-title">Find what works together.</h1>
+            <p>Kumia Labs helps you choose products that work well together for the way you plan to use them.</p>
             <a className="hero-cta" href="#latest"><span aria-hidden="true">→</span><strong>Explore Research</strong></a>
           </div>
         </div>
@@ -56,7 +57,7 @@ export default function Home() {
         <div className="meet-copy">
           <p className="meet-label">KUMIA LABS RESEARCHER</p>
           <h2 id="meet-kumia-title">Meet Kumia</h2>
-          <p>Hi, I’m Kumia. My name comes from <strong>kumiawase</strong>—the Japanese word for “combination.” I’m the researcher and guide at Kumia Labs. I test how gadgets, devices, and parts work together, explain the catches, and help you avoid buying the wrong thing.</p>
+          <p>Hi, I’m Kumia. My name comes from <strong>kumiawase</strong>, the Japanese word for “combination.” I research how products work together and help you choose a combination that suits your needs.</p>
         </div>
       </section>
     </main>
