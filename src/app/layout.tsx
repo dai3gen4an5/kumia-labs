@@ -5,7 +5,7 @@ import "./globals.css";
 const geist = Geist({ variable: "--font-geist", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
-export const metadata: Metadata = { title: "Kumia Labs | Compatibility finds", description: "Find what fits. And what doesn't." };
+export const metadata: Metadata = { title: "Kumia Labs | Find what works together", description: "Research that helps you choose products that work well together for the way you plan to use them." };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return <html lang="en" className={`${geist.variable} ${geistMono.variable}`}><body>{children}</body></html>;
