@@ -23,6 +23,8 @@
 # misc
 .DS_Store
 *.pem
+/artifacts/
+/imgs/
 
 # debug
 npm-debug.log*
