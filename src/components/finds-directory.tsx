@@ -17,7 +17,7 @@ const formatDate = (date: string) => date.replaceAll("-", ".");
 
 function FindVisual({ find }: { find: KumiaFind }) {
   const href = find.href ?? `#${find.slug}`;
-  return <a className="find-visual" href={href} aria-label={`Read ${find.title}`}><Image src={find.image} alt="" width={1672} height={941} sizes="(max-width: 900px) calc(100vw - 40px), 460px" /></a>;
+  return <a className={`find-visual${find.image ? "" : " find-visual-editorial"}`} href={href} aria-label={`Read ${find.title}`}>{find.image ? <Image src={find.image} alt="" width={1672} height={941} sizes="(max-width: 900px) calc(100vw - 40px), 460px" /> : <><small>V2 FIND 001</small><strong>{find.visualLabel}</strong></>}</a>;
 }
 
 export function FindsDirectory({ finds }: { finds: KumiaFind[] }) {
@@ -35,7 +35,7 @@ export function FindsDirectory({ finds }: { finds: KumiaFind[] }) {
       <div className="find-list" aria-live="polite">
         {filteredFinds.map((find) => (
           <article className="find-row" key={find.id}>
-            <div className="find-meta"><strong>{formatNumber(find.number)}</strong><time dateTime={find.publishedAt}>{formatDate(find.publishedAt)}</time><i aria-hidden="true" /><span>{find.category}</span></div>
+            <div className="find-meta">{find.editionLabel ? <small>{find.editionLabel}</small> : null}<strong>{formatNumber(find.number)}</strong><time dateTime={find.publishedAt}>{formatDate(find.publishedAt)}</time><i aria-hidden="true" /><span>{find.category}</span></div>
             <FindVisual find={find} />
             <h3><a href={find.href ?? `#${find.slug}`}>{find.title}</a></h3>
             <div className="find-result">
