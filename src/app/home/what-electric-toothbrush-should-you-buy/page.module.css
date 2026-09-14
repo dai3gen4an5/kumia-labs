@@ -8,21 +8,6 @@
   overflow: clip;
 }
 
-.siteHeader {
-  height: 82px;
-  display: flex;
-  align-items: center;
-  gap: 42px;
-  padding: 0 clamp(24px, 5vw, 76px);
-  border-bottom: 1px solid var(--line);
-  background: rgba(255, 255, 255, .96);
-}
-.brand { display: flex; align-items: center; gap: 10px; color: var(--navy); text-decoration: none; }
-.brand span { display: flex; font-size: 23px; letter-spacing: -.04em; }
-.brand span b:last-child { color: var(--blue); }
-.siteHeader nav { margin-left: auto; display: flex; align-items: center; gap: 32px; }
-.siteHeader nav a { color: var(--navy); font-weight: 650; text-decoration: none; }
-
 .breadcrumb, .content, .hero {
   width: min(1288px, calc(100% - 48px));
   margin-inline: auto;
@@ -55,6 +40,7 @@
   border: 1px solid #bdd5ef;
   border-radius: 16px;
   font-size: 20px;
+  font-weight: 700;
   line-height: 1.45;
 }
 .intro p:before { content: ""; position: absolute; left: -14px; top: 55%; border-width: 10px 14px 10px 0; border-style: solid; border-color: transparent #bdd5ef transparent transparent; }
@@ -91,7 +77,7 @@
 .reasoning p { font-size: 17px; line-height: 1.7; margin: 0 0 18px; }
 .reasoningLead { color: var(--blue); font-size: 19px; font-weight: 700; line-height: 1.5; }
 
-.ownership { margin: 4px 0 0; padding: 32px 34px; background: var(--pale); border: 1px solid #bdd5ef; border-radius: 16px; }
+.ownership { margin: 28px 0 0; padding: 32px 34px; background: var(--pale); border: 1px solid #bdd5ef; border-radius: 16px; }
 .ownership h3 { font-size: 24px; line-height: 1.15; margin: 6px 0 22px; font-weight: 750; }
 .ownership dl { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 22px 32px; }
 .ownership dl > div { padding-top: 14px; border-top: 1px solid #bdd5ef; }
@@ -101,7 +87,7 @@
 .readyMade { padding: 58px 0 76px; }
 .readyMade > h3 { font-size: 34px; letter-spacing: -.035em; margin: 0 0 7px; }
 .readyMade > p { color: #52627d; margin: 0 0 22px; }
-.readyMade > div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.readyMade > div { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .productCard { border-top: 3px solid var(--blue); padding: 22px; background: #f9fbfe; display: flex; flex-direction: column; min-height: 390px; }
 .productCard > p:first-child { font-size: 11px; font-weight: 800; letter-spacing: .1em; color: var(--blue); text-transform: uppercase; margin: 0; }
 .productCard h4 { font-size: 24px; line-height: 1.1; margin: 9px 0; }
@@ -130,10 +116,11 @@
 .sources li { margin: 8px 24px 8px 0; }
 .sources a { color: var(--navy); }
 
+@media (max-width: 1080px) {
+  .readyMade > div { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 @media (max-width: 800px) {
-  .siteHeader { height: 68px; padding-inline: 20px; }
-  .siteHeader nav { display: none; }
-  .siteHeader .brand span { font-size: 21px; }
   .breadcrumb, .content, .hero { width: calc(100% - 32px); }
   .breadcrumb { white-space: nowrap; overflow: hidden; padding-block: 16px; }
   .hero { padding: 16px 0 28px; }

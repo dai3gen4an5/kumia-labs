@@ -85,6 +85,14 @@ const setups: Setup[] = [
         url: "https://www.target.com/p/-/A-76559610",
         source: "Target",
       },
+      {
+        name: "Oral-B iO Series 3",
+        details: "iO magnetic handle, 1 Ultimate Clean head, magnetic charger, magnetic travel pouch",
+        why: "A step-up for someone who wants Oral-B's newer magnetic iO drive and a light-up pressure ring while keeping the kit just as simple as the Pro 1000.",
+        watch: "iO uses its own magnetic head system priced around $8-10 per head. CrossAction heads from the Pro 1000 do not fit this handle, so the predictable-cost math changes.",
+        url: "https://oralb.com/en-us/products/io-series-3-rechargeable-electric-toothbrush-icy-blue/",
+        source: "Oral-B",
+      },
     ],
   },
   {
@@ -122,6 +130,14 @@ const setups: Setup[] = [
         watch: "Read the model number and included-head line on the live listing.",
         url: "https://www.target.com/s/philips%2Bsonicare%2B4100",
         source: "Target",
+      },
+      {
+        name: "Philips Sonicare 5700 (HX7130 series)",
+        details: "C3 Premium Plaque Control head, pressure sensor, SmarTimer, up to 21-day battery",
+        why: "A step-up for even longer time between charges. Philips lists roughly a week more runtime than the 4100.",
+        watch: "Ships with a C3 head rather than C2, though both use the same Sonicare click-on connector and are interchangeable.",
+        url: "https://www.usa.philips.com/c-p/HX7130_01/series-5700-rechargeable-toothbrush",
+        source: "Philips",
       },
     ],
   },
@@ -161,6 +177,14 @@ const setups: Setup[] = [
         url: "https://www.target.com/p/-/A-82842386",
         source: "Target",
       },
+      {
+        name: "Philips Sonicare Total Clean Dual Handle (HX7129/03)",
+        details: "Two handles, two C2 Optimal Plaque Control heads, charger included",
+        why: "A Sonicare-ecosystem alternative for couples who would rather standardize on click-on heads than Oral-B's CrossAction family.",
+        watch: "Confirm how many chargers ship in the current box before assuming each handle gets its own base.",
+        url: "https://www.usa.philips.com/c-p/HX7129_03/total-clean-rechargeable-toothbrush-dual-handle",
+        source: "Philips",
+      },
     ],
   },
   {
@@ -199,6 +223,14 @@ const setups: Setup[] = [
         url: "https://www.target.com/p/-/A-82490461",
         source: "Target",
       },
+      {
+        name: "Oral-B iO Series 4",
+        details: "iO magnetic handle, 1 Ultimate Clean head, magnetic charger, hard travel case",
+        why: "An Oral-B-ecosystem alternative for travelers who want a hard charging case without switching to Sonicare.",
+        watch: "At $99.99 it undercuts the 9900 Prestige, but iO heads cost more per head than standard Oral-B refills and are a separate ecosystem.",
+        url: "https://oralb.com/en-us/products/electric-toothbrushes/io-series-4-rechargeable-electric-toothbrush-blue/",
+        source: "Oral-B",
+      },
     ],
   },
 ];
@@ -218,12 +250,12 @@ const costRows = [
 ];
 
 function Header() {
-  return <header className={styles.siteHeader}>
-    <Link className={styles.brand} href="/" aria-label="Kumia Labs home">
+  return <header className="site-header article-site-header">
+    <Link className="brand-lockup" href="/" aria-label="Kumia Labs home">
       <Image src="/brand/kumia-k-mark.png" alt="" width={40} height={40} />
-      <span><b>Kumia</b><b>Labs</b></span>
+      <span className="header-wordmark"><b>Kumia</b><b>Labs</b></span>
     </Link>
-    <nav aria-label="Primary navigation"><Link href="/#latest">Research</Link><Link href="/#latest">Home</Link><Link href="/#meet-kumia">About</Link></nav>
+    <nav className="desktop-nav" aria-label="Primary navigation"><Link href="/#latest">Research</Link><Link href="/#latest">Home</Link><Link href="/#meet-kumia">About</Link></nav>
   </header>;
 }
 
@@ -240,19 +272,6 @@ function SetupSection({ setup }: { setup: Setup }) {
     <header><span>{setup.number}</span><div><p>SETUP {setup.number}</p><h2 id={`${setup.slug}-title`}>{setup.title}</h2></div></header>
     <figure><Image src={setup.image} alt={setup.imageAlt} width={1680} height={945} sizes="(max-width: 700px) 100vw, 1120px" /></figure>
 
-    <div className={styles.who}>
-      <p className={styles.eyebrow}>WHO IT&rsquo;S FOR</p>
-      <h3>{setup.persona}</h3>
-    </div>
-
-    <div className={styles.reasoning}>
-      <h3>Why this combination works</h3>
-      <div>
-        <p className={styles.reasoningLead}>{setup.combination}</p>
-        {setup.reasoning.map((text) => <p key={text}>{text}</p>)}
-      </div>
-    </div>
-
     <div className={styles.ownership}>
       <p className={styles.eyebrow}>WHAT OWNERSHIP LOOKS LIKE</p>
       <h3>Costs and routines after purchase</h3>
@@ -264,6 +283,19 @@ function SetupSection({ setup }: { setup: Setup }) {
           </div>
         ))}
       </dl>
+    </div>
+
+    <div className={styles.who}>
+      <p className={styles.eyebrow}>WHO IT&rsquo;S FOR</p>
+      <h3>{setup.persona}</h3>
+    </div>
+
+    <div className={styles.reasoning}>
+      <h3>Why this combination works</h3>
+      <div>
+        <p className={styles.reasoningLead}>{setup.combination}</p>
+        {setup.reasoning.map((text) => <p key={text}>{text}</p>)}
+      </div>
     </div>
 
     <section className={styles.readyMade} aria-labelledby={`${setup.slug}-products`}><h3 id={`${setup.slug}-products`}>Ready-made options</h3><p>Prices and availability were checked on September 14, 2026. Confirm the live listing before buying.</p><div>{setup.products.map((product) => <ProductCard key={product.name} product={product} />)}</div></section>
@@ -329,7 +361,7 @@ export default function ElectricToothbrushGuide() {
 
         <aside className={styles.closing} aria-label="Kumia's closing note"><Image src="/images/kumia-conclusion-clasped-transparent.png" alt="Kumia" width={1122} height={1402} sizes="(max-width: 600px) 88px, 126px" /><p>Choose the refill system and charging routine you can live with. The handle matters, but those are the parts you keep dealing with after the first week.</p></aside>
 
-        <section className={styles.sources} aria-labelledby="sources"><h2 id="sources">Sources and methodology</h2><p>Specifications and prices were checked on September 14, 2026. Manufacturer pages were used for compatibility, included accessories, battery claims, and replacement guidance. Major US retailer pages were used for dated price snapshots.</p><ul><li><a href="https://oralb.com/en-us/pro-1000-rechargeable-electric-toothbrush-black/">Oral-B Pro 1000</a></li><li><a href="https://oralb.com/en-us/products/pro-1000-rechargeable-electric-toothbrush-twin-pack-black-and-turquoise/">Oral-B Pro 1000 Twin Pack</a></li><li><a href="https://www.usa.philips.com/c-p/HX3681_23/4100-series-sonic-electric-toothbrush">Philips Sonicare 4100 HX3681/23</a></li><li><a href="https://www.usa.philips.com/p-p/HX9990_11/sonicare-9900-prestige-power-toothbrush-with-senseiq">Philips Sonicare 9900 Prestige HX9990/11</a></li><li><a href="https://www.usa.philips.com/c-f/XC000006600/how-often-should-i-replace-my-philips-sonicare-brush-head">Philips brush-head replacement guidance</a></li><li><a href="https://www.target.com/p/-/A-75455633">Target Oral-B CrossAction 4-pack</a></li><li><a href="https://www.target.com/s/sonicare%2Btoothbrush%2Brefills%2Bc2">Target Sonicare C2 head listings</a></li><li><a href="https://www.target.com/p/-/A-82383944">Target Sonicare A3 2-pack</a></li></ul></section>
+        <section className={styles.sources} aria-labelledby="sources"><h2 id="sources">Sources and methodology</h2><p>Specifications and prices were checked on September 14, 2026. Manufacturer pages were used for compatibility, included accessories, battery claims, and replacement guidance. Major US retailer pages were used for dated price snapshots.</p><ul><li><a href="https://oralb.com/en-us/pro-1000-rechargeable-electric-toothbrush-black/">Oral-B Pro 1000</a></li><li><a href="https://oralb.com/en-us/products/pro-1000-rechargeable-electric-toothbrush-twin-pack-black-and-turquoise/">Oral-B Pro 1000 Twin Pack</a></li><li><a href="https://www.usa.philips.com/c-p/HX3681_23/4100-series-sonic-electric-toothbrush">Philips Sonicare 4100 HX3681/23</a></li><li><a href="https://www.usa.philips.com/p-p/HX9990_11/sonicare-9900-prestige-power-toothbrush-with-senseiq">Philips Sonicare 9900 Prestige HX9990/11</a></li><li><a href="https://www.usa.philips.com/c-f/XC000006600/how-often-should-i-replace-my-philips-sonicare-brush-head">Philips brush-head replacement guidance</a></li><li><a href="https://www.target.com/p/-/A-75455633">Target Oral-B CrossAction 4-pack</a></li><li><a href="https://www.target.com/s/sonicare%2Btoothbrush%2Brefills%2Bc2">Target Sonicare C2 head listings</a></li><li><a href="https://www.target.com/p/-/A-82383944">Target Sonicare A3 2-pack</a></li><li><a href="https://oralb.com/en-us/products/io-series-3-rechargeable-electric-toothbrush-icy-blue/">Oral-B iO Series 3</a></li><li><a href="https://oralb.com/en-us/products/electric-toothbrushes/io-series-4-rechargeable-electric-toothbrush-blue/">Oral-B iO Series 4</a></li><li><a href="https://www.usa.philips.com/c-p/HX7130_01/series-5700-rechargeable-toothbrush">Philips Sonicare 5700 HX7130</a></li><li><a href="https://www.usa.philips.com/c-p/HX7129_03/total-clean-rechargeable-toothbrush-dual-handle">Philips Sonicare Total Clean Dual Handle HX7129/03</a></li></ul></section>
       </div>
     </article>
     <SiteFooter />
