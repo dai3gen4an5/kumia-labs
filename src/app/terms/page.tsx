@@ -14,7 +14,12 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <InfoPageLayout title={title} crumb="Terms">
+    <InfoPageLayout
+      title={title}
+      crumb="Terms"
+      eyebrow="Policy"
+      lead="The terms for using Kumia Labs, in plain language."
+    >
       <p className="info-page-meta">Last reviewed: 2026-09-14</p>
       <p>By using Kumia Labs, you agree to the following terms. If you do not agree, please do not use the site.</p>
 

@@ -14,7 +14,12 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <InfoPageLayout title={title} crumb="About">
+    <InfoPageLayout
+      title={title}
+      crumb="About"
+      eyebrow="Kumia Labs Info"
+      lead="Why Kumia Labs exists, where the name comes from, and how a guide actually gets written."
+    >
       <p>Kumia Labs helps people choose product combinations that make sense together: a drill and the battery platform behind it, a CPU and the graphics card it actually needs, a band and the watch case it locks into.</p>
       <p>Most buying guides rank individual products by spec sheet. Kumia Labs starts from a different question: does this combination hold up for how you actually plan to use it? A part that wins on paper can still be the wrong fit once it sits next to everything else in the setup.</p>
 

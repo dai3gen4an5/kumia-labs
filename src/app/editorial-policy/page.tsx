@@ -14,15 +14,21 @@ export const metadata: Metadata = {
 
 export default function EditorialPolicyPage() {
   return (
-    <InfoPageLayout title={title}>
-      <p>This page explains how Kumia Labs decides what to recommend and how that process stays separate from how the site makes money.</p>
-
+    <InfoPageLayout
+      title={title}
+      crumb="Editorial Policy"
+      eyebrow="Policy"
+      lead="How Kumia Labs decides what to recommend, and how that stays separate from how the site makes money."
+    >
       <h2>How recommendations are made</h2>
       <p>Recommendations are built around use case and component fit, not the highest number on a spec sheet. A guide explains why a specific combination makes sense for the person it is written for, and says directly when a smaller, cheaper, or less powerful option is the better call.</p>
       <p>Research prioritizes primary sources: manufacturer product pages, official specification sheets, and stated warranty or service terms. Third-party coverage is used to fill gaps, not as a substitute for checking the manufacturer directly.</p>
 
       <h2>Testing claims</h2>
-      <p>Kumia Labs does not claim laboratory testing or personal hands-on testing of a product unless a guide states that testing happened. Where a guide is based on published specifications and documentation rather than physical testing, that is the default and is not hidden.</p>
+      <div className="info-note">
+        <p className="info-note-label">Note</p>
+        <p>Kumia Labs does not claim laboratory testing or personal hands-on testing of a product unless a guide states that testing happened. Where a guide is based on published specifications and documentation rather than physical testing, that is the default and is not hidden.</p>
+      </div>
 
       <h2>Specifications and availability change</h2>
       <p>Model availability, configurations, and prices change after a guide is published. Guides link to the current manufacturer or retailer product page so readers can check present-day details rather than relying on a number that may be stale. Where relevant, a guide notes when its information was last checked.</p>

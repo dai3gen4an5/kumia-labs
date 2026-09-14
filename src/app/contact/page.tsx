@@ -12,12 +12,33 @@ export const metadata: Metadata = {
   openGraph: { title, description, url: canonicalPath },
 };
 
+const contactMethods = [
+  { label: "Email", value: "contact@kumialabs.com", href: "mailto:contact@kumialabs.com", external: false },
+  { label: "X", value: "@KumiaLabs", href: "https://x.com/KumiaLabs", external: true },
+  { label: "Instagram", value: "@kumialabs", href: "https://www.instagram.com/kumialabs/", external: true },
+  { label: "YouTube", value: "@KumiaLabs", href: "https://www.youtube.com/@KumiaLabs", external: true },
+];
+
 export default function ContactPage() {
   return (
-    <InfoPageLayout title={title}>
-      <p>The fastest way to reach Kumia Labs right now is X:</p>
-      <p><a href="https://x.com/KumiaLabs" target="_blank" rel="noopener noreferrer">x.com/KumiaLabs</a></p>
-      <p>A dedicated email address is not set up yet. This page will be updated with one once it exists, rather than listing an inbox nobody is checking.</p>
+    <InfoPageLayout
+      title={title}
+      crumb="Contact"
+      eyebrow="Contact"
+      lead="Corrections, product updates, partnerships, and feedback all go through the channels below."
+    >
+      <div className="contact-methods">
+        {contactMethods.map((method) => (
+          <div className="contact-card" key={method.label}>
+            <p className="contact-card-label">{method.label}</p>
+            {method.external ? (
+              <a href={method.href} target="_blank" rel="noopener noreferrer">{method.value}</a>
+            ) : (
+              <a href={method.href}>{method.value}</a>
+            )}
+          </div>
+        ))}
+      </div>
 
       <h2>What to reach out about</h2>
       <ul>

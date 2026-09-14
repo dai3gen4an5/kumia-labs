@@ -14,12 +14,20 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <InfoPageLayout title={title} crumb="Privacy">
+    <InfoPageLayout
+      title={title}
+      crumb="Privacy"
+      eyebrow="Policy"
+      lead="What Kumia Labs actually collects from visitors today, described in plain language."
+    >
       <p className="info-page-meta">Last reviewed: 2026-09-14</p>
-      <p>This page describes what actually happens on Kumia Labs today, not a generic template. It will be updated if that changes.</p>
+      <div className="info-note">
+        <p className="info-note-label">Note</p>
+        <p>This page describes what actually happens on Kumia Labs today, not a generic template. It will be updated if that changes.</p>
+      </div>
 
       <h2>Information you provide</h2>
-      <p>Kumia Labs does not currently have any account system, newsletter signup, or form on the site. There is no reader information for Kumia Labs to collect this way, because nothing on the site currently asks for it. The <a href="/contact">Contact page</a> points to an external service (X) if you choose to reach out there, and that service has its own privacy practices.</p>
+      <p>Kumia Labs does not currently have any account system, newsletter signup, or form on the site. There is no reader information for Kumia Labs to collect this way, because nothing on the site currently asks for it. The <a href="/contact">Contact page</a> lists external services (email and social platforms) if you choose to reach out there, and each of those services has its own privacy practices.</p>
 
       <h2>Technical and server data</h2>
       <p>Like effectively any website, Kumia Labs runs on hosting infrastructure that processes standard technical data to serve pages: things like IP address, browser type, and request timestamps. This is handled by the hosting provider as part of normal operation and is not used by Kumia Labs to build reader profiles.</p>

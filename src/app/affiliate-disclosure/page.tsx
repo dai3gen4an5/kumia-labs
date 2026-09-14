@@ -14,7 +14,12 @@ export const metadata: Metadata = {
 
 export default function AffiliateDisclosurePage() {
   return (
-    <InfoPageLayout title={title}>
+    <InfoPageLayout
+      title={title}
+      crumb="Affiliate Disclosure"
+      eyebrow="Disclosure"
+      lead="Kumia Labs may use affiliate links. Here is exactly what that does, and does not, change."
+    >
       <p>Kumia Labs may use affiliate links. If you click one and make a purchase, Kumia Labs may receive a commission from the retailer or seller.</p>
       <p>This does not increase the price you pay. The commission comes from the seller, not from you.</p>
 
@@ -25,7 +30,10 @@ export default function AffiliateDisclosurePage() {
       <p>Product availability, specifications, and prices are set and controlled by the retailer or manufacturer, not by Kumia Labs. These can change at any time after a guide is published, including after a link is added. Always check the current listing before buying.</p>
 
       <h2>Current status</h2>
-      <p>Not every outbound link on Kumia Labs is an affiliate link today. Where a guide notes that an affiliate link is not yet configured, that link goes directly to the manufacturer or retailer with no commission involved. This page will be kept up to date as that changes.</p>
+      <div className="info-note">
+        <p className="info-note-label">Note</p>
+        <p>Not every outbound link on Kumia Labs is an affiliate link today. Where a guide notes that an affiliate link is not yet configured, that link goes directly to the manufacturer or retailer with no commission involved. This page will be kept up to date as that changes.</p>
+      </div>
     </InfoPageLayout>
   );
 }
