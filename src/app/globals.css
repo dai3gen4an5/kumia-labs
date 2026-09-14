@@ -438,12 +438,12 @@ button { font: inherit; }
 
 /* V2 desktop PC guide prototype */
 .article-research-meta { width: min(1120px, calc(100% - 72px)); margin: 0 auto 52px; padding: 25px 0 22px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--line); color: var(--ink); }
-.article-research-meta__label { width: max-content; margin: 0 0 22px; padding: 7px 10px 6px; color: var(--blue); background: #edf6ff; border: 1px solid #9fc7f3; border-radius: 4px; font-size: 11px; line-height: 1; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-.article-research-meta__combination { display: grid; grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1.2fr); align-items: center; gap: 20px; }
-.article-research-meta__combination > div { min-width: 0; display: grid; gap: 8px; }
-.article-research-meta__combination > div > span { color: var(--blue); font-size: 10px; line-height: 1; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-.article-research-meta__combination strong { font-size: clamp(28px, 3vw, 42px); line-height: 1.02; letter-spacing: -.045em; }
-.article-research-meta__combination > i { width: 42px; height: 42px; display: grid; place-items: center; color: var(--blue); border: 1px solid #8abcf1; border-radius: 50%; font-size: 27px; line-height: 1; font-weight: 500; font-style: normal; text-align: center; }
+.article-research-meta__label { margin: 0 0 18px; color: var(--blue); font-size: 12px; line-height: 1; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.article-research-meta__combination { display: grid; grid-template-columns: minmax(0, .82fr) 30px minmax(0, 1.35fr); align-items: stretch; gap: 14px; }
+.article-research-meta__combination > div { position: relative; min-width: 0; min-height: 72px; padding: 11px 17px 10px; display: grid; place-items: center; background: linear-gradient(135deg, #f8fbff 0%, #edf6ff 100%); border: 1px solid #bfd7ef; border-top: 3px solid var(--blue); border-radius: 6px; box-shadow: 0 6px 16px rgba(18, 64, 112, .055); }
+.article-research-meta__combination > div::after { content: ""; position: absolute; right: 13px; top: 13px; width: 7px; height: 7px; border-top: 1px solid #88b6e5; border-right: 1px solid #88b6e5; }
+.article-research-meta__combination strong { width: fit-content; max-width: 100%; color: var(--ink); font-size: clamp(23px, 2.2vw, 30px); line-height: 1.06; letter-spacing: -.034em; text-align: center; text-wrap: balance; }
+.article-research-meta__combination > i { display: grid; place-items: center; color: #0874ed; font-size: 27px; line-height: 1; font-weight: 800; font-style: normal; text-align: center; -webkit-text-stroke: .35px #075fc0; text-shadow: 0 3px 10px rgba(6, 104, 237, .22); }
 .article-research-meta__dates { margin: 24px 0 0; padding-top: 18px; display: flex; gap: 52px; border-top: 1px solid var(--line); }
 .article-research-meta__dates div { display: grid; grid-template-columns: auto auto; align-items: baseline; gap: 10px; }
 .article-research-meta__dates dt { color: var(--blue); font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
@@ -535,9 +535,10 @@ button { font: inherit; }
 @media (max-width: 600px) {
   .article-research-meta { width: calc(100% - 32px); margin-bottom: 36px; padding: 20px 0 18px; }
   .article-research-meta__label { margin-bottom: 15px; }
-  .article-research-meta__combination { grid-template-columns: 1fr; gap: 8px; }
-  .article-research-meta__combination strong { font-size: 28px; }
-  .article-research-meta__combination > i { width: 34px; height: 34px; font-size: 23px; }
+  .article-research-meta__combination { grid-template-columns: 1fr; gap: 6px; }
+  .article-research-meta__combination > div { min-height: 0; padding: 12px 15px 11px; }
+  .article-research-meta__combination strong { font-size: 22px; line-height: 1.08; }
+  .article-research-meta__combination > i { min-height: 24px; font-size: 23px; }
   .article-research-meta__dates { margin-top: 20px; gap: 20px 30px; flex-wrap: wrap; }
   .article-research-meta__dates div { grid-template-columns: 1fr; gap: 4px; }
 

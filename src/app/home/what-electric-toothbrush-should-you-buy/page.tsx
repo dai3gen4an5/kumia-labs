@@ -326,7 +326,7 @@ export default function ElectricToothbrushGuide() {
         <figure><Image src="/images/kumia-toothbrush-hero-think-past-handle.png" alt="Kumia Labs electric toothbrush guide cover titled Think Past the Handle" width={1672} height={941} sizes="100vw" priority /></figure>
       </header>
 
-      <ArticleResearchMeta leftDescriptor="Routine" left="Your daily routine" rightDescriptor="System" right="Handle + heads + charging" publishedAt={publishedDate} updatedAt={updatedDate} />
+      <ArticleResearchMeta left="Your daily routine" right="Handle + heads + charging" publishedAt={publishedDate} updatedAt={updatedDate} />
 
       <div className={styles.content}>
         <section className={styles.intro} aria-label="Introduction">

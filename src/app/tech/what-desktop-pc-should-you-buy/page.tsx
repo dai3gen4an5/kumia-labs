@@ -415,7 +415,7 @@ export default function DesktopPcGuidePrototype() {
           </figure>
         </header>
 
-        <ArticleResearchMeta leftDescriptor="Workload" left="Your workload" rightDescriptor="Hardware" right="CPU + GPU + RAM + SSD" publishedAt={publishedDate} updatedAt={updatedDate} />
+        <ArticleResearchMeta left="Your workload" right="CPU + GPU + RAM + SSD" publishedAt={publishedDate} updatedAt={updatedDate} />
 
         <div className="pc-guide-content">
           <section className="pc-guide-intro" aria-label="Introduction">
