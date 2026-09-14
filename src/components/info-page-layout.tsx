@@ -1,16 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { SearchOverlay } from "@/components/search-overlay";
 import { SiteFooter } from "@/components/site-footer";
-
-function SearchIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24">
-      <circle cx="10.5" cy="10.5" r="6.5" />
-      <path d="m15.5 15.5 5 5" />
-    </svg>
-  );
-}
 
 export function InfoPageLayout({
   title,
@@ -35,7 +27,7 @@ export function InfoPageLayout({
         <nav className="desktop-nav" aria-label="Primary navigation">
           <Link href="/#latest">Research</Link><Link href="/#latest">Tech</Link><Link href="/#meet-kumia">About</Link>
         </nav>
-        <button className="search-button" type="button" aria-label="Search"><SearchIcon /></button>
+        <SearchOverlay />
       </header>
 
       <article className="info-page-article">

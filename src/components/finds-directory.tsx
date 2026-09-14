@@ -22,6 +22,11 @@ function isPublished(find: KumiaFind): find is PublishedFind {
   return find.showOnHome !== false && Boolean(find.href);
 }
 
+function byNewestFirst(a: KumiaFind, b: KumiaFind) {
+  if (a.publishedAt !== b.publishedAt) return a.publishedAt < b.publishedAt ? 1 : -1;
+  return b.number - a.number;
+}
+
 function FindVisual({ find }: { find: PublishedFind }) {
   return (
     <a className={`find-visual${find.image ? "" : " find-visual-editorial"}`} href={find.href} aria-label={`Read ${find.title}`}>
@@ -35,7 +40,7 @@ function FindVisual({ find }: { find: PublishedFind }) {
 }
 
 export function FindsDirectory({ finds }: { finds: KumiaFind[] }) {
-  const publishedFinds = useMemo(() => finds.filter(isPublished), [finds]);
+  const publishedFinds = useMemo(() => finds.filter(isPublished).sort(byNewestFirst), [finds]);
   const availableCategories = useMemo(
     () => CATEGORY_ORDER.filter((category) => publishedFinds.some((find) => find.category === category)),
     [publishedFinds]

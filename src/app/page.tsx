@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { FindsDirectory } from "@/components/finds-directory";
+import { SearchOverlay } from "@/components/search-overlay";
 import { SiteFooter } from "@/components/site-footer";
 import { finds } from "@/data/finds";
 
@@ -8,10 +9,6 @@ const navItems = [
   { label: "Tech", target: "#latest" },
   { label: "About", target: "#meet-kumia" },
 ];
-
-function SearchIcon() {
-  return (<svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m15.5 15.5 5 5" /></svg>);
-}
 
 export default function Home() {
   return (
@@ -24,7 +21,7 @@ export default function Home() {
         <nav className="desktop-nav" aria-label="Primary navigation">
           {navItems.map((item) => <a key={item.label} href={item.target}>{item.label}</a>)}
         </nav>
-        <button className="search-button" type="button" aria-label="Search"><SearchIcon /></button>
+        <SearchOverlay />
       </header>
       <section className="hero" id="top" aria-labelledby="hero-title">
         <Image

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { SearchOverlay } from "@/components/search-overlay";
 import { SiteFooter } from "@/components/site-footer";
 import { absoluteUrl } from "@/lib/site";
 
@@ -36,15 +37,6 @@ const specifications = [
   ["Memory", "16GB"],
   ["Storage", "1TB SSD"],
 ];
-
-function SearchIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24">
-      <circle cx="10.5" cy="10.5" r="6.5" />
-      <path d="m15.5 15.5 5 5" />
-    </svg>
-  );
-}
 
 function HomeOfficeIcon() {
   return (
@@ -398,7 +390,7 @@ export default function DesktopPcGuidePrototype() {
         <nav className="desktop-nav" aria-label="Primary navigation">
           <Link href="/#latest">Research</Link><Link href="/#latest">Tech</Link><Link href="/#meet-kumia">About</Link>
         </nav>
-        <button className="search-button" type="button" aria-label="Search"><SearchIcon /></button>
+        <SearchOverlay />
       </header>
 
       <article>

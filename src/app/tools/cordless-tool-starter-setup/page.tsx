@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { SearchOverlay } from "@/components/search-overlay";
 import { SiteFooter } from "@/components/site-footer";
 import { ToolCombinationFinder } from "@/components/tool-combination-finder";
 import { toolCombinations } from "@/data/tool-combinations";
@@ -17,8 +18,6 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-function SearchIcon() { return <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m15.5 15.5 5 5" /></svg>; }
-
 export default function CordlessToolStarterSetupArticle() {
   const structuredData = [
     { "@context": "https://schema.org", "@type": "Article", headline: title, description: metadata.description, datePublished: "2026-09-13", dateModified: "2026-09-13", author: { "@type": "Person", name: "Kumia" }, publisher: { "@type": "Organization", name: "Kumia Labs" }, mainEntityOfPage: absoluteUrl(canonicalPath), image: absoluteUrl("/images/kumia-v2-001-thumbnail-16x9.png") },
@@ -29,7 +28,7 @@ export default function CordlessToolStarterSetupArticle() {
     <header className="site-header article-site-header">
       <Link className="brand-lockup" href="/" aria-label="Kumia Labs home"><Image src="/brand/kumia-k-mark.png" alt="" width={40} height={40} priority /><span className="header-wordmark"><b>Kumia</b><b>Labs</b></span></Link>
       <nav className="desktop-nav" aria-label="Primary navigation"><Link href="/#latest">Research</Link><Link href="/#latest">Tech</Link><Link href="/#meet-kumia">About</Link></nav>
-      <button className="search-button" type="button" aria-label="Search"><SearchIcon /></button>
+      <SearchOverlay />
     </header>
     <article>
       <div className="article-breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/#latest">Tools</Link><span>/</span><span>Starter combinations</span></div>
