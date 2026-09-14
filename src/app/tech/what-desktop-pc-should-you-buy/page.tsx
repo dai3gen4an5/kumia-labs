@@ -6,16 +6,17 @@ import { SiteFooter } from "@/components/site-footer";
 import { absoluteUrl } from "@/lib/site";
 
 const canonicalPath = "/tech/what-desktop-pc-should-you-buy";
-const title = "What Desktop PC Should You Buy?";
+const title = "The Right PC Starts With the Work.";
+const seoTitle = "Desktop PC Buying Guide: What Specs Do You Need? | Kumia Labs";
 const subtitle =
-  "Five Kumia setups for everyday use, gaming, creative work, and everything in between.";
+  "Five desktop setups for everyday use, gaming, creative work, and everything in between.";
 
 export const metadata: Metadata = {
-  title: `${title} | Kumia Labs`,
+  title: seoTitle,
   description: subtitle,
   alternates: { canonical: canonicalPath },
   openGraph: {
-    title,
+    title: seoTitle,
     description: subtitle,
     url: canonicalPath,
     images: [absoluteUrl("/images/kumia-pc-hero.png")],
@@ -380,8 +381,15 @@ function ExpandedSetup({ setup }: { setup: PcSetup }) {
 }
 
 export default function DesktopPcGuidePrototype() {
+  const articleJsonLd = {
+    "@context": "https://schema.org", "@type": "Article", headline: title, description: subtitle,
+    datePublished: "2026-09-14", dateModified: "2026-09-14", author: { "@type": "Person", name: "Kumia" },
+    publisher: { "@type": "Organization", name: "Kumia Labs", url: absoluteUrl() },
+    mainEntityOfPage: absoluteUrl(canonicalPath), image: absoluteUrl("/images/kumia-pc-hero.png"),
+  };
   return (
     <main className="article-page pc-guide-page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd).replaceAll("<", "\\u003c") }} />
       <header className="site-header article-site-header">
         <Link className="brand-lockup" href="/" aria-label="Kumia Labs home">
           <Image src="/brand/kumia-k-mark.png" alt="" width={40} height={40} />

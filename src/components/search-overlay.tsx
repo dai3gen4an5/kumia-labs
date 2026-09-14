@@ -14,14 +14,21 @@ type SearchItem = {
 
 const searchIndex: SearchItem[] = [
   {
-    title: "What Electric Toothbrush Should You Buy?",
+    title: "Laser, Inkjet, or Tank? Start Here.",
+    href: "/home/home-printer-guide",
+    category: "Home",
+    description: "Five home printer setups based on what you print, how often you print, and what you keep buying.",
+    keywords: ["printer", "home printer", "laser", "inkjet", "ink tank", "ecotank", "megatank", "monochrome", "brother", "photo printer"],
+  },
+  {
+    title: "Think Past the Handle.",
     href: "/home/what-electric-toothbrush-should-you-buy",
     category: "Home",
     description: "Four setups that account for replacement heads, charging, shared bathrooms, and travel.",
     keywords: ["toothbrush", "electric toothbrush", "oral-b", "oral b", "dental", "brush heads"],
   },
   {
-    title: "What Desktop PC Should You Buy?",
+    title: "The Right PC Starts With the Work.",
     href: "/tech/what-desktop-pc-should-you-buy",
     category: "Tech",
     description: "Five Kumia setups for everyday use, gaming, creative work, and everything in between.",

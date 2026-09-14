@@ -6,15 +6,16 @@ import { absoluteUrl } from "@/lib/site";
 import styles from "./page.module.css";
 
 const canonicalPath = "/home/what-electric-toothbrush-should-you-buy";
-const title = "What Electric Toothbrush Should You Buy?";
-const subtitle = "Four setups that account for replacement heads, charging, shared bathrooms, and travel.";
+const title = "Think Past the Handle.";
+const seoTitle = "Electric Toothbrush Buying Guide: Heads, Charging & Cost | Kumia Labs";
+const subtitle = "Four electric toothbrush setups built around replacement heads, charging, ownership cost, and travel.";
 
 export const metadata: Metadata = {
-  title: `${title} | Kumia Labs`,
+  title: seoTitle,
   description: subtitle,
   alternates: { canonical: canonicalPath },
   openGraph: {
-    title,
+    title: seoTitle,
     description: subtitle,
     url: canonicalPath,
     type: "article",
