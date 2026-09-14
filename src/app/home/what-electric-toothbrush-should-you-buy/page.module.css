@@ -75,7 +75,7 @@
 .reasoning { max-width: 800px; margin: 0 auto; padding: 56px 0; }
 .reasoning > h3 { font-size: clamp(30px, 4vw, 40px); line-height: 1.04; letter-spacing: -.045em; margin: 0 0 26px; }
 .reasoning p { font-size: 17px; line-height: 1.7; margin: 0 0 18px; }
-.reasoningLead { color: var(--blue); font-size: 19px; font-weight: 700; line-height: 1.5; }
+.reasoningLead { margin-left: -56px !important; padding: 18px 0 18px 28px; border-left: 4px solid var(--blue); color: var(--blue-dark); font-size: 25px !important; font-weight: 720; line-height: 1.32 !important; letter-spacing: -.025em; }
 
 .ownership { margin: 28px 0 0; padding: 32px 34px; background: var(--pale); border: 1px solid #bdd5ef; border-radius: 16px; }
 .ownership h3 { font-size: 24px; line-height: 1.15; margin: 6px 0 22px; font-weight: 750; }
@@ -142,6 +142,7 @@
   .reasoning { padding: 42px 0; }
   .reasoning > h3 { font-size: 31px; }
   .reasoning p { font-size: 16px; }
+  .reasoningLead { margin-left: 0 !important; padding: 16px 0 16px 18px; font-size: 22px !important; }
   .ownership { padding: 26px 22px; }
   .ownership dl { grid-template-columns: 1fr; gap: 16px; }
   .readyMade { padding: 42px 0 58px; }
