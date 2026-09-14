@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { InstagramIcon, MailIcon, XIcon, YouTubeIcon } from "@/components/contact-icons";
 
 const footerLinks = [
   { label: "About", href: "/about" },
@@ -9,33 +10,6 @@ const footerLinks = [
   { label: "Privacy", href: "/privacy" },
   { label: "Terms", href: "/terms" },
 ];
-
-function XIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24">
-      <path d="M5 5 19 19M19 5 5 19" />
-    </svg>
-  );
-}
-
-function InstagramIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24">
-      <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.1" cy="6.9" r=".25" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
-function YouTubeIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24">
-      <rect x="2.6" y="5.6" width="18.8" height="12.8" rx="4" />
-      <path d="M10.2 9.1v5.8l5-2.9-5-2.9Z" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
 
 const socialLinks = [
   { label: "X", href: "https://x.com/KumiaLabs", Icon: XIcon },
@@ -68,6 +42,10 @@ export function SiteFooter() {
       </div>
       <div className="site-footer-bottom">
         <p>© 2026 Kumia Labs</p>
+        <a className="site-footer-email" href="mailto:contact@kumialabs.com">
+          <MailIcon />
+          contact@kumialabs.com
+        </a>
       </div>
     </footer>
   );

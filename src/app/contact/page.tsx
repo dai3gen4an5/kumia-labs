@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { InfoPageLayout } from "@/components/info-page-layout";
+import { InstagramIcon, MailIcon, XIcon, YouTubeIcon } from "@/components/contact-icons";
 
 const canonicalPath = "/contact";
 const title = "Contact";
@@ -13,10 +14,10 @@ export const metadata: Metadata = {
 };
 
 const contactMethods = [
-  { label: "Email", value: "contact@kumialabs.com", href: "mailto:contact@kumialabs.com", external: false },
-  { label: "X", value: "@KumiaLabs", href: "https://x.com/KumiaLabs", external: true },
-  { label: "Instagram", value: "@kumialabs", href: "https://www.instagram.com/kumialabs/", external: true },
-  { label: "YouTube", value: "@KumiaLabs", href: "https://www.youtube.com/@KumiaLabs", external: true },
+  { label: "Email", value: "contact@kumialabs.com", href: "mailto:contact@kumialabs.com", external: false, Icon: MailIcon },
+  { label: "X", value: "@KumiaLabs", href: "https://x.com/KumiaLabs", external: true, Icon: XIcon },
+  { label: "Instagram", value: "@kumialabs", href: "https://www.instagram.com/kumialabs/", external: true, Icon: InstagramIcon },
+  { label: "YouTube", value: "@KumiaLabs", href: "https://www.youtube.com/@KumiaLabs", external: true, Icon: YouTubeIcon },
 ];
 
 export default function ContactPage() {
@@ -28,13 +29,14 @@ export default function ContactPage() {
       lead="Corrections, product updates, partnerships, and feedback all go through the channels below."
     >
       <div className="contact-methods">
-        {contactMethods.map((method) => (
-          <div className="contact-card" key={method.label}>
-            <p className="contact-card-label">{method.label}</p>
-            {method.external ? (
-              <a href={method.href} target="_blank" rel="noopener noreferrer">{method.value}</a>
+        {contactMethods.map(({ label, value, href, external, Icon }) => (
+          <div className="contact-card" key={label}>
+            <div className="contact-card-icon" aria-hidden="true"><Icon /></div>
+            <p className="contact-card-label">{label}</p>
+            {external ? (
+              <a href={href} target="_blank" rel="noopener noreferrer">{value}</a>
             ) : (
-              <a href={method.href}>{method.value}</a>
+              <a href={href}>{value}</a>
             )}
           </div>
         ))}
