@@ -4,7 +4,6 @@ import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
 import { absoluteUrl } from "@/lib/site";
 import styles from "./page.module.css";
-import heroLayout from "./hero-layout.module.css";
 
 const canonicalPath = "/home/what-electric-toothbrush-should-you-buy";
 const title = "What Electric Toothbrush Should You Buy?";
@@ -34,6 +33,8 @@ type Product = {
   source: string;
 };
 
+type OwnershipFact = { label: string; value: string };
+
 type Setup = {
   number: string;
   slug: string;
@@ -42,7 +43,7 @@ type Setup = {
   combination: string;
   image: string;
   imageAlt: string;
-  ownership: string[];
+  ownership: OwnershipFact[];
   reasoning: string[];
   products: Product[];
 };
@@ -57,10 +58,10 @@ const setups: Setup[] = [
     image: "/images/kumia-toothbrush-predictable-cost.png",
     imageAlt: "An unbranded electric toothbrush with four replacement heads and a charger",
     ownership: [
-      "Current handle snapshot: $49.99",
-      "CrossAction 4-pack snapshot: $39.94",
-      "Four heads per year: about $39.94",
-      "Standard Oral-B rechargeable head system, excluding iO heads",
+      { label: "Replacement heads", value: "4 per year" },
+      { label: "Est. head cost", value: "~$39.94 / year" },
+      { label: "Charging", value: "Standard charger" },
+      { label: "Head system", value: "Standard Oral-B (not iO)" },
     ],
     reasoning: [
       "The Pro 1000 keeps the ongoing purchase easy to understand. It ships with a CrossAction head, uses the long-running Oral-B rechargeable head fitting, and has a two-minute timer and pressure sensor. A standard charger is included.",
@@ -95,10 +96,10 @@ const setups: Setup[] = [
     image: "/images/kumia-toothbrush-simple-charging.png",
     imageAlt: "A slim unbranded electric toothbrush beside a compact charger and spare heads",
     ownership: [
-      "Current handle snapshot: $49.99",
-      "C2 3-pack snapshot: $31.99",
-      "Four heads per year: about $42.65",
-      "Regular Sonicare click-on head system, excluding Philips One",
+      { label: "Replacement heads", value: "4 per year" },
+      { label: "Est. head cost", value: "~$42.65 / year" },
+      { label: "Charging", value: "Compact base, up to 14 days" },
+      { label: "Head system", value: "Sonicare click-on (not Philips One)" },
     ],
     reasoning: [
       "The current US HX3681/23 listing gives this 4100 a manufacturer-rated battery life of up to 14 days. It includes a C2 Plaque Control head and uses the broad Sonicare click-on head family. The pressure sensor, QuadPacer, and SmartTimer cover the useful daily guidance without requiring an app.",
@@ -133,10 +134,10 @@ const setups: Setup[] = [
     image: "/images/kumia-toothbrush-two-people.png",
     imageAlt: "Two separate unbranded electric toothbrush handles in a shared bathroom",
     ownership: [
-      "Current twin-pack snapshot: $79.99; Oral-B also shows $89.99 regular",
-      "Two handles, two CrossAction heads, and two chargers",
-      "Eight heads per household per year: about $79.88",
-      "About $39.94 per person per year for heads",
+      { label: "Replacement heads", value: "8 per household / year" },
+      { label: "Est. head cost", value: "~$79.88 household / year" },
+      { label: "Charging", value: "Two standard chargers" },
+      { label: "Head system", value: "Standard Oral-B (not iO)" },
     ],
     reasoning: [
       "The current US twin pack includes two handles, two CrossAction heads, and two chargers. That avoids passing one powered handle back and forth, and each person can keep a separate charger where it is convenient.",
@@ -171,10 +172,10 @@ const setups: Setup[] = [
     image: "/images/kumia-toothbrush-travel.png",
     imageAlt: "An unbranded electric toothbrush with an open USB charging travel case",
     ownership: [
-      "Current handle snapshot: $379.99",
-      "A3 2-pack snapshot: $32.99",
-      "Four heads per year: about $65.98",
-      "USB charging travel case included",
+      { label: "Replacement heads", value: "4 per year" },
+      { label: "Est. head cost", value: "~$65.98 / year" },
+      { label: "Charging", value: "USB charging travel case" },
+      { label: "Head system", value: "A3 / Sonicare click-on" },
     ],
     reasoning: [
       "The 9900 Prestige costs far more than the other three setups. Its useful ownership difference for this guide is the included USB charging travel case. The case carries the brush and can charge it, which removes the separate bathroom charging base from a frequent traveler's packing list.",
@@ -203,10 +204,10 @@ const setups: Setup[] = [
 ];
 
 const comparisonRows = [
-  ["Predictable cost", "Not stated", "Standard base", "Oral-B standard", "$39.94", "Yes", "No", "Simple first brush"],
-  ["Simple charging", "Up to 14 days", "Compact base", "Sonicare click-on", "$42.65", "Yes", "No", "Longer time between charges"],
-  ["Two people", "Not stated", "Two bases", "Oral-B standard", "$79.88 household", "Yes", "No", "Couples"],
-  ["Frequent travel", "Up to 14 days", "Base + USB case", "Sonicare A3/click-on", "$65.98", "Yes", "Yes", "Frequent travelers"],
+  ["Predictable cost", "Not stated", "Standard base", "Oral-B standard", "$39.94", "No", "Simple first brush"],
+  ["Simple charging", "Up to 14 days", "Compact base", "Sonicare click-on", "$42.65", "No", "Longer time between charges"],
+  ["Two people", "Not stated", "Two bases", "Oral-B standard", "$79.88 household", "No", "Couples"],
+  ["Frequent travel", "Up to 14 days", "Base + USB case", "Sonicare A3/click-on", "$65.98", "Yes", "Frequent travelers"],
 ];
 
 const costRows = [
@@ -237,18 +238,34 @@ function ProductCard({ product }: { product: Product }) {
 function SetupSection({ setup }: { setup: Setup }) {
   return <section id={setup.slug} className={styles.setup} aria-labelledby={`${setup.slug}-title`}>
     <header><span>{setup.number}</span><div><p>SETUP {setup.number}</p><h2 id={`${setup.slug}-title`}>{setup.title}</h2></div></header>
-    <figure><Image src={setup.image} alt={setup.imageAlt} width={1680} height={945} sizes="(max-width: 700px) 100vw, 1180px" /></figure>
-    <div className={styles.setupSummary}>
-      <div><p className={styles.eyebrow}>WHO IT’S FOR</p><h3>{setup.persona}</h3></div>
-      <div><p className={styles.eyebrow}>THE COMBINATION</p><strong>{setup.combination}</strong></div>
+    <figure><Image src={setup.image} alt={setup.imageAlt} width={1680} height={945} sizes="(max-width: 700px) 100vw, 1120px" /></figure>
+
+    <div className={styles.who}>
+      <p className={styles.eyebrow}>WHO IT&rsquo;S FOR</p>
+      <h3>{setup.persona}</h3>
     </div>
+
     <div className={styles.reasoning}>
-      <h3>Why this combination works</h3><div>{setup.reasoning.map((text) => <p key={text}>{text}</p>)}</div>
+      <h3>Why this combination works</h3>
+      <div>
+        <p className={styles.reasoningLead}>{setup.combination}</p>
+        {setup.reasoning.map((text) => <p key={text}>{text}</p>)}
+      </div>
     </div>
+
     <div className={styles.ownership}>
-      <div><p className={styles.eyebrow}>WHAT OWNERSHIP LOOKS LIKE</p><h3>Costs and routines after purchase</h3></div>
-      <ul>{setup.ownership.map((item) => <li key={item}>{item}</li>)}</ul>
+      <p className={styles.eyebrow}>WHAT OWNERSHIP LOOKS LIKE</p>
+      <h3>Costs and routines after purchase</h3>
+      <dl>
+        {setup.ownership.map((fact) => (
+          <div key={fact.label}>
+            <dt>{fact.label}</dt>
+            <dd>{fact.value}</dd>
+          </div>
+        ))}
+      </dl>
     </div>
+
     <section className={styles.readyMade} aria-labelledby={`${setup.slug}-products`}><h3 id={`${setup.slug}-products`}>Ready-made options</h3><p>Prices and availability were checked on September 14, 2026. Confirm the live listing before buying.</p><div>{setup.products.map((product) => <ProductCard key={product.name} product={product} />)}</div></section>
   </section>;
 }
@@ -273,8 +290,8 @@ export default function ElectricToothbrushGuide() {
     <article>
       <div className={styles.breadcrumb}><Link href="/">Home</Link><span>/</span><Link href="/#latest">Home research</Link><span>/</span><span>Electric toothbrush guide</span></div>
       <header className={styles.hero}>
-        <div className={heroLayout.copy}><p>OWNERSHIP GUIDE · 2026.09.14</p><h1>{title}</h1><p>{subtitle}</p></div>
-        <figure><Image src="/images/kumia-toothbrush-hero.png" alt="A bright bathroom counter arranged around four electric toothbrush ownership needs" width={1680} height={945} sizes="100vw" preload /></figure>
+        <h1 className="sr-only">{title}</h1>
+        <figure><Image src="/images/kumia-toothbrush-hero.png" alt="A bright bathroom counter arranged around four electric toothbrush ownership needs" width={1680} height={945} sizes="100vw" priority /></figure>
       </header>
 
       <div className={styles.content}>
@@ -283,9 +300,27 @@ export default function ElectricToothbrushGuide() {
           <p>A toothbrush handle is only the first purchase. The head you replace every few months, the charger left on the counter, and the case packed for a trip determine what living with it actually costs.</p>
         </section>
 
-        <section className={styles.comparison} aria-labelledby="quick-comparison"><div className={styles.sectionHeading}><p>AT A GLANCE</p><h2 id="quick-comparison">Quick comparison</h2></div><div className={styles.tableScroll}><table><thead><tr>{["Setup", "Battery", "Charging", "Head system", "Head cost/year", "Pressure sensor", "Travel charging", "Best for"].map((h) => <th key={h}>{h}</th>)}</tr></thead><tbody>{comparisonRows.map((row) => <tr key={row[0]}>{row.map((cell, i) => i === 0 ? <th scope="row" key={`${row[0]}-${i}`}>{cell}</th> : <td key={`${row[0]}-${i}`}>{cell}</td>)}</tr>)}</tbody></table></div></section>
+        <section className={styles.comparison} aria-labelledby="quick-comparison">
+          <div className={styles.sectionHeading}><p>AT A GLANCE</p><h2 id="quick-comparison">Quick comparison</h2></div>
+          <div className={styles.tableScroll}><table><thead><tr>{["Setup", "Battery", "Charging", "Head system", "Head cost/year", "Travel charging", "Best for"].map((h) => <th key={h}>{h}</th>)}</tr></thead><tbody>{comparisonRows.map((row) => <tr key={row[0]}>{row.map((cell, i) => i === 0 ? <th scope="row" key={`${row[0]}-${i}`}>{cell}</th> : <td key={`${row[0]}-${i}`}>{cell}</td>)}</tr>)}</tbody></table></div>
+          <p className={styles.note}>Prices are snapshots checked on September 14, 2026 and may change. Check the retailer for current price and availability. Head-cost-per-year figures are also based on these current prices, not a fixed rate.</p>
+        </section>
 
-        <nav className={styles.index} aria-label="Four electric toothbrush setups"><p>FOUR SETUPS</p><ol>{setups.map((setup) => <li key={setup.slug}><span>{setup.number}</span><a href={`#${setup.slug}`}>{setup.title}</a></li>)}</ol></nav>
+        <nav className={styles.index} aria-label="Four electric toothbrush setups">
+          <p className={styles.eyebrow}>FOUR SETUPS</p>
+          <ol>
+            {setups.map((setup) => (
+              <li key={setup.slug}>
+                <span>{setup.number}</span>
+                <div>
+                  <strong>{setup.title}</strong>
+                  <p>{setup.persona}</p>
+                </div>
+                <a href={`#${setup.slug}`} aria-label={`Jump to ${setup.title}`}>↓</a>
+              </li>
+            ))}
+          </ol>
+        </nav>
         {setups.map((setup) => <SetupSection key={setup.slug} setup={setup} />)}
 
         <section className={styles.cost} aria-labelledby="ownership-cost"><div className={styles.sectionHeading}><p>PRICE SNAPSHOT · 2026.09.14</p><h2 id="ownership-cost">Ownership cost</h2></div><p>Each yearly estimate uses the manufacturer recommendation of one replacement head every three months. Four heads are needed per person each year. Pack prices are converted to a per-head cost, then multiplied by four. The twin setup uses eight heads for two people.</p><div className={styles.tableScroll}><table><thead><tr>{["Setup", "Current handle price", "Replacement pack", "Heads/year", "Approx. yearly head cost", "Ecosystem"].map((h) => <th key={h}>{h}</th>)}</tr></thead><tbody>{costRows.map((row) => <tr key={row[0]}>{row.map((cell, i) => i === 0 ? <th scope="row" key={`${row[0]}-${i}`}>{cell}</th> : <td key={`${row[0]}-${i}`}>{cell}</td>)}</tr>)}</tbody></table></div><p className={styles.note}>Prices are snapshots, not promises. Sales, pack sizes, and retailer stock can change.</p></section>
