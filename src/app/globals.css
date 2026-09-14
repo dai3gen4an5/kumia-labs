@@ -72,6 +72,7 @@ button { font: inherit; }
 
 .hero { position: relative; width: 100%; aspect-ratio: 2048 / 768; overflow: hidden; border-bottom: 1px solid var(--line); background: #eef5fb; }
 .hero-art { object-fit: contain; object-position: center; }
+.mobile-hero-art { display: none; }
 .hero-copy { position: relative; height: 100%; padding: 66px clamp(24px, 5.1vw, 74px) 48px; z-index: 1; pointer-events: none; }
 .hero-logo { width: clamp(360px, 42vw, 610px); height: auto; object-fit: contain; object-position: left center; }
 .hero-message { margin-top: -26px; display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
@@ -190,12 +191,14 @@ button { font: inherit; }
 @media (max-width: 767px) {
   .hero { height: 250px; aspect-ratio: auto; background: #f4f8fc; }
   .hero-art { display: none; }
+  .mobile-hero-art { display: block; object-fit: cover; object-position: 56% center; }
+  .hero::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, rgba(255,255,255,.93) 0%, rgba(255,255,255,.78) 38%, rgba(255,255,255,.18) 62%, rgba(255,255,255,0) 78%); }
   .hero-copy { position: relative; height: 250px; padding: 22px 20px 18px; }
   .hero-copy { z-index: 2; }
-  .hero-logo { width: min(72vw, 280px); }
-  .hero-message { margin-top: -8px; gap: 10px; }
-  .hero h1 { white-space: normal; max-width: 350px; font-size: 21px; line-height: 1.08; }
-  .hero-message > p { max-width: 230px; font-size: 13px; line-height: 1.35; }
+  .hero-logo { width: min(52vw, 200px); }
+  .hero-message { margin-top: -5px; gap: 9px; }
+  .hero h1 { white-space: normal; max-width: 190px; font-size: 21px; line-height: 1.08; }
+  .hero-message > p { max-width: 190px; font-size: 13px; line-height: 1.35; }
   .hero-message > p + .hero-cta { margin-top: 2px; }
   .hero-cta { gap: 11px; }
   .hero-cta span { width: 42px; height: 42px; font-size: 22px; }

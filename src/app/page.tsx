@@ -30,18 +30,22 @@ export default function Home() {
           alt=""
           fill
           priority
-          sizes="100vw"
+          sizes="(max-width: 767px) 1px, 100vw"
+        />
+        <Image
+          className="mobile-hero-art"
+          src="/images/kumia-mobile-hero-bg.png"
+          alt=""
+          fill
+          priority
+          sizes="(max-width: 767px) 100vw, 1px"
         />
         <div className="hero-copy">
           <Image className="hero-logo" src="/brand/kumia-labs-logo.png" alt="Kumia Labs" width={1086} height={362} priority />
           <div className="hero-message">
             <h1 id="hero-title">Find what works together.</h1>
             <p>Kumia Labs helps you choose products that work well together for the way you plan to use them.</p>
-            <a className="hero-cta" href="#latest"><span aria-hidden="true">→</span><strong>Explore Research</strong></a>
           </div>
-        </div>
-        <div className="mobile-kumia-accent" aria-hidden="true">
-          <Image src="/images/kumia-mobile-wave-transparent.png" alt="" fill sizes="104px" />
         </div>
       </section>
       <FindsDirectory finds={finds} />
