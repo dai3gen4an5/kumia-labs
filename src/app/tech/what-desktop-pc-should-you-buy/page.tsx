@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SearchOverlay } from "@/components/search-overlay";
 import { SiteFooter } from "@/components/site-footer";
+import { ArticleResearchMeta } from "@/components/article-research-meta";
 import { absoluteUrl } from "@/lib/site";
 
 const canonicalPath = "/tech/what-desktop-pc-should-you-buy";
@@ -10,6 +11,8 @@ const title = "The Right PC Starts With the Work.";
 const seoTitle = "Desktop PC Buying Guide: What Specs Do You Need? | Kumia Labs";
 const subtitle =
   "Five desktop setups for everyday use, gaming, creative work, and everything in between.";
+const publishedDate = "2026-09-14";
+const updatedDate = "2026-09-14";
 
 export const metadata: Metadata = {
   title: seoTitle,
@@ -19,6 +22,9 @@ export const metadata: Metadata = {
     title: seoTitle,
     description: subtitle,
     url: canonicalPath,
+    type: "article",
+    publishedTime: publishedDate,
+    modifiedTime: updatedDate,
     images: [absoluteUrl("/images/kumia-pc-hero-right-pc-starts-with-work.png")],
   },
 };
@@ -383,7 +389,7 @@ function ExpandedSetup({ setup }: { setup: PcSetup }) {
 export default function DesktopPcGuidePrototype() {
   const articleJsonLd = {
     "@context": "https://schema.org", "@type": "Article", headline: title, description: subtitle,
-    datePublished: "2026-09-14", dateModified: "2026-09-14", author: { "@type": "Person", name: "Kumia" },
+    datePublished: publishedDate, dateModified: updatedDate, author: { "@type": "Person", name: "Kumia" },
     publisher: { "@type": "Organization", name: "Kumia Labs", url: absoluteUrl() },
     mainEntityOfPage: absoluteUrl(canonicalPath), image: absoluteUrl("/images/kumia-pc-hero-right-pc-starts-with-work.png"),
   };
@@ -417,6 +423,8 @@ export default function DesktopPcGuidePrototype() {
             />
           </figure>
         </header>
+
+        <ArticleResearchMeta left="Your workload" right="CPU + GPU + RAM + SSD" publishedAt={publishedDate} updatedAt={updatedDate} />
 
         <div className="pc-guide-content">
           <section className="pc-guide-intro" aria-label="Introduction">

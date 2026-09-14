@@ -437,6 +437,16 @@ button { font: inherit; }
 }
 
 /* V2 desktop PC guide prototype */
+.article-research-meta { width: min(1120px, calc(100% - 72px)); margin: 0 auto 52px; padding: 25px 0 22px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--line); color: var(--ink); }
+.article-research-meta__label { margin: 0 0 18px; color: var(--blue); font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.article-research-meta__combination { display: grid; grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1.2fr); align-items: center; gap: 20px; }
+.article-research-meta__combination strong { font-size: clamp(28px, 3vw, 42px); line-height: 1.02; letter-spacing: -.045em; }
+.article-research-meta__combination > span { color: var(--blue); font-size: 33px; line-height: 1; font-weight: 500; text-align: center; }
+.article-research-meta__dates { margin: 24px 0 0; padding-top: 18px; display: flex; gap: 52px; border-top: 1px solid var(--line); }
+.article-research-meta__dates div { display: grid; grid-template-columns: auto auto; align-items: baseline; gap: 10px; }
+.article-research-meta__dates dt { color: var(--blue); font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.article-research-meta__dates dd { margin: 0; font-size: 14px; font-weight: 650; }
+
 .pc-guide-page { background: #fbfcfe; }
 .pc-guide-hero { max-width: 1360px; margin: 0 auto; padding: 20px 36px 40px; }
 .pc-guide-cover { margin: 0; overflow: hidden; background: #edf5fb; }
@@ -521,6 +531,14 @@ button { font: inherit; }
 }
 
 @media (max-width: 600px) {
+  .article-research-meta { width: calc(100% - 32px); margin-bottom: 36px; padding: 20px 0 18px; }
+  .article-research-meta__label { margin-bottom: 15px; }
+  .article-research-meta__combination { grid-template-columns: 1fr; gap: 8px; }
+  .article-research-meta__combination strong { font-size: 28px; }
+  .article-research-meta__combination > span { text-align: left; font-size: 25px; }
+  .article-research-meta__dates { margin-top: 20px; gap: 20px 30px; flex-wrap: wrap; }
+  .article-research-meta__dates div { grid-template-columns: 1fr; gap: 4px; }
+
   .pc-guide-hero { padding: 16px 16px 28px; }
   .pc-guide-cover { margin-inline: -16px; }
   .pc-guide-content { padding: 0 16px 72px; }

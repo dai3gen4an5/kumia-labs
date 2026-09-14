@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
+import { ArticleResearchMeta } from "@/components/article-research-meta";
 import { absoluteUrl } from "@/lib/site";
 import styles from "./page.module.css";
 
@@ -9,6 +10,8 @@ const canonicalPath = "/home/what-electric-toothbrush-should-you-buy";
 const title = "Think Past the Handle.";
 const seoTitle = "Electric Toothbrush Buying Guide: Heads, Charging & Cost | Kumia Labs";
 const subtitle = "Four electric toothbrush setups built around replacement heads, charging, ownership cost, and travel.";
+const publishedDate = "2026-09-14";
+const updatedDate = "2026-09-14";
 
 export const metadata: Metadata = {
   title: seoTitle,
@@ -19,7 +22,8 @@ export const metadata: Metadata = {
     description: subtitle,
     url: canonicalPath,
     type: "article",
-    publishedTime: "2026-09-14",
+    publishedTime: publishedDate,
+    modifiedTime: updatedDate,
     authors: ["Kumia"],
     images: [absoluteUrl("/images/kumia-toothbrush-hero-think-past-handle.png")],
   },
@@ -310,7 +314,7 @@ function SetupSection({ setup }: { setup: Setup }) {
 export default function ElectricToothbrushGuide() {
   const articleJsonLd = {
     "@context": "https://schema.org", "@type": "Article", headline: title, description: subtitle,
-    datePublished: "2026-09-14", dateModified: "2026-09-14", author: { "@type": "Person", name: "Kumia" },
+    datePublished: publishedDate, dateModified: updatedDate, author: { "@type": "Person", name: "Kumia" },
     publisher: { "@type": "Organization", name: "Kumia Labs", url: absoluteUrl() },
     mainEntityOfPage: absoluteUrl(canonicalPath), image: absoluteUrl("/images/kumia-toothbrush-hero-think-past-handle.png"),
   };
@@ -330,6 +334,8 @@ export default function ElectricToothbrushGuide() {
         <h1 className="sr-only">{title}</h1>
         <figure><Image src="/images/kumia-toothbrush-hero-think-past-handle.png" alt="Kumia Labs electric toothbrush guide cover titled Think Past the Handle" width={1672} height={941} sizes="100vw" priority /></figure>
       </header>
+
+      <ArticleResearchMeta left="Your daily routine" right="Handle + heads + charging" publishedAt={publishedDate} updatedAt={updatedDate} />
 
       <div className={styles.content}>
         <section className={styles.intro} aria-label="Introduction">

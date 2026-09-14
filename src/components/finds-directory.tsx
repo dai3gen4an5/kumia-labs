@@ -14,7 +14,7 @@ const CATEGORY_LABELS: Record<string, string> = {
 const CATEGORY_ORDER = ["GAMING", "TECH", "TOOLS", "HOME", "AUTO"];
 
 const formatNumber = (number: number) => number.toString().padStart(3, "0");
-const formatDate = (date: string) => date.replaceAll("-", ".");
+const formatDate = (date: string) => date.slice(0, 10).replaceAll("-", ".");
 
 type PublishedFind = KumiaFind & { href: string };
 
