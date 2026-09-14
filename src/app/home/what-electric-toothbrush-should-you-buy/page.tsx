@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     type: "article",
     publishedTime: "2026-09-14",
     authors: ["Kumia"],
-    images: [absoluteUrl("/images/kumia-toothbrush-hero.png")],
+    images: [absoluteUrl("/images/kumia-electric-toothbrush-hero-final.png")],
   },
 };
 
@@ -275,7 +275,7 @@ export default function ElectricToothbrushGuide() {
     "@context": "https://schema.org", "@type": "Article", headline: title, description: subtitle,
     datePublished: "2026-09-14", dateModified: "2026-09-14", author: { "@type": "Person", name: "Kumia" },
     publisher: { "@type": "Organization", name: "Kumia Labs", url: absoluteUrl() },
-    mainEntityOfPage: absoluteUrl(canonicalPath), image: absoluteUrl("/images/kumia-toothbrush-hero.png"),
+    mainEntityOfPage: absoluteUrl(canonicalPath), image: absoluteUrl("/images/kumia-electric-toothbrush-hero-final.png"),
   };
   const breadcrumbJsonLd = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl() },
@@ -291,7 +291,7 @@ export default function ElectricToothbrushGuide() {
       <div className={styles.breadcrumb}><Link href="/">Home</Link><span>/</span><Link href="/#latest">Home research</Link><span>/</span><span>Electric toothbrush guide</span></div>
       <header className={styles.hero}>
         <h1 className="sr-only">{title}</h1>
-        <figure><Image src="/images/kumia-toothbrush-hero.png" alt="A bright bathroom counter arranged around four electric toothbrush ownership needs" width={1680} height={945} sizes="100vw" priority /></figure>
+        <figure><Image src="/images/kumia-electric-toothbrush-hero-final.png" alt="Kumia Labs electric toothbrush guide cover, with four toothbrush setups arranged on a bathroom counter" width={1672} height={941} sizes="100vw" priority /></figure>
       </header>
 
       <div className={styles.content}>
