@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ToolCombinationFinder } from "@/components/tool-combination-finder";
 import { toolCombinations } from "@/data/tool-combinations";
+import { absoluteUrl } from "@/lib/site";
 
 const canonicalPath = "/tools/cordless-tool-starter-setup";
 const title = "8 Cordless Tool Combinations to Start—and Grow—Your DIY Setup";
@@ -11,15 +12,15 @@ export const metadata: Metadata = {
   title: `${title} | Kumia Labs`,
   description: "Find the right cordless tool and battery-platform combination for your projects, budget, and future plans.",
   alternates: { canonical: canonicalPath },
-  openGraph: { title, description: "Find the right mix for your projects, budget, and future plans.", images: ["https://kumia-labs.vercel.app/images/kumia-v2-001-thumbnail-16x9.png"] },
+  openGraph: { title, description: "Find the right mix for your projects, budget, and future plans.", url: canonicalPath, images: [absoluteUrl("/images/kumia-v2-001-thumbnail-16x9.png")] },
 };
 
 function SearchIcon() { return <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m15.5 15.5 5 5" /></svg>; }
 
 export default function CordlessToolStarterSetupArticle() {
   const structuredData = [
-    { "@context": "https://schema.org", "@type": "Article", headline: title, description: metadata.description, datePublished: "2026-09-13", dateModified: "2026-09-13", author: { "@type": "Person", name: "Kumia" }, publisher: { "@type": "Organization", name: "Kumia Labs" }, mainEntityOfPage: canonicalPath, image: "/images/kumia-v2-001-thumbnail-16x9.png" },
-    { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "/" }, { "@type": "ListItem", position: 2, name: "Tools", item: "/#tools" }, { "@type": "ListItem", position: 3, name: title, item: canonicalPath }] },
+    { "@context": "https://schema.org", "@type": "Article", headline: title, description: metadata.description, datePublished: "2026-09-13", dateModified: "2026-09-13", author: { "@type": "Person", name: "Kumia" }, publisher: { "@type": "Organization", name: "Kumia Labs" }, mainEntityOfPage: absoluteUrl(canonicalPath), image: absoluteUrl("/images/kumia-v2-001-thumbnail-16x9.png") },
+    { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl() }, { "@type": "ListItem", position: 2, name: "Tools", item: absoluteUrl("/#tools") }, { "@type": "ListItem", position: 3, name: title, item: absoluteUrl(canonicalPath) }] },
   ];
 
   return <main className="article-page v2-tool-page v2-tool-rebuild">

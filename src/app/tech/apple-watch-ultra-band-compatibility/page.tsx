@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { AppleWatchFitChecker } from "@/components/apple-watch-fit-checker";
+import { absoluteUrl } from "@/lib/site";
 
 const canonicalPath = "/tech/apple-watch-ultra-band-compatibility";
 const appleSource = "https://support.apple.com/en-us/108908";
@@ -12,6 +13,12 @@ export const metadata: Metadata = {
   title: "Do Apple Watch Ultra Bands Fit Regular Apple Watches? | Kumia Labs",
   description: "Yes. Apple Watch Ultra 49mm bands fit regular Apple Watch models with 44mm, 45mm, or 46mm cases. Check your exact case size.",
   alternates: { canonical: canonicalPath },
+  openGraph: {
+    title: "Do Apple Watch Ultra Bands Fit Regular Apple Watches?",
+    description: "Yes. Apple Watch Ultra 49mm bands fit regular Apple Watch models with 44mm, 45mm, or 46mm cases. Check your exact case size.",
+    url: canonicalPath,
+    images: [absoluteUrl("/finds/002-ultra-band-apple-watch.png")],
+  },
 };
 
 type BandOption = {
@@ -51,14 +58,14 @@ export default function AppleWatchUltraBandArticle() {
       datePublished: "2026-09-13", dateModified: "2026-09-13",
       author: { "@type": "Person", name: "Kumia" },
       publisher: { "@type": "Organization", name: "Kumia Labs" },
-      image: "/finds/002-ultra-band-apple-watch.png", mainEntityOfPage: canonicalPath,
+      image: absoluteUrl("/finds/002-ultra-band-apple-watch.png"), mainEntityOfPage: absoluteUrl(canonicalPath),
     },
     {
       "@context": "https://schema.org", "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "/" },
-        { "@type": "ListItem", position: 2, name: "Tech", item: "/#tech" },
-        { "@type": "ListItem", position: 3, name: "Apple Watch Ultra Band Compatibility", item: canonicalPath },
+        { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl() },
+        { "@type": "ListItem", position: 2, name: "Tech", item: absoluteUrl("/#tech") },
+        { "@type": "ListItem", position: 3, name: "Apple Watch Ultra Band Compatibility", item: absoluteUrl(canonicalPath) },
       ],
     },
   ];
