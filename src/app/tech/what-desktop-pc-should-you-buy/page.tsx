@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: seoTitle,
     description: subtitle,
     url: canonicalPath,
-    images: [absoluteUrl("/images/kumia-pc-hero.png")],
+    images: [absoluteUrl("/images/kumia-pc-hero-right-pc-starts-with-work.png")],
   },
 };
 
@@ -385,7 +385,7 @@ export default function DesktopPcGuidePrototype() {
     "@context": "https://schema.org", "@type": "Article", headline: title, description: subtitle,
     datePublished: "2026-09-14", dateModified: "2026-09-14", author: { "@type": "Person", name: "Kumia" },
     publisher: { "@type": "Organization", name: "Kumia Labs", url: absoluteUrl() },
-    mainEntityOfPage: absoluteUrl(canonicalPath), image: absoluteUrl("/images/kumia-pc-hero.png"),
+    mainEntityOfPage: absoluteUrl(canonicalPath), image: absoluteUrl("/images/kumia-pc-hero-right-pc-starts-with-work.png"),
   };
   return (
     <main className="article-page pc-guide-page">
@@ -408,7 +408,7 @@ export default function DesktopPcGuidePrototype() {
           <h1 className="sr-only">{title}</h1>
           <figure className="pc-guide-cover">
             <Image
-              src="/images/kumia-pc-hero.png"
+              src="/images/kumia-pc-hero-right-pc-starts-with-work.png"
               alt="Kumia presenting five desktop PC setups for different kinds of work"
               width={1672}
               height={941}
