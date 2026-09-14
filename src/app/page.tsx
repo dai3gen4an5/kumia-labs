@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { FindsDirectory } from "@/components/finds-directory";
+import { SiteFooter } from "@/components/site-footer";
 import { finds } from "@/data/finds";
 
 const navItems = [
@@ -57,6 +58,7 @@ export default function Home() {
           <p>Hi, I’m Kumia. My name comes from <strong>kumiawase</strong>, the Japanese word for “combination.” I research how products work together and help you choose a combination that suits your needs.</p>
         </div>
       </section>
+      <SiteFooter />
     </main>
   );
 }

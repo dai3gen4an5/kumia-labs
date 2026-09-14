@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { SiteFooter } from "@/components/site-footer";
 import { absoluteUrl } from "@/lib/site";
 
 const canonicalPath = "/tech/what-desktop-pc-should-you-buy";
@@ -404,11 +405,7 @@ export default function DesktopPcGuidePrototype() {
         <div className="article-breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/#latest">Tech</Link><span>/</span><span>Desktop PC guide</span></div>
 
         <header className="pc-guide-hero">
-          <div className="pc-guide-title-block">
-            <p className="section-label">V2 FIND 001 · TECH</p>
-            <h1>{title}</h1>
-            <p>{subtitle}</p>
-          </div>
+          <h1 className="sr-only">{title}</h1>
           <figure className="pc-guide-cover">
             <Image
               src="/images/kumia-pc-hero.png"
@@ -498,6 +495,7 @@ export default function DesktopPcGuidePrototype() {
           </aside>
         </div>
       </article>
+      <SiteFooter />
     </main>
   );
 }

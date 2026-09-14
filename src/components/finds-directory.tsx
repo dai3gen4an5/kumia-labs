@@ -28,7 +28,7 @@ function FindVisual({ find }: { find: PublishedFind }) {
       {find.image ? (
         <Image src={find.image} alt="" width={1672} height={941} sizes="(max-width: 900px) calc(100vw - 40px), 460px" />
       ) : (
-        <><small>{find.editionLabel}</small><strong>{find.visualLabel}</strong></>
+        <strong>{find.visualLabel}</strong>
       )}
     </a>
   );
@@ -44,6 +44,8 @@ export function FindsDirectory({ finds }: { finds: KumiaFind[] }) {
     () => [{ value: "ALL", label: "All" }, ...availableCategories.map((category) => ({ value: category, label: CATEGORY_LABELS[category] }))],
     [availableCategories]
   );
+  const showFilters = publishedFinds.length > 1 && availableCategories.length > 1;
+  const showViewAll = publishedFinds.length > 1;
   const [active, setActive] = useState<string>("ALL");
   const filteredFinds = useMemo(
     () => (active === "ALL" ? publishedFinds : publishedFinds.filter((find) => find.category === active || find.subCategory === active)),
@@ -53,15 +55,17 @@ export function FindsDirectory({ finds }: { finds: KumiaFind[] }) {
     <section className="latest" id="latest" aria-label="Latest Research">
       <div className="latest-heading">
         <h2 id="latest-title">Latest Research</h2>
-        <div className="filters" role="group" aria-label="Filter latest research">
-          {filters.map((filter) => <button key={filter.value} type="button" className={active === filter.value ? "active" : ""} aria-pressed={active === filter.value} onClick={() => setActive(filter.value)}>{filter.label}</button>)}
-        </div>
-        <a className="view-all" href="#latest">View All <span aria-hidden="true">→</span></a>
+        {showFilters && (
+          <div className="filters" role="group" aria-label="Filter latest research">
+            {filters.map((filter) => <button key={filter.value} type="button" className={active === filter.value ? "active" : ""} aria-pressed={active === filter.value} onClick={() => setActive(filter.value)}>{filter.label}</button>)}
+          </div>
+        )}
+        {showViewAll && <a className="view-all" href="#latest">View All <span aria-hidden="true">→</span></a>}
       </div>
       <div className="find-list" aria-live="polite">
         {filteredFinds.map((find) => (
           <article className="find-row" key={find.id}>
-            <div className="find-meta">{find.editionLabel ? <small>{find.editionLabel}</small> : null}<strong>{formatNumber(find.number)}</strong><time dateTime={find.publishedAt}>{formatDate(find.publishedAt)}</time><i aria-hidden="true" /><span>{find.category}</span></div>
+            <div className="find-meta"><strong>{formatNumber(find.number)}</strong><time dateTime={find.publishedAt}>{formatDate(find.publishedAt)}</time><i aria-hidden="true" /><span>{find.category}</span></div>
             <FindVisual find={find} />
             <h3><a href={find.href}>{find.title}</a></h3>
             <div className="find-result">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { SiteFooter } from "@/components/site-footer";
 import { ToolCombinationFinder } from "@/components/tool-combination-finder";
 import { toolCombinations } from "@/data/tool-combinations";
 import { absoluteUrl } from "@/lib/site";
@@ -33,7 +34,7 @@ export default function CordlessToolStarterSetupArticle() {
     <article>
       <div className="article-breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/#latest">Tools</Link><span>/</span><span>Starter combinations</span></div>
       <header className="v2-tool-hero v2-tool-hero-rebuilt">
-        <div className="v2-tool-hero-copy"><p className="section-label">V2 EXPERIMENT · TOOLS</p><h1>{title}</h1><p className="v2-tool-subtitle">Find the right mix for your projects, budget, and future plans.</p><p className="article-lede">The drill and impact in the box are only half the decision. Their batteries determine which bare tools you can add next, while tool size and kit breadth decide whether the setup feels useful on day one. The best combination changes with the work.</p><p className="article-byline"><time dateTime="2026-09-13">Published 2026.09.13</time><span>Official specifications checked by Kumia Labs</span></p></div>
+        <div className="v2-tool-hero-copy"><p className="section-label">TOOLS</p><h1>{title}</h1><p className="v2-tool-subtitle">Find the right mix for your projects, budget, and future plans.</p><p className="article-lede">The drill and impact in the box are only half the decision. Their batteries determine which bare tools you can add next, while tool size and kit breadth decide whether the setup feels useful on day one. The best combination changes with the work.</p><p className="article-byline"><time dateTime="2026-09-13">Published 2026.09.13</time><span>Official specifications checked by Kumia Labs</span></p></div>
         <figure className="v2-tool-hero-image"><Image src="/images/kumia-v2-001-thumbnail-16x9.png" alt="A mixed cordless tool setup arranged on a workshop bench" width={1536} height={864} sizes="(max-width: 700px) 100vw, 48vw" priority /><figcaption>Eight kits. Five battery families. One starting decision.</figcaption></figure>
       </header>
 
@@ -55,6 +56,7 @@ export default function CordlessToolStarterSetupArticle() {
         <footer className="v2-sources"><p className="section-label">SOURCES &amp; METHODOLOGY</p><h2>What we verified—and what we left out</h2><p>Model numbers, kit contents, voltage language, battery compatibility, and stated service terms were checked against manufacturer pages on 2026-09-13. Prices are omitted because active promotions and retailer bundle suffixes change the real package. Product photos were not republished because reusable image rights were not confirmed; each review links to the manufacturer’s current product page.</p><p>The previously listed CRAFTSMAN CMCK1411D2 could not be confirmed on the manufacturer site, so it was replaced with the verified CMCK211C2. Rankings and Finder weights remain Kumia Labs editorial judgments, not manufacturer endorsements.</p><ul>{toolCombinations.map((item) => <li key={item.id}><a href={item.officialUrl}>{item.productModel} · {item.platform} ↗</a></li>)}</ul></footer>
       </div>
     </article>
+    <SiteFooter />
     {structuredData.map((data, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }} />)}
   </main>;
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { AppleWatchFitChecker } from "@/components/apple-watch-fit-checker";
+import { SiteFooter } from "@/components/site-footer";
 import { absoluteUrl } from "@/lib/site";
 
 const canonicalPath = "/tech/apple-watch-ultra-band-compatibility";
@@ -124,6 +125,7 @@ export default function AppleWatchUltraBandArticle() {
           <footer className="article-source"><p className="section-label">SOURCES &amp; METHODOLOGY</p><h2>How this article was checked</h2><p>This article is based on Apple’s published compatibility and installation guidance. Historical band-design details come from Apple’s original 2022 Apple Watch Ultra announcement. Kumia Labs did not perform a physical fit, comfort, or durability test for this edition.</p><ul><li><a href={appleSource}>Apple Support — Change your Apple Watch band ↗</a></li><li><a href={identifySource}>Apple Support — Identify your Apple Watch ↗</a></li><li><a href={ultraSource}>Apple Newsroom — Introducing Apple Watch Ultra ↗</a></li></ul><p>Source checked: 2026-09-13</p></footer>
         </div>
       </article>
+      <SiteFooter />
       {structuredData.map((data, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }} />)}
     </main>
   );
