@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
 import { ArticleResearchMeta } from "@/components/article-research-meta";
+import { SiteHeader } from "@/components/site-header";
 import { absoluteUrl } from "@/lib/site";
 import styles from "./page.module.css";
 
@@ -258,16 +259,6 @@ const costRows = [
   ["9900 Prestige", "$379.99", "A3 2-pack, $32.99", "4", "$65.98", "A3 / Sonicare click-on"],
 ];
 
-function Header() {
-  return <header className="site-header article-site-header">
-    <Link className="brand-lockup" href="/" aria-label="Kumia Labs home">
-      <Image src="/brand/kumia-k-mark.png" alt="" width={40} height={40} />
-      <span className="header-wordmark"><b>Kumia</b><b>Labs</b></span>
-    </Link>
-    <nav className="desktop-nav" aria-label="Primary navigation"><Link href="/#latest">Research</Link><Link href="/#latest">Home</Link><Link href="/#meet-kumia">About</Link></nav>
-  </header>;
-}
-
 function ProductCard({ product }: { product: Product }) {
   return <article className={styles.productCard}>
     <p>{product.source}</p><h4>{product.name}</h4><p className={styles.details}>{product.details}</p>
@@ -327,7 +318,7 @@ export default function ElectricToothbrushGuide() {
   return <main className={styles.page}>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd).replaceAll("<", "\\u003c") }} />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd).replaceAll("<", "\\u003c") }} />
-    <Header />
+    <SiteHeader article />
     <article>
       <div className={styles.breadcrumb}><Link href="/">Home</Link><span>/</span><Link href="/#latest">Home research</Link><span>/</span><span>Electric toothbrush guide</span></div>
       <header className={styles.hero}>
@@ -335,7 +326,7 @@ export default function ElectricToothbrushGuide() {
         <figure><Image src="/images/kumia-toothbrush-hero-think-past-handle.png" alt="Kumia Labs electric toothbrush guide cover titled Think Past the Handle" width={1672} height={941} sizes="100vw" priority /></figure>
       </header>
 
-      <ArticleResearchMeta left="Your daily routine" right="Handle + heads + charging" publishedAt={publishedDate} updatedAt={updatedDate} />
+      <ArticleResearchMeta leftDescriptor="Routine" left="Your daily routine" rightDescriptor="System" right="Handle + heads + charging" publishedAt={publishedDate} updatedAt={updatedDate} />
 
       <div className={styles.content}>
         <section className={styles.intro} aria-label="Introduction">

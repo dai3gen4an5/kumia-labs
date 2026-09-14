@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { SearchOverlay } from "@/components/search-overlay";
 import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 import { ToolCombinationFinder } from "@/components/tool-combination-finder";
 import { toolCombinations } from "@/data/tool-combinations";
 import { absoluteUrl } from "@/lib/site";
@@ -25,11 +25,7 @@ export default function CordlessToolStarterSetupArticle() {
   ];
 
   return <main className="article-page v2-tool-page v2-tool-rebuild">
-    <header className="site-header article-site-header">
-      <Link className="brand-lockup" href="/" aria-label="Kumia Labs home"><Image src="/brand/kumia-k-mark.png" alt="" width={40} height={40} priority /><span className="header-wordmark"><b>Kumia</b><b>Labs</b></span></Link>
-      <nav className="desktop-nav" aria-label="Primary navigation"><Link href="/#latest">Research</Link><Link href="/#latest">Tech</Link><Link href="/#meet-kumia">About</Link></nav>
-      <SearchOverlay />
-    </header>
+    <SiteHeader article priority />
     <article>
       <div className="article-breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/#latest">Tools</Link><span>/</span><span>Starter combinations</span></div>
       <header className="v2-tool-hero v2-tool-hero-rebuilt">

@@ -1,8 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { SearchOverlay } from "@/components/search-overlay";
 import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 
 export function InfoPageLayout({
   title,
@@ -19,16 +18,7 @@ export function InfoPageLayout({
 }) {
   return (
     <main className="article-page info-page">
-      <header className="site-header article-site-header">
-        <Link className="brand-lockup" href="/" aria-label="Kumia Labs home">
-          <Image src="/brand/kumia-k-mark.png" alt="" width={40} height={40} />
-          <span className="header-wordmark"><b>Kumia</b><b>Labs</b></span>
-        </Link>
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          <Link href="/#latest">Research</Link><Link href="/#latest">Tech</Link><Link href="/#meet-kumia">About</Link>
-        </nav>
-        <SearchOverlay />
-      </header>
+      <SiteHeader article />
 
       <article className="info-page-article">
         <div className="article-breadcrumb"><Link href="/">Home</Link><span>/</span><span>{crumb ?? title}</span></div>

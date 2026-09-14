@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { SearchOverlay } from "@/components/search-overlay";
 import { SiteFooter } from "@/components/site-footer";
 import { ArticleResearchMeta } from "@/components/article-research-meta";
+import { SiteHeader } from "@/components/site-header";
 import { absoluteUrl } from "@/lib/site";
 
 const canonicalPath = "/tech/what-desktop-pc-should-you-buy";
@@ -396,16 +396,7 @@ export default function DesktopPcGuidePrototype() {
   return (
     <main className="article-page pc-guide-page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd).replaceAll("<", "\\u003c") }} />
-      <header className="site-header article-site-header">
-        <Link className="brand-lockup" href="/" aria-label="Kumia Labs home">
-          <Image src="/brand/kumia-k-mark.png" alt="" width={40} height={40} />
-          <span className="header-wordmark"><b>Kumia</b><b>Labs</b></span>
-        </Link>
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          <Link href="/#latest">Research</Link><Link href="/#latest">Tech</Link><Link href="/#meet-kumia">About</Link>
-        </nav>
-        <SearchOverlay />
-      </header>
+      <SiteHeader article />
 
       <article>
         <div className="article-breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/#latest">Tech</Link><span>/</span><span>Desktop PC guide</span></div>
@@ -424,7 +415,7 @@ export default function DesktopPcGuidePrototype() {
           </figure>
         </header>
 
-        <ArticleResearchMeta left="Your workload" right="CPU + GPU + RAM + SSD" publishedAt={publishedDate} updatedAt={updatedDate} />
+        <ArticleResearchMeta leftDescriptor="Workload" left="Your workload" rightDescriptor="Hardware" right="CPU + GPU + RAM + SSD" publishedAt={publishedDate} updatedAt={updatedDate} />
 
         <div className="pc-guide-content">
           <section className="pc-guide-intro" aria-label="Introduction">

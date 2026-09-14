@@ -1,28 +1,13 @@
 import Image from "next/image";
 import { FindsDirectory } from "@/components/finds-directory";
-import { SearchOverlay } from "@/components/search-overlay";
 import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 import { finds } from "@/data/finds";
-
-const navItems = [
-  { label: "Research", target: "#latest" },
-  { label: "Tech", target: "#latest" },
-  { label: "About", target: "#meet-kumia" },
-];
 
 export default function Home() {
   return (
     <main>
-      <header className="site-header">
-        <a className="brand-lockup" href="#top" aria-label="Kumia Labs home">
-          <Image src="/brand/kumia-k-mark.png" alt="" width={40} height={40} priority />
-          <span className="header-wordmark"><b>Kumia</b><b>Labs</b></span>
-        </a>
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          {navItems.map((item) => <a key={item.label} href={item.target}>{item.label}</a>)}
-        </nav>
-        <SearchOverlay />
-      </header>
+      <SiteHeader priority />
       <section className="hero" id="top" aria-labelledby="hero-title">
         <Image
           className="hero-art"
