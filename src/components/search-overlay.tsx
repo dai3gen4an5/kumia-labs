@@ -14,6 +14,13 @@ type SearchItem = {
 
 const searchIndex: SearchItem[] = [
   {
+    title: "Match the Robot to the Mess.",
+    href: "/home/robot-vacuum-guide",
+    category: "Home",
+    description: "Four robot vacuum setups matched to floors, pet hair, mopping needs, clutter, and maintenance.",
+    keywords: ["robot vacuum", "robot mop", "pet hair", "mopping", "self empty", "self-empty", "carpet", "roborock", "roomba", "narwal", "dreame"],
+  },
+  {
     title: "Laser, Inkjet, or Tank? Start Here.",
     href: "/home/home-printer-guide",
     category: "Home",

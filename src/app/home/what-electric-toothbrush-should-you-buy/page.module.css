@@ -26,6 +26,11 @@
 .hero { padding: 20px 0 40px; }
 .hero figure { margin: 0; width: 100%; overflow: hidden; background: var(--pale); }
 .hero figure img { display: block; width: 100%; height: auto; object-fit: contain; }
+.reservedHero, .reservedSetup { aspect-ratio: 16 / 9; display: grid; place-items: center; background: linear-gradient(135deg, #eaf4ff, #d7e9fb); color: #0a3470; text-align: center; padding: 2rem; }
+.reservedHero strong { display: block; max-width: 780px; font-size: clamp(2.4rem, 6vw, 5.8rem); line-height: .92; letter-spacing: -.055em; }
+.reservedHero p { max-width: 680px; margin: 1.25rem auto 0; font-size: clamp(1rem, 1.6vw, 1.35rem); line-height: 1.45; }
+.reservedHero span, .reservedSetup span { display: block; margin-top: 1rem; font-size: .78rem; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+.reservedSetup strong { font-size: clamp(1.65rem, 3vw, 3rem); letter-spacing: -.035em; }
 
 .content { width: min(1120px, calc(100% - 48px)); }
 
