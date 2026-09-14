@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   description: "Find the right cordless tool and battery-platform combination for your projects, budget, and future plans.",
   alternates: { canonical: canonicalPath },
   openGraph: { title, description: "Find the right mix for your projects, budget, and future plans.", url: canonicalPath, images: [absoluteUrl("/images/kumia-v2-001-thumbnail-16x9.png")] },
+  robots: { index: false, follow: false },
 };
 
 function SearchIcon() { return <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m15.5 15.5 5 5" /></svg>; }
@@ -26,13 +27,13 @@ export default function CordlessToolStarterSetupArticle() {
   return <main className="article-page v2-tool-page v2-tool-rebuild">
     <header className="site-header article-site-header">
       <Link className="brand-lockup" href="/" aria-label="Kumia Labs home"><Image src="/brand/kumia-k-mark.png" alt="" width={40} height={40} priority /><span className="header-wordmark"><b>Kumia</b><b>Labs</b></span></Link>
-      <nav className="desktop-nav" aria-label="Primary navigation"><Link href="/#latest">All</Link><Link href="/#gaming">Gaming</Link><Link href="/#tech">Tech</Link><Link href="/#tools">Tools</Link><Link href="/#home">Home</Link><Link href="/#auto">Auto</Link></nav>
+      <nav className="desktop-nav" aria-label="Primary navigation"><Link href="/#latest">Research</Link><Link href="/#latest">Tech</Link><Link href="/#meet-kumia">About</Link></nav>
       <button className="search-button" type="button" aria-label="Search"><SearchIcon /></button>
     </header>
     <article>
-      <div className="article-breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/#tools">Tools</Link><span>/</span><span>Starter combinations</span></div>
+      <div className="article-breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/#latest">Tools</Link><span>/</span><span>Starter combinations</span></div>
       <header className="v2-tool-hero v2-tool-hero-rebuilt">
-        <div className="v2-tool-hero-copy"><p className="section-label">V2 FIND 001 · TOOLS</p><h1>{title}</h1><p className="v2-tool-subtitle">Find the right mix for your projects, budget, and future plans.</p><p className="article-lede">The drill and impact in the box are only half the decision. Their batteries determine which bare tools you can add next, while tool size and kit breadth decide whether the setup feels useful on day one. The best combination changes with the work.</p><p className="article-byline"><time dateTime="2026-09-13">Published 2026.09.13</time><span>Official specifications checked by Kumia Labs</span></p></div>
+        <div className="v2-tool-hero-copy"><p className="section-label">V2 EXPERIMENT · TOOLS</p><h1>{title}</h1><p className="v2-tool-subtitle">Find the right mix for your projects, budget, and future plans.</p><p className="article-lede">The drill and impact in the box are only half the decision. Their batteries determine which bare tools you can add next, while tool size and kit breadth decide whether the setup feels useful on day one. The best combination changes with the work.</p><p className="article-byline"><time dateTime="2026-09-13">Published 2026.09.13</time><span>Official specifications checked by Kumia Labs</span></p></div>
         <figure className="v2-tool-hero-image"><Image src="/images/kumia-v2-001-thumbnail-16x9.png" alt="A mixed cordless tool setup arranged on a workshop bench" width={1536} height={864} sizes="(max-width: 700px) 100vw, 48vw" priority /><figcaption>Eight kits. Five battery families. One starting decision.</figcaption></figure>
       </header>
 

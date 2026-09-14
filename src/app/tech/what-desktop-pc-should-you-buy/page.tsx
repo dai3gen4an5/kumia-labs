@@ -56,6 +56,44 @@ function HomeOfficeIcon() {
   );
 }
 
+type ProductOption = {
+  role: string;
+  name: string;
+  identifier?: string;
+  specs: string[];
+  why: string;
+  watch: string;
+  url: string;
+};
+
+const everydayProducts: ProductOption[] = [
+  {
+    role: "Recommended",
+    name: "HP OmniDesk Desktop AI M03-0155t",
+    identifier: "SKU B6NG1AA#ABA",
+    specs: ["Core Ultra 5 225", "Intel Graphics", "16GB", "1TB SSD"],
+    why: "This is the closest ready-made match to Kumia’s Everyday PC setup, without paying for a discrete graphics card you probably do not need.",
+    watch: "The standard 16GB configuration may use a single memory module depending on the current SKU.",
+    url: "https://www.hp.com/us-en/shop/pdp/hp-omnidesk-desktop-ai-m03-0155t-pc",
+  },
+  {
+    role: "Alternative",
+    name: "Dell Slim Desktop ECS1250",
+    specs: ["Core Ultra 5 225", "Intel integrated graphics", "16GB", "512GB SSD (base SKU)"],
+    why: "A compact major-brand alternative with the right CPU and memory level for ordinary home and office use.",
+    watch: "The currently verified configuration has 512GB rather than Kumia’s preferred 1TB, so check storage before buying.",
+    url: "https://www.dell.com/en-us/shop/desktop-computers/dell-slim-desktop/spd/dell-ecs1250-slim-desktop",
+  },
+  {
+    role: "Alternative",
+    name: "Lenovo IdeaCentre Tower Gen 10 (Intel)",
+    specs: ["Core Ultra 5 / 7 family", "Integrated graphics configurations", "16GB-class memory", "Up to 1TB-class SSD"],
+    why: "A conventional home tower for buyers who prefer Lenovo and want a straightforward, expandable desktop.",
+    watch: "Lenovo sells several configurations under this family, so verify the exact CPU, memory and storage before ordering.",
+    url: "https://www.lenovo.com/us/en/p/desktops/ideacentre/ideacentre-tower-series/lenovo-ideacentre-tower-gen-10-intel-desktop/91cf000dus",
+  },
+];
+
 type PcSetup = {
   number: string;
   slug: string;
@@ -70,6 +108,7 @@ type PcSetup = {
   imageAlt: string;
   imageClass: string;
   optionsIntro: string;
+  products: ProductOption[];
 };
 
 const expandedSetups: PcSetup[] = [
@@ -98,6 +137,34 @@ const expandedSetups: PcSetup[] = [
     imageAlt: "A versatile desktop workspace for everyday tasks, creative work and gaming",
     imageClass: "is-all-purpose",
     optionsIntro: "Prefer to buy a complete PC? Here are current systems that follow this setup closely.",
+    products: [
+      {
+        role: "Recommended",
+        name: "HP OMEN 16L TG03-0085t",
+        identifier: "SKU B73MMAA#ABA",
+        specs: ["Core Ultra 7 265F", "RTX 5060 8GB", "32GB", "1TB SSD"],
+        why: "The most balanced ready-made option here: enough GPU for gaming and accelerated apps, 32GB of memory, and no extreme high-end parts.",
+        watch: "Storage is 1TB instead of Kumia’s preferred 2TB.",
+        url: "https://www.hp.com/us-en/shop/pdp/omen-16l-gaming-desktop-tg03-0085t-pc-b73mmaa-aba",
+      },
+      {
+        role: "Alternative",
+        name: "ASUS ROG G700",
+        identifier: "Model family G700TF",
+        specs: ["Core Ultra 5 225F-class", "RTX 5060 Ti-class", "32GB-class", "1TB SSD"],
+        why: "A more graphics-focused version of the All-Purpose idea without requiring a high-end CPU.",
+        watch: "The ROG styling is much more gaming-oriented, and exact RAM/storage vary by SKU.",
+        url: "https://rog.asus.com/us/desktops/full-tower/rog-g700-2025-g700/spec/",
+      },
+      {
+        role: "Step-up",
+        name: "Alienware Aurora ACT1250",
+        specs: ["Core Ultra 7 265F", "RTX 5070 12GB", "32GB", "1TB SSD"],
+        why: "A step-up option for someone who wants considerably more graphics headroom while keeping strong general-purpose performance.",
+        watch: "It goes beyond the RTX 5060-class target and costs more than this category strictly requires.",
+        url: "https://www.dell.com/en-us/shop/desktop-computers/alienware-aurora-gaming-desktop/spd/alienware-aurora-act1250-gaming-desktop/",
+      },
+    ],
   },
   {
     number: "03",
@@ -124,6 +191,34 @@ const expandedSetups: PcSetup[] = [
     imageAlt: "A focused desktop gaming setup with the monitor and PC clearly visible",
     imageClass: "is-gaming",
     optionsIntro: "Prefer to buy a complete gaming PC? Here are current systems that follow this setup closely.",
+    products: [
+      {
+        role: "Recommended",
+        name: "CyberPowerPC GML 99730",
+        identifier: "Model ET99730",
+        specs: ["Ryzen 7 9700X", "Radeon RX 9060 XT 16GB", "32GB", "2TB SSD"],
+        why: "The closest complete system to Kumia’s Gaming PC target, including the 16GB GPU, 32GB memory and 2TB storage.",
+        watch: "The Ryzen 7 CPU is one tier above the Ryzen 5-class target, so part of the budget is going into extra CPU performance.",
+        url: "https://www.cyberpowerpc.com/system/Prebuilt-PC-GML-99730",
+      },
+      {
+        role: "Alternative",
+        name: "iBUYPOWER RDY Slate 8MP R01",
+        specs: ["Ryzen 7 9700X", "Radeon RX 9060 XT 16GB", "32GB", "2TB SSD"],
+        why: "Similar core specs to the CyberPowerPC, with a different case, support experience and warranty route.",
+        watch: "The specification is very close to the first option, so compare current warranty, shipping and total price.",
+        url: "https://www.ibuypower.com/store/rdy-slate-8mp-r01",
+      },
+      {
+        role: "Value-oriented alternative",
+        name: "Skytech Azure 3",
+        identifier: "Model ST-AZURE3-1986-B-AL",
+        specs: ["Ryzen 7 7700", "Radeon RX 9060 XT 16GB", "32GB", "1TB SSD"],
+        why: "Keeps the important 16GB RX 9060 XT and 32GB of RAM while using an older CPU platform to reduce cost.",
+        watch: "The CPU is older and storage drops to 1TB.",
+        url: "https://skytechgaming.com/prebuilt-gaming-pc/st-azure3-1986-b-al/azure-3/1986-r7-7700-radeon-9060xt-16gb-32gb-1tb",
+      },
+    ],
   },
   {
     number: "04",
@@ -150,6 +245,32 @@ const expandedSetups: PcSetup[] = [
     imageAlt: "A creative production workstation with editing displays and a desktop PC",
     imageClass: "is-creator",
     optionsIntro: "Prefer to buy a complete workstation-style PC? Here are current systems that follow this setup closely.",
+    products: [
+      {
+        role: "Recommended",
+        name: "iBUYPOWER Intel Core Ultra Workstation",
+        specs: ["Core Ultra 7 270K Plus (configurable)", "RTX 5070 Ti 16GB", "64GB", "2TB SSD"],
+        why: "The closest match to Kumia’s Creator PC and one of the few systems built explicitly around workstation-style use.",
+        watch: "It is configurable rather than one fixed SKU, so verify every selected component before ordering.",
+        url: "https://www.ibuypower.com/store/intel-core-ultra-ai-workstation-pc",
+      },
+      {
+        role: "Step-up",
+        name: "HP OMEN 45L GT22-3000t",
+        specs: ["Core Ultra 9 285K-class", "RTX 5070 Ti (configurable)", "64GB", "2TB SSD"],
+        why: "A major-OEM option with more CPU headroom for demanding production workloads.",
+        watch: "It is substantially more expensive and must be configured carefully to keep the RTX 5070 Ti and 64GB target.",
+        url: "https://www.hp.com/us-en/shop/custom/omen-hp-45l-gaming-desktop-gt22-3000t-pc-intel-core-ultra9-64gb-ram-2tb-ssd-A4ND8AV_272328",
+      },
+      {
+        role: "Alternative",
+        name: "Alienware Aurora ACT1250",
+        specs: ["Core Ultra 9 285K", "RTX 5070 Ti 16GB", "64GB", "2TB SSD"],
+        why: "A major-brand alternative for creators who also want a gaming-capable desktop in a ready-made chassis.",
+        watch: "The chassis and product positioning are gaming-first rather than creator/workstation-first.",
+        url: "https://www.dell.com/en-us/shop/cty/pdp/spd/alienware-aurora-act1250-gaming-desktop/useact1250wcto13",
+      },
+    ],
   },
   {
     number: "05",
@@ -176,6 +297,34 @@ const expandedSetups: PcSetup[] = [
     imageAlt: "A refined high-end desktop setup for demanding work and gaming",
     imageClass: "is-premium",
     optionsIntro: "Prefer to buy a complete high-end PC? Here are current systems that follow this setup closely.",
+    products: [
+      {
+        role: "Recommended",
+        name: "Skytech King 95",
+        identifier: "Model ST-KING95-1684-B-AL",
+        specs: ["Ryzen 9 9950X3D", "RTX 5080 16GB", "64GB", "4TB SSD"],
+        why: "A near-exact match to Kumia’s Premium setup, including the CPU, GPU, memory and 4TB storage target.",
+        watch: "This is firmly premium-priced and only makes sense if both gaming and heavy work matter.",
+        url: "https://skytechgaming.com/prebuilt-gaming-pc/st-king95-1684-b-al/king-95/r9-9950x3d-rtx-5080-16gb-64gb-4tb",
+      },
+      {
+        role: "Value choice",
+        name: "CyberPowerPC GML 99699",
+        identifier: "Model ET99699",
+        specs: ["Ryzen 9 9950X3D", "RTX 5080 16GB", "64GB", "4TB SSD"],
+        why: "Another exact-spec match that can be compelling when priced below similarly equipped premium systems.",
+        watch: "Kumia has not yet confirmed a direct publisher affiliate path for CyberPowerPC.",
+        url: "https://www.cyberpowerpc.com/system/Prebuilt-PC-GML-99699",
+      },
+      {
+        role: "Alternative",
+        name: "iBUYPOWER AMD Ryzen Creator Gaming PC",
+        specs: ["Ryzen 9 9950X3D", "RTX 5080", "64GB", "2TB standard / 4TB configurable"],
+        why: "A configurable option designed around both gaming and creator workloads, which fits the purpose of this category well.",
+        watch: "CPU and storage choices must be checked because this is not one fixed specification.",
+        url: "https://www.ibuypower.com/store/amd-ryzen-creator-gaming-pc",
+      },
+    ],
   },
 ];
 
@@ -184,6 +333,44 @@ function PersonaIcon({ kind }: { kind: PcSetup["icon"] }) {
   if (kind === "creator") return <svg aria-hidden="true" viewBox="0 0 36 36"><circle cx="11" cy="9" r="3.5"/><path d="M5 23c.5-4.6 2.5-7 6-7s5.5 2.4 6 7M21 8h11v9H21zM24 21h8M27 17v4M18 28h15"/></svg>;
   if (kind === "premium") return <svg aria-hidden="true" viewBox="0 0 36 36"><path d="m18 4 3.7 8.1 8.8 1-6.5 6 1.8 8.6-7.8-4.4-7.8 4.4 1.8-8.6-6.5-6 8.8-1L18 4Z"/></svg>;
   return <svg aria-hidden="true" viewBox="0 0 36 36"><circle cx="9" cy="9" r="3.5"/><path d="M3.5 22c.5-4.5 2.3-6.8 5.5-6.8s5 2.3 5.5 6.8M18 7h14v10H18zM22 22h7m-3.5-5v5M17 28h16"/></svg>;
+}
+
+function ProductCard({ index, product }: { index: number; product: ProductOption }) {
+  return (
+    <article className="pc-product-card">
+      <div className="pc-product-card-top">
+        <span className="pc-product-index" aria-hidden="true">{String(index).padStart(2, "0")}</span>
+        <span className="pc-product-role">{product.role}</span>
+      </div>
+      <h4 className="pc-product-name">{product.name}</h4>
+      {product.identifier && <p className="pc-product-id">{product.identifier}</p>}
+      <ul className="pc-product-specs">
+        {product.specs.map((spec) => <li key={spec}>{spec}</li>)}
+      </ul>
+      <p className="pc-product-why"><span>Why pick it</span>{product.why}</p>
+      <p className="pc-product-watch"><span>Watch for</span>{product.watch}</p>
+      <a className="pc-product-link" href={product.url} target="_blank" rel="noopener noreferrer">
+        View product <span aria-hidden="true">→</span>
+      </a>
+    </article>
+  );
+}
+
+function ReadyMadeOptions({ id, intro, products, setupTitle }: { id: string; intro: string; products: ProductOption[]; setupTitle: string }) {
+  return (
+    <section className="pc-ready-made" aria-labelledby={`${id}-options-title`}>
+      <div className="pc-ready-made-heading">
+        <div>
+          <h3 id={`${id}-options-title`}>Ready-made options</h3>
+          <p>{intro}</p>
+        </div>
+        <p>Configurations and availability can change. Check the linked product page for current details.</p>
+      </div>
+      <div className="pc-product-cards" aria-label={`Three ready-made product options for ${setupTitle}`}>
+        {products.map((product, i) => <ProductCard key={product.name} index={i + 1} product={product} />)}
+      </div>
+    </section>
+  );
 }
 
 function ExpandedSetup({ setup }: { setup: PcSetup }) {
@@ -195,7 +382,7 @@ function ExpandedSetup({ setup }: { setup: PcSetup }) {
       <div className="pc-combination"><p className="section-label">THE COMBINATION</p><dl>{setup.specs.map(([term, value]) => <div key={term}><dt>{term}</dt><dd>{value}</dd></div>)}</dl></div>
     </div>
     <section className="pc-reasoning" aria-labelledby={`${setup.slug}-reasoning-title`}><h3 id={`${setup.slug}-reasoning-title`}>Why this combination works</h3><div className="pc-reasoning-copy"><p className="pc-reasoning-lead">{setup.lead}</p>{setup.body.map(text => <p key={text}>{text}</p>)}</div></section>
-    <section className="pc-ready-made" aria-labelledby={`${setup.slug}-options-title`}><div className="pc-ready-made-heading"><div><h3 id={`${setup.slug}-options-title`}>Ready-made options</h3><p>{setup.optionsIntro}</p></div><p>Product imagery rights and affiliate creatives will be confirmed in the next phase.</p></div><div className="pc-product-slots" data-count="3" aria-label={`Three ready-made product positions reserved for ${setup.title}`}>{[1, 2, 3].map(slot => <div className="pc-product-slot" key={slot}><span aria-hidden="true">0{slot}</span><p>Product option reserved</p></div>)}</div></section>
+    <ReadyMadeOptions id={setup.slug} intro={setup.optionsIntro} products={setup.products} setupTitle={setup.title} />
   </section>;
 }
 
@@ -208,13 +395,13 @@ export default function DesktopPcGuidePrototype() {
           <span className="header-wordmark"><b>Kumia</b><b>Labs</b></span>
         </Link>
         <nav className="desktop-nav" aria-label="Primary navigation">
-          <Link href="/#latest">All</Link><Link href="/#gaming">Gaming</Link><Link href="/#tech">Tech</Link><Link href="/#tools">Tools</Link><Link href="/#home">Home</Link><Link href="/#auto">Auto</Link>
+          <Link href="/#latest">Research</Link><Link href="/#latest">Tech</Link><Link href="/#meet-kumia">About</Link>
         </nav>
         <button className="search-button" type="button" aria-label="Search"><SearchIcon /></button>
       </header>
 
       <article>
-        <div className="article-breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/#tech">Tech</Link><span>/</span><span>Desktop PC guide</span></div>
+        <div className="article-breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/#latest">Tech</Link><span>/</span><span>Desktop PC guide</span></div>
 
         <header className="pc-guide-hero">
           <div className="pc-guide-title-block">
@@ -295,12 +482,12 @@ export default function DesktopPcGuidePrototype() {
               </div>
             </section>
 
-            <section className="pc-ready-made" aria-labelledby="ready-made-title">
-              <div className="pc-ready-made-heading"><div><h3 id="ready-made-title">Ready-made options</h3><p>Prefer to buy a complete PC? Here are current systems that follow this setup closely.</p></div><p>Product imagery rights and affiliate creatives will be confirmed in the next phase.</p></div>
-              <div className="pc-product-slots" data-count="3" aria-label="Three ready-made product positions reserved">
-                {[1, 2, 3].map((slot) => <div className="pc-product-slot" key={slot}><span aria-hidden="true">0{slot}</span><p>Product option reserved</p></div>)}
-              </div>
-            </section>
+            <ReadyMadeOptions
+              id="everyday-pc"
+              intro="Prefer to buy a complete PC? Here are current systems that follow this setup closely."
+              products={everydayProducts}
+              setupTitle="Everyday PC"
+            />
           </section>
           {expandedSetups.map(setup => <ExpandedSetup setup={setup} key={setup.slug} />)}
           <aside className="pc-guide-signoff" aria-label="Kumia’s closing note">

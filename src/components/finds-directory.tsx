@@ -4,25 +4,51 @@ import { useMemo, useState } from "react";
 import Image from "next/image";
 import type { KumiaFind } from "@/data/finds";
 
-const filters = [
-  { value: "ALL", label: "All" },
-  { value: "GAMING", label: "Gaming" },
-  { value: "TECH", label: "Tech" },
-  { value: "TOOLS", label: "Tools" },
-  { value: "HOME", label: "Home" },
-  { value: "AUTO", label: "Auto" },
-] as const;
+const CATEGORY_LABELS: Record<string, string> = {
+  GAMING: "Gaming",
+  TECH: "Tech",
+  TOOLS: "Tools",
+  HOME: "Home",
+  AUTO: "Auto",
+};
+const CATEGORY_ORDER = ["GAMING", "TECH", "TOOLS", "HOME", "AUTO"];
+
 const formatNumber = (number: number) => number.toString().padStart(3, "0");
 const formatDate = (date: string) => date.replaceAll("-", ".");
 
-function FindVisual({ find }: { find: KumiaFind }) {
-  const href = find.href ?? `#${find.slug}`;
-  return <a className={`find-visual${find.image ? "" : " find-visual-editorial"}`} href={href} aria-label={`Read ${find.title}`}>{find.image ? <Image src={find.image} alt="" width={1672} height={941} sizes="(max-width: 900px) calc(100vw - 40px), 460px" /> : <><small>V2 FIND 001</small><strong>{find.visualLabel}</strong></>}</a>;
+type PublishedFind = KumiaFind & { href: string };
+
+function isPublished(find: KumiaFind): find is PublishedFind {
+  return find.showOnHome !== false && Boolean(find.href);
+}
+
+function FindVisual({ find }: { find: PublishedFind }) {
+  return (
+    <a className={`find-visual${find.image ? "" : " find-visual-editorial"}`} href={find.href} aria-label={`Read ${find.title}`}>
+      {find.image ? (
+        <Image src={find.image} alt="" width={1672} height={941} sizes="(max-width: 900px) calc(100vw - 40px), 460px" />
+      ) : (
+        <><small>{find.editionLabel}</small><strong>{find.visualLabel}</strong></>
+      )}
+    </a>
+  );
 }
 
 export function FindsDirectory({ finds }: { finds: KumiaFind[] }) {
-  const [active, setActive] = useState<(typeof filters)[number]["value"]>("ALL");
-  const filteredFinds = useMemo(() => active === "ALL" ? finds : finds.filter((find) => find.category === active || find.subCategory === active), [active, finds]);
+  const publishedFinds = useMemo(() => finds.filter(isPublished), [finds]);
+  const availableCategories = useMemo(
+    () => CATEGORY_ORDER.filter((category) => publishedFinds.some((find) => find.category === category)),
+    [publishedFinds]
+  );
+  const filters = useMemo(
+    () => [{ value: "ALL", label: "All" }, ...availableCategories.map((category) => ({ value: category, label: CATEGORY_LABELS[category] }))],
+    [availableCategories]
+  );
+  const [active, setActive] = useState<string>("ALL");
+  const filteredFinds = useMemo(
+    () => (active === "ALL" ? publishedFinds : publishedFinds.filter((find) => find.category === active || find.subCategory === active)),
+    [active, publishedFinds]
+  );
   return (
     <section className="latest" id="latest" aria-label="Latest Research">
       <div className="latest-heading">
@@ -37,12 +63,12 @@ export function FindsDirectory({ finds }: { finds: KumiaFind[] }) {
           <article className="find-row" key={find.id}>
             <div className="find-meta">{find.editionLabel ? <small>{find.editionLabel}</small> : null}<strong>{formatNumber(find.number)}</strong><time dateTime={find.publishedAt}>{formatDate(find.publishedAt)}</time><i aria-hidden="true" /><span>{find.category}</span></div>
             <FindVisual find={find} />
-            <h3><a href={find.href ?? `#${find.slug}`}>{find.title}</a></h3>
+            <h3><a href={find.href}>{find.title}</a></h3>
             <div className="find-result">
               <span className="pairing-label">RESEARCHED COMBINATION</span>
               <div className="combination"><span>{find.hostItem}</span><b>×</b><span>{find.testedItem}</span></div>
               {find.condition && <p className="find-condition">{find.condition}</p>}
-              <a className="read-more" href={find.href ?? `#${find.slug}`} aria-label={`Read ${find.title}`}>Read more <span aria-hidden="true">→</span></a>
+              <a className="read-more" href={find.href} aria-label={`Read ${find.title}`}>Read more <span aria-hidden="true">→</span></a>
             </div>
           </article>
         ))}

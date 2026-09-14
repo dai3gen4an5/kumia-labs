@@ -78,13 +78,13 @@ export default function AppleWatchUltraBandArticle() {
           <span className="header-wordmark"><b>Kumia</b><b>Labs</b></span>
         </Link>
         <nav className="desktop-nav" aria-label="Primary navigation">
-          <Link href="/#latest">All</Link><Link href="/#gaming">Gaming</Link><Link href="/#tech">Tech</Link><Link href="/#tools">Tools</Link><Link href="/#home">Home</Link><Link href="/#auto">Auto</Link>
+          <Link href="/#latest">Research</Link><Link href="/#latest">Tech</Link><Link href="/#meet-kumia">About</Link>
         </nav>
         <button className="search-button" type="button" aria-label="Search"><SearchIcon /></button>
       </header>
 
       <article>
-        <div className="article-breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/#tech">Tech</Link><span>/</span><span>Apple Watch bands</span></div>
+        <div className="article-breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/#latest">Tech</Link><span>/</span><span>Apple Watch bands</span></div>
         <header className="article-hero">
           <div className="article-hero-copy">
             <div className="article-kicker"><span>TECH</span><MatchBadge /></div>

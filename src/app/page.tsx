@@ -3,12 +3,9 @@ import { FindsDirectory } from "@/components/finds-directory";
 import { finds } from "@/data/finds";
 
 const navItems = [
-  { label: "All", target: "#latest" },
-  { label: "Gaming", target: "#gaming" },
-  { label: "Tech", target: "#tech" },
-  { label: "Tools", target: "#tools" },
-  { label: "Home", target: "#home" },
-  { label: "Auto", target: "#auto" },
+  { label: "Research", target: "#latest" },
+  { label: "Tech", target: "#latest" },
+  { label: "About", target: "#meet-kumia" },
 ];
 
 function SearchIcon() {
@@ -50,7 +47,7 @@ export default function Home() {
         </div>
       </section>
       <FindsDirectory finds={finds} />
-      <section className="meet-kumia" aria-labelledby="meet-kumia-title">
+      <section className="meet-kumia" id="meet-kumia" aria-labelledby="meet-kumia-title">
         <div className="meet-portrait">
           <Image src="/images/kumia-intro-pointing-transparent.png" alt="Kumia" fill sizes="(max-width: 900px) 150px, 34vw" />
         </div>
