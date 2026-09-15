@@ -127,7 +127,7 @@
 
 @media (max-width: 800px) {
   .breadcrumb, .content, .hero { width: calc(100% - 32px); }
-  .breadcrumb { white-space: nowrap; overflow: hidden; padding-block: 16px; }
+  .breadcrumb { white-space: nowrap; overflow: hidden; padding-block: 16px; flex-wrap: wrap; }
   .hero { padding: 16px 0 28px; }
   .intro { grid-template-columns: 82px 1fr; gap: 14px; padding: 26px 0 18px; }
   .intro > div { height: 126px; }

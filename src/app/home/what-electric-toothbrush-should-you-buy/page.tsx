@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
-import { ArticleResearchMeta } from "@/components/article-research-meta";
+import { ArticleDateMeta, ArticleResearchMeta } from "@/components/article-research-meta";
 import { SiteHeader } from "@/components/site-header";
 import { absoluteUrl } from "@/lib/site";
 import styles from "./page.module.css";
@@ -320,13 +320,13 @@ export default function ElectricToothbrushGuide() {
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd).replaceAll("<", "\\u003c") }} />
     <SiteHeader article />
     <article>
-      <div className={styles.breadcrumb}><Link href="/">Home</Link><span>/</span><Link href="/#latest">Home research</Link><span>/</span><span>Electric toothbrush guide</span></div>
+      <div className={styles.breadcrumb}><Link href="/">Home</Link><span>/</span><Link href="/#latest">Home research</Link><span>/</span><span>Electric toothbrush guide</span><ArticleDateMeta publishedAt={publishedDate} updatedAt={updatedDate} /></div>
       <header className={styles.hero}>
         <h1 className="sr-only">{title}</h1>
         <figure><Image src="/images/kumia-toothbrush-hero-think-past-handle.png" alt="Kumia Labs electric toothbrush guide cover titled Think Past the Handle" width={1672} height={941} sizes="100vw" priority /></figure>
       </header>
 
-      <ArticleResearchMeta left="Your daily routine" right="Handle + heads + charging" publishedAt={publishedDate} updatedAt={updatedDate} />
+      <ArticleResearchMeta left="Your daily routine" right="Handle + heads + charging" />
 
       <div className={styles.content}>
         <section className={styles.intro} aria-label="Introduction">

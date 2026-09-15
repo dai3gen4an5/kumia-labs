@@ -228,6 +228,7 @@ button { font: inherit; }
 .article-page { min-height: 100vh; background: #fbfcfe; }
 .article-breadcrumb { max-width: 1280px; margin: 0 auto; padding: 22px 36px 0; display: flex; gap: 9px; color: #68758c; font-size: 13px; }
 .article-breadcrumb a { text-decoration: none; }
+.article-breadcrumb-dates.article-research-meta__dates { margin: 0 0 0 auto; padding-top: 0; border-top: 0; }
 .article-hero { max-width: 1280px; margin: 0 auto; padding: 42px 36px 62px; display: grid; grid-template-columns: minmax(0, 1.04fr) minmax(420px, .96fr); gap: 58px; align-items: center; }
 .article-hero-copy h1 { margin: 24px 0 22px; max-width: 700px; font-size: clamp(48px, 4.3vw, 68px); line-height: .96; letter-spacing: -.055em; font-weight: 790; }
 .article-kicker { display: flex; align-items: center; gap: 14px; color: var(--blue); font-size: 14px; font-weight: 780; letter-spacing: .08em; }
@@ -281,7 +282,8 @@ button { font: inherit; }
 .article-conclusion { max-width:900px; min-height:330px; margin:0 auto 76px; padding:36px 28px 0 36px; display:grid; grid-template-columns:minmax(0,1fr) 270px; gap:26px; overflow:hidden; color:white; background:var(--ink); }.article-conclusion .section-label { color:#71b7ff; }.article-conclusion h2 { margin:0 0 20px; font-size:42px; }.conclusion-bubble { position:relative; padding:21px 23px; color:var(--ink); background:white; }.conclusion-bubble::after { content:""; position:absolute; right:-15px; bottom:44px; border-width:12px 0 12px 15px; border-style:solid; border-color:transparent transparent transparent white; }.conclusion-bubble p { margin:0; font-size:17px; line-height:1.52; }.conclusion-note { margin:18px 0 32px; color:#c7d5e8; font-size:14px; line-height:1.5; }.conclusion-kumia { align-self:end; height:315px; }.conclusion-kumia img { width:100%; height:100%; object-fit:contain; object-position:center bottom; }.article-source { max-width:900px; margin-inline:auto; }.article-source li { margin:10px 0; }
 
 @media (max-width: 800px) {
-  .article-breadcrumb { padding: 16px 20px 0; overflow: hidden; white-space: nowrap; font-size: 12px; }
+  .article-breadcrumb { padding: 16px 20px 0; overflow: hidden; white-space: nowrap; font-size: 12px; flex-wrap: wrap; }
+  .article-breadcrumb-dates.article-research-meta__dates { flex-basis: 100%; margin-left: 0; margin-top: 10px; white-space: normal; }
   .article-hero { padding: 25px 20px 38px; grid-template-columns: 1fr; gap: 26px; }
   .article-hero-copy h1 { margin: 18px 0 16px; font-size: 42px; line-height: .98; }
   .article-lede { font-size: 17px; line-height: 1.48; }

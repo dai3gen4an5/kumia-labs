@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
-import { ArticleResearchMeta } from "@/components/article-research-meta";
+import { ArticleDateMeta, ArticleResearchMeta } from "@/components/article-research-meta";
 import { SiteHeader } from "@/components/site-header";
 import { absoluteUrl } from "@/lib/site";
 
@@ -399,7 +399,7 @@ export default function DesktopPcGuidePrototype() {
       <SiteHeader article />
 
       <article>
-        <div className="article-breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/#latest">Tech</Link><span>/</span><span>Desktop PC guide</span></div>
+        <div className="article-breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/#latest">Tech</Link><span>/</span><span>Desktop PC guide</span><ArticleDateMeta publishedAt={publishedDate} updatedAt={updatedDate} /></div>
 
         <header className="pc-guide-hero">
           <h1 className="sr-only">{title}</h1>
@@ -415,7 +415,7 @@ export default function DesktopPcGuidePrototype() {
           </figure>
         </header>
 
-        <ArticleResearchMeta left="Your workload" right="CPU + GPU + RAM + SSD" publishedAt={publishedDate} updatedAt={updatedDate} />
+        <ArticleResearchMeta left="Your workload" right="CPU + GPU + RAM + SSD" />
 
         <div className="pc-guide-content">
           <section className="pc-guide-intro" aria-label="Introduction">

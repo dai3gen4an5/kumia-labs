@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArticleResearchMeta } from "@/components/article-research-meta";
+import { ArticleDateMeta, ArticleResearchMeta } from "@/components/article-research-meta";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { absoluteUrl } from "@/lib/site";
@@ -455,6 +455,7 @@ export default function RobotVacuumGuide() {
           <Link href="/#latest">Home research</Link>
           <span>/</span>
           <span>Robot vacuum guide</span>
+          <ArticleDateMeta publishedAt={publishedDate} updatedAt={updatedDate} />
         </div>
         <header className={styles.hero}>
           <h1 className="sr-only">{title}</h1>
@@ -472,8 +473,6 @@ export default function RobotVacuumGuide() {
         <ArticleResearchMeta
           left="Your floors & cleaning routine"
           right="Robot + brush system + mop + dock"
-          publishedAt={publishedDate}
-          updatedAt={updatedDate}
         />
         <div className={styles.content}>
           <section className={styles.intro}>

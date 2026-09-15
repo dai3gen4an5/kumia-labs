@@ -1,6 +1,9 @@
 type ArticleResearchMetaProps = {
   left: string;
   right: string;
+};
+
+type ArticleDateMetaProps = {
   publishedAt: string;
   updatedAt: string;
 };
@@ -13,7 +16,7 @@ const formatDisplayDate = (date: string) =>
     timeZone: "UTC",
   }).format(new Date(`${date}T00:00:00Z`));
 
-export function ArticleResearchMeta({ left, right, publishedAt, updatedAt }: ArticleResearchMetaProps) {
+export function ArticleResearchMeta({ left, right }: ArticleResearchMetaProps) {
   return (
     <section className="article-research-meta" aria-labelledby="researched-combination-title">
       <p id="researched-combination-title" className="article-research-meta__label">Researched combination</p>
@@ -22,10 +25,15 @@ export function ArticleResearchMeta({ left, right, publishedAt, updatedAt }: Art
         <i aria-hidden="true">×</i>
         <div><strong>{right}</strong></div>
       </div>
-      <dl className="article-research-meta__dates">
-        <div><dt>Published</dt><dd><time dateTime={publishedAt}>{formatDisplayDate(publishedAt)}</time></dd></div>
-        <div><dt>Last updated</dt><dd><time dateTime={updatedAt}>{formatDisplayDate(updatedAt)}</time></dd></div>
-      </dl>
     </section>
+  );
+}
+
+export function ArticleDateMeta({ publishedAt, updatedAt }: ArticleDateMetaProps) {
+  return (
+    <dl className="article-research-meta__dates article-breadcrumb-dates">
+      <div><dt>Published</dt><dd><time dateTime={publishedAt}>{formatDisplayDate(publishedAt)}</time></dd></div>
+      <div><dt>Last updated</dt><dd><time dateTime={updatedAt}>{formatDisplayDate(updatedAt)}</time></dd></div>
+    </dl>
   );
 }
