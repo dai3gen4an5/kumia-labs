@@ -14,6 +14,13 @@ type SearchItem = {
 
 const searchIndex: SearchItem[] = [
   {
+    title: "A Hose, a Gun, and One Millimeter of Trouble",
+    href: "/tools/pressure-washer-hose-and-gun-fit",
+    category: "Tools",
+    description: "Two M22 fittings can screw together and still fail to seal. Check a pressure washer one connection at a time.",
+    keywords: ["pressure washer", "hose", "spray gun", "lance", "nozzle", "m22", "m22-14", "m22-15", "quick connect", "adapter", "karcher", "simpson", "compatibility"],
+  },
+  {
     title: "Same 20V Label. Different Battery.",
     href: "/tools/dewalt-20v-max-bauer-20v-compatibility",
     category: "Tools",
