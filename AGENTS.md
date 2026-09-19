@@ -10,9 +10,17 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # Kumia Labs article production
 
-Kumia Labsの新規記事制作では、
+Kumia Labsの新規記事の正式Research Templateは
+`docs/workflows/KUMIA_WORK_RESEARCH_TEMPLATE_V3.md`
+とする。「Kumia Labs新規記事」の依頼では、V3を全文確認して使用する。
+
+`docs/workflows/KUMIA_WORK_RESEARCH_TEMPLATE_V2.md` は、
+純粋なtechnical compatibility / fitment database型の記事を
+明示的に選択した場合だけ使用する。V3がデフォルト、V2は例外。
+
+工程全体の標準Workflow:
 `docs/workflows/KUMIA_ARTICLE_PIPELINE_V2.md`
-を標準Workflowとして使用する。
+（Research Templateの選択やWork成果物で競合する場合はV3を優先する）
 
 記事実装時は:
 `.claude/skills/new-kumia-article/SKILL.md`
@@ -22,13 +30,12 @@ Kumia Labsの新規記事制作では、
 
 を使用する。
 
-FINAL Work Package:
-`docs/research/<slug>-work-package-final.md`
+Work Packageの保存先:
+- Draft: `docs/research/<slug>-work-package-draft.md`
+- FINAL: `docs/research/<slug>-work-package-final.md`
 
-が存在しない状態では、
-Claude側で記事調査・記事本文作成を開始しない。
+FINAL Work Packageが存在しない状態では、
+Claude側で記事調査・記事本文作成・実装を開始しない。
 
-詳細ルールはここに複製せず、上記のWorkflow / Skillファイル
-(および `docs/workflows/KUMIA_WORK_RESEARCH_TEMPLATE_V2.md`、
-`docs/workflows/KUMIA_CHATGPT_EDITORIAL_CHECKLIST_V2.md`)
-をsource of truthとする。
+詳細ルールはここに複製せず、上記のTemplate / Workflow / Skillファイルを
+source of truthとする。

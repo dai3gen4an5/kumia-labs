@@ -111,8 +111,15 @@ slugの基本ルール:
 以降のDraft / Final / 実装 / 公開では、そのslugを変更しない。
 
 ## PHASE 1 — Work 初稿
-使用テンプレート:
+デフォルト使用テンプレート:
+`docs/workflows/KUMIA_WORK_RESEARCH_TEMPLATE_V3.md`
+
+例外使用テンプレート:
 `docs/workflows/KUMIA_WORK_RESEARCH_TEMPLATE_V2.md`
+
+V3を原則とし、V2は純粋な技術互換性・fitment重視の記事に限る。
+V3/V2の選択条件とResearch成果物の要件は、各Research Templateを
+source of truthとする。
 
 成果物:
 `docs/research/<slug>-work-package-draft.md`
@@ -120,6 +127,8 @@ slugの基本ルール:
 
 終了:
 `STATUS: READY_FOR_CHATGPT_EDITORIAL_REVIEW`
+
+ここで停止し、ChatGPTのEditorial Review前にClaude Code実装へ進まない。
 
 ## PHASE 2 — ChatGPT 編集レビュー
 確定項目:
