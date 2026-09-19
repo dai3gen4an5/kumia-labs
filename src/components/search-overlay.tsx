@@ -14,6 +14,13 @@ type SearchItem = {
 
 const searchIndex: SearchItem[] = [
   {
+    title: "Same 20V Label. Different Battery.",
+    href: "/tools/dewalt-20v-max-bauer-20v-compatibility",
+    category: "Tools",
+    description: "DeWalt 20V MAX batteries do not fit Bauer 20V tools directly. What the labels mean and what adapters change.",
+    keywords: ["dewalt", "bauer", "harbor freight", "20v max", "battery", "adapter", "compatibility", "cordless tool", "hercules"],
+  },
+  {
     title: "Match the Robot to the Mess.",
     href: "/home/robot-vacuum-guide",
     category: "Home",
