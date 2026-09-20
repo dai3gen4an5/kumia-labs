@@ -6,6 +6,7 @@
 **Implementation handoff:** Claude Code  
 **Supersedes:** V2 as the default template  
 **V2 role:** Keep V2 available for narrow, compatibility-heavy articles where the main value is precise MATCH / PARTIAL / NO MATCH coverage.
+**Editorial philosophy:** Broad curiosity, deep verification.
 
 ---
 
@@ -30,6 +31,83 @@ Use the combination of things as the doorway, then dig into:
 
 Compatibility, fitment, checkers, and product data come **second**.
 They give the reader a practical answer *after* the story has made them care.
+
+---
+
+# KUMIA EDITORIAL PHILOSOPHY — Broad curiosity, deep verification
+
+> **Wide and shallow to choose. Deep to verify. Simple to read.**
+> **"Compatibility is one source of the story, not the product."**
+> **"Make people interested in the product before asking them to buy it."**
+
+This block sharpens the principle above. Where the two ever differ, this block wins.
+
+## Core Editorial Shift — WIDE AND SHALLOW, NOT NARROW AND DEEP
+
+Kumia Labs does **not** win by being the deepest source on one narrow specialty.
+Kumia Labs wins by being the site a **curious ordinary person** enjoys, because it finds the surprising, strange, or delightful thing inside everyday objects and hobbies.
+
+- Choose topics for **breadth of curiosity**: many people, familiar objects, a “huh, really?” at the centre.
+- Verify claims with **depth**: first-party sources, dated evidence, explicit uncertainty.
+- Write for a reader who owns **none** of the specialist knowledge.
+
+This is a shift in *what Kumia picks and how it sounds*. It is **not** a relaxation of accuracy.
+
+## RESEARCH DEPTH ≠ READER COMPLEXITY
+
+- Research may be as deep as the claims require.
+- The article must not be as complex as the research.
+- Depth is spent on **being right**, not on **being exhaustive**.
+- Every fact that survives into the article must earn its place by being interesting, useful, or needed for safety. Verified but boring facts stay in the Work Package or go to Sources.
+
+## The reader
+
+The default Kumia reader is:
+
+- curious, but not a specialist
+- possibly an owner, possibly not
+- reading for enjoyment first, for a decision second
+- does not know the community jargon, part numbers, model codes, or standard names
+- will leave at the first paragraph that reads like a manual
+
+Do not write for the forum expert. The expert can still be served by Sources, a precise table, or a checker further down the page, but never in the opening.
+
+## Curiosity ladder — EXPLAIN → SURPRISE → ENTERTAIN → CREATE CURIOSITY
+
+Each article does four jobs, in this order of priority:
+
+1. **Explain** — the everyday reader understands what the objects are and why anyone cares.
+2. **Surprise** — at least one fact makes them say “really?”.
+3. **Entertain** — the article is enjoyable to read even if they never buy anything.
+4. **Create curiosity** — they finish wanting to look at the next object, or another combination, differently.
+
+Usefulness (fit, buy, avoid) follows after these. Usefulness without the first four is a manual, not a Kumia article.
+
+## Title philosophy
+
+For every article, Work must propose **at least 5 title candidates** in the Draft package, covering different approaches:
+
+- a **curiosity** title (makes the reader want to know)
+- a **clarity** title (a non-expert instantly knows the subject)
+- a **one-sentence surprise** title (the surprising fact, stated plainly)
+- at least two further variants (e.g. question, contrast, quiet understatement)
+
+Rules:
+
+- No numeric scoring of titles. Give a short qualitative reason for each, then recommend one.
+- Do not use jargon, part numbers, or model codes in the recommended title unless the general public already uses them.
+- Do not use clickbait that the article cannot pay off. The title promise must be fulfilled in the first screen or two.
+- The recommended title is the one carried into the FINAL package (see 16, FINAL TITLE). Alternatives may be kept in the Draft only.
+
+## Audience language
+
+- Use everyday words first. Introduce a specialist term only when the reader needs it, and explain it in the same sentence.
+- Prefer “the part that clicks onto the handle” over an unexplained part name; give the official name once, afterwards.
+- Model numbers, standards, and connector names belong in Sources, tables, checkers, and captions — not in the hook.
+- Do not assume the reader owns the product, has used the brand, or knows why the community cares.
+- Keep verdict wording (MATCH / PARTIAL / NO MATCH / CHECK FIRST etc.) exactly as the existing rules define; plain language wraps it, it does not replace it.
+
+---
 
 ---
 
@@ -212,7 +290,53 @@ Offer multiple complete builds by:
 
 # 3. Candidate Gate — Do This Before Deep Research
 
-Before spending significant research time, score the proposed topic from 1–5 on:
+## 3.1 Primary Candidate Gate (the five questions)
+
+Before any deep research, answer these five questions for the proposed topic. They apply to **any** domain (kitchen appliances, tools, toys, games, audio, cars, outdoor gear, software, stationery, …).
+
+1. **Would an ordinary person be curious about this?** Someone who does not own it and has never searched for it.
+2. **Can the reader understand it without prior knowledge?** No specialist vocabulary needed for the hook.
+3. **Is there a surprising, strange, or delightful fact?** Something a reader would repeat to a friend.
+4. **Would the article still be worth reading if the product / checker / tool disappeared?** This must be **YES**.
+5. **Can the surprising claim be verified with credible sources?** First-party or otherwise strong.
+
+Rules:
+
+- Questions **1, 4, and 5 must be YES**. Questions 2 and 3 should be YES; a NO on either requires a written plan to fix it.
+- A topic that fails question 4 is not a Story-First article. Either deepen the story until it passes, or reclassify it (see 3.2 and section 18).
+- Record the five answers, each with one line of reasoning, at the top of the Draft package.
+
+## 3.2 SPECIALIST TRAP
+
+A topic is in the **Specialist Trap** when it is *technically correct, well-sourced, and useful, but only interesting to people who already own or research the product*.
+
+Warning signs:
+
+- the hook needs a model number, part number, standard name, or community term
+- the audience is “people who already have X and are wondering about Y”
+- the value is a MATCH / NO MATCH table, and the story is decoration
+- search demand exists only because owners are confused, not because anyone is curious
+- the best sentence in the article is a spec
+
+Response, in order:
+
+1. **Find the wider door.** Ask what a non-owner would find interesting about the same objects (their history, an odd design decision, a surprising reason it exists, a cross-domain link) and lead with that.
+2. **Widen the topic** from “X fits Y” to the family, the design idea, or the everyday habit behind it.
+3. If no wider door exists, **do not force a Story-First article.** Downgrade to a Checker-led article under the V2 rule (section 18), or drop the topic.
+
+Verification depth is never reduced to escape the trap. Only the *framing and topic breadth* change.
+
+Camera-body / lens / teleconverter / mount-adapter / camera-battery topics remain excluded by default.
+
+## Note on the scoring table
+
+The scoring table below is a **secondary** check. It does not override the Primary Candidate Gate: a topic that scores well but fails questions 1, 4, or 5 above does not proceed.
+
+---
+
+## 3.3 Scoring Gate (secondary)
+
+After the Primary Candidate Gate passes, score the proposed topic from 1–5 on:
 
 | Criterion | Score |
 |---|---:|
@@ -595,6 +719,16 @@ Output:
 
 Do not force a checker into a story that works better as editorial content.
 
+## Position of the interactive tool
+
+The Checker / Explorer / Ranking / Builder is an **optional companion**, not the reason the article exists.
+
+- The article's value must stand **without** the tool. Test: if the tool were deleted, is the article still worth reading? **YES is required** (Primary Candidate Gate, question 4).
+- Place the tool **after** the story has made the reader care, never as the opening.
+- Build a tool only when it lets the reader do something the prose cannot (look up their own model, compare several options).
+- Tool conclusions keep the existing safety rules: absence of evidence is not NO MATCH; unverified cases return CHECK FIRST / VERIFY MODEL.
+- Tool copy uses plain language; model numbers and part names appear as inputs and results, not as the pitch.
+
 ---
 
 # 10. Card Game Research Rules
@@ -631,7 +765,31 @@ Avoid generic “Top 10 decks” unless Kumia has a distinctive combination-focu
 
 # 11. Article Structure — Default V3
 
-## Story-First Combination order (MODE A default)
+## Story-First recommended order — 11 steps (MODE A default)
+
+Story-First articles follow the curiosity ladder (Explain → Surprise → Entertain → Create curiosity), then become practical:
+
+1. **Curiosity hook** — one surprising, plain-language sentence or scene; no jargon.
+2. **What is this thing?** — introduce the everyday objects for a non-owner.
+3. **The surprising discovery** — the “really?” fact, stated clearly and sourced.
+4. **Why it exists** — the design decision, history, or accident behind it.
+5. **The story / trivia** — the enjoyable middle: people, generations, odd exceptions.
+6. **The twist, limit, or exception** — where the neat story stops working.
+7. **What this means for you** — the practical takeaway in everyday terms.
+8. **Checker / Explorer / Builder** — optional, only when it adds real value (see 9).
+9. **Natural options** — reuse first, then verified purchase paths (see 13).
+10. **Closing takeaway** — return to the opening surprise.
+11. **Sources** — verified source table; precise names, model numbers, and links live here.
+
+Do **not** default to:
+
+> Specifications → Compatibility table → Checker → Product cards
+
+The hook and steps 2–5 must be readable, and enjoyable, by someone who has never owned the product.
+
+## Story-First Combination order — legacy 9-step form (MODE A)
+
+The 11-step order above is the default. Use this shorter form only when the article is deliberately short.
 
 For Story-First Combination articles, prefer this flow:
 
@@ -791,6 +949,21 @@ Rules:
 
 # 13. Monetization Rules
 
+> **"Make people interested in the product before asking them to buy it."**
+
+## Commerce philosophy
+
+- **Interest first, purchase second.** The reader should want to know more about the object before any product link appears.
+- Commerce follows the story. It never leads it, and it never explains why the article exists.
+- **Natural fit only.** A link appears where the reader has just reached a decision, and only for items that decision actually needs.
+- **Reuse before buy.** If what the reader already owns is the better answer, say so.
+- No pressure language, urgency, fake scarcity, or “best” claims without a documented method.
+- Editorial conclusions are never bent for affiliate potential.
+- Commerce is not the goal of topic selection. Do not choose or drop a topic mainly for affiliate value. The article must be worth publishing with no links at all.
+- Keep all existing safety rules: only FINAL-verified products, no invented URLs/prices/discounts/availability, CHECK FIRST items are not recommended.
+
+## Commerce mechanics
+
 Affiliate opportunities are secondary to editorial truth.
 
 For each article, identify:
@@ -835,7 +1008,8 @@ SLUG:
 It must contain:
 
 1. Article mode
-2. Candidate-gate scores
+2. Primary Candidate Gate answers (five questions, section 3.1), Specialist Trap check (3.2), and candidate-gate scores (3.3)
+   - at least 5 title candidates with a short qualitative reason each and one recommendation (Title philosophy)
 3. Hook
 4. Audience / intent
 5. Combination map
@@ -1043,6 +1217,22 @@ If implementation exposes a research gap, return it for research instead of gues
 
 # 18. V2 vs V3 Selection Rule
 
+## Separation of roles
+
+| | **V3 (default)** | **V2 (exception)** |
+|---|---|---|
+| Philosophy | Broad curiosity, deep verification | Precise compatibility reference |
+| Reader | Curious ordinary person, non-owner welcome | Owner who needs an exact answer |
+| Entry point | Surprise / story / everyday object | The fitment question itself |
+| Checker | Optional companion | Usually the core value |
+| Candidate test | Primary Candidate Gate + Specialist Trap check | Narrow compatibility demand |
+| Chosen | By default | Only when **explicitly selected** and the reason is recorded |
+
+- V3 is never silently downgraded to V2. If a topic falls in the Specialist Trap and no wider door exists, the switch to V2 (or dropping the topic) is a **recorded decision**, not a drift.
+- V2 articles do not inherit V3's story-first requirement, and V3 articles do not inherit V2's table-first structure.
+- The V2 Research Template file is a separate document and is not edited by V3 changes.
+
+
 **V3 is the default.**
 
 Use V3 when:
@@ -1062,18 +1252,32 @@ Use V2 only when it is **explicitly selected** (including after the Trivia Depth
 
 # 19. Final Quality Test
 
-Before marking the Work package FINAL, answer YES to as many as possible:
+Before marking the Work package FINAL, check every item. A–H are gates; if any of them is NO, fix it or reconsider the topic.
 
-- Would a non-owner still find the headline interesting?
-- Is there at least one “I didn’t know that” fact?
+**A. Curiosity** — Would an ordinary non-owner be curious about the headline?
+
+**B. Plain language** — Can a reader with no prior knowledge follow the hook and the first half without a glossary?
+
+**C. Surprise** — Is there at least one “really?” fact, and can it be repeated to a friend in one sentence?
+
+**D. Independence from the tool** — If the checker / product cards / tool were removed, is the article still worth reading?
+
+**E. Verification** — Is every central claim backed by credible sources, with uncertainty stated (absence of evidence is not NO MATCH)?
+
+**F. Story over spec** — Does the article lead with story and discovery rather than specifications or a compatibility table?
+
+**G. Natural commerce** — Do product links appear only after interest is built, only where a decision needs them, and would the article still be worth publishing without them?
+
+**H. Title** — Are there at least 5 title candidates, and does the recommended title work for a non-expert and pay off its promise?
+
+Supporting checks (answer YES to as many as possible):
+
 - Can the reader choose among multiple combinations?
 - Is there a clear reason the combinations work or fail?
 - Is there a story behind the design?
-- Can the core claims be verified?
 - Does the article help someone avoid a mistake or discover a new possibility?
-- Does the interactive element add real value?
+- Does any interactive element add real value?
 - Is there enough material for a substantial article without padding?
-- Would the article still be worth publishing without affiliate links?
 
 If several answers are NO, reconsider the topic.
 

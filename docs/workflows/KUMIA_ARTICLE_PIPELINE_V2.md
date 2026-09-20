@@ -99,6 +99,15 @@ Body Editorial ImageとCard Thumbnailは、従来どおり画像生成AIで作�
 - 未承認deploy
 
 ## PHASE 0 — テーマ決定
+編集方針: **Broad curiosity, deep verification.**
+（選ぶときは広く・浅く＝普通の人が面白いと思う身近な題材。検証は深く。文章は易しく。）
+
+- テーマは、ownerでない一般の好奇心のある読者が面白がれるかで選ぶ。
+- 「Compatibility is one source of the story, not the product.」互換性は記事の素材の一つであり、記事そのものではない。
+- Primary Candidate Gate（V3 section 3.1の5問）と Specialist Trap（3.2）はWorkが判定し、Draftの冒頭に記録する。
+  Specialist Trapに該当し、より広い入口が見つからない場合は、無理にStory-Firstにせず、V2（Checker中心）へ切り替えるか、テーマを見送る（切り替えは理由を記録する）。
+- 「Make people interested in the product before asking them to buy it.」商品リンクは関心を作った後に自然に置く。
+
 基本入力（テーマだけで開始できる）:
 ```text
 Kumia Labs新規記事
@@ -135,6 +144,7 @@ slugの基本ルール:
 `docs/workflows/KUMIA_WORK_RESEARCH_TEMPLATE_V2.md`
 
 V3を原則とし、V2は純粋な技術互換性・fitment重視の記事に限る。
+V3の編集方針は「Broad curiosity, deep verification」。Draftには、Primary Candidate Gateの回答、Specialist Trap判定、5案以上のtitle candidates（数値採点なし）を含める。
 V3/V2の選択条件とResearch成果物の要件は、各Research Templateを
 source of truthとする。
 
