@@ -14,6 +14,13 @@ type SearchItem = {
 
 const searchIndex: SearchItem[] = [
   {
+    title: "The KitchenAid Connection That Reaches Back to 1919",
+    href: "/home/kitchenaid-attachments-bowls",
+    category: "Home",
+    description: "KitchenAid says today’s power-hub attachments fit stand mixers made since 1919. Bowls are a very different story.",
+    keywords: ["kitchenaid", "stand mixer", "attachments", "bowls", "power hub", "pasta roller", "ice cream maker", "tilt-head", "bowl-lift", "1919", "compatibility"],
+  },
+  {
     title: "A Hose, a Gun, and One Millimeter of Trouble",
     href: "/tools/pressure-washer-hose-and-gun-fit",
     category: "Tools",

@@ -1,0 +1,56 @@
+.explorer { border: 1px solid #bdd5ef; border-radius: 16px; background: #f9fbfe; padding: 28px 30px; }
+.intro { margin: 0 0 22px; font-size: 15px; line-height: 1.55; color: #3f4f6b; }
+.step { margin: 0 0 24px; padding: 0; border: 0; min-width: 0; }
+.step:last-child { margin-bottom: 0; }
+.step legend { padding: 0; margin: 0 0 12px; display: block; }
+.label { display: block; margin: 0 0 6px; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #3d5a86; }
+.question { display: block; font-size: 22px; font-weight: 750; letter-spacing: -.02em; color: #071a46; line-height: 1.2; }
+.options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.option { display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 10px 14px; border: 1.5px solid #bdd5ef; border-radius: 12px; background: #fff; color: #071a46; font-size: 15px; font-weight: 650; line-height: 1.3; cursor: pointer; }
+.option input { width: 20px; height: 20px; flex: 0 0 auto; accent-color: #0668ed; }
+.selected { border-color: #0668ed; background: #eaf2ff; }
+.option:focus-within, .field select:focus-visible, .field input:focus-visible { outline: 3px solid #071a46; outline-offset: 2px; }
+.field { margin-top: 16px; }
+.field label { display: block; margin: 0 0 6px; font-size: 13px; font-weight: 750; color: #071a46; }
+.field label.question { font-size: 22px; margin-bottom: 10px; }
+.field select, .field input[type="text"] { width: 100%; min-height: 48px; padding: 10px 12px; border: 1.5px solid #bdd5ef; border-radius: 10px; background: #fff; color: #071a46; font: inherit; font-size: 16px; }
+.hint { margin: 8px 0 0; font-size: 13px; line-height: 1.5; color: #52627d; }
+.check { display: flex; align-items: flex-start; gap: 10px; margin-top: 14px; font-size: 15px; line-height: 1.45; color: #071a46; cursor: pointer; }
+.check input { width: 20px; height: 20px; flex: 0 0 auto; margin-top: 2px; accent-color: #0668ed; }
+.materials { margin: 16px 0 0; padding: 14px 16px; border: 1px solid #cbd9eb; border-radius: 10px; background: #eef6ff; min-width: 0; }
+.materials legend { padding: 0 4px; font-size: 14px; font-weight: 750; color: #071a46; }
+.choice { display: flex; align-items: center; gap: 10px; min-height: 40px; font-size: 15px; color: #071a46; cursor: pointer; }
+.choice input { width: 20px; height: 20px; accent-color: #0668ed; }
+.prompt { margin: 0; padding: 18px 20px; border: 1.5px dashed #bdd5ef; border-radius: 12px; color: #52627d; font-size: 15px; }
+.result { border-radius: 12px; border-left: 6px solid; padding: 20px 22px; }
+.result header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.icon { width: 34px; height: 34px; flex: 0 0 auto; display: grid; place-items: center; border-radius: 50%; font-size: 18px; font-weight: 800; color: #fff; }
+.verdict { margin: 0; font-size: 22px; font-weight: 800; letter-spacing: .02em; line-height: 1.15; }
+.iface { margin: 3px 0 0 !important; font-size: 12px !important; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #3d5a86 !important; }
+.result p { margin: 0 0 10px; line-height: 1.55; color: #1c2a4a; }
+.cond { padding: 10px 12px; border-radius: 8px; background: rgba(255, 255, 255, .7); }
+.aside { font-size: 14px; color: #3f4f6b !important; }
+.microcopy { padding: 12px 14px; border-left: 4px solid #0668ed; background: #fff; border-radius: 0 8px 8px 0; font-weight: 650; }
+.alt { font-size: 15px; }
+.sources { margin: 14px 0 0 !important; padding-top: 12px; border-top: 1px solid rgba(7, 26, 70, .18); font-size: 13px; }
+.sources span { color: #52627d; }
+.sources a { display: inline-block; margin: 2px 8px 2px 0; color: #071a46; font-weight: 750; }
+.fits { background: #e6f7df; border-color: #15954a; }
+.fits .icon { background: #15954a; }
+.fits .verdict { color: #0f6b33; }
+.conditions { background: #eaf2ff; border-color: #0668ed; }
+.conditions .icon { background: #0668ed; }
+.conditions .verdict { color: #0a4fb4; }
+.no { background: #fdecec; border-color: #c93a3a; }
+.no .icon { background: #c93a3a; }
+.no .verdict { color: #a52727; }
+.verify { background: #fff4de; border-color: #d98b12; }
+.verify .icon { background: #b86f00; }
+.verify .verdict { color: #8a5300; }
+@media (max-width: 700px) {
+  .explorer { padding: 20px 16px; }
+  .question, .field label.question { font-size: 20px; }
+  .options { grid-template-columns: 1fr; }
+  .result { padding: 16px 14px; }
+  .verdict { font-size: 20px; }
+}
