@@ -14,6 +14,13 @@ type SearchItem = {
 
 const searchIndex: SearchItem[] = [
   {
+    title: "LEGO Never Changed the Track Width. It Changed Where the Electricity Lives.",
+    href: "/home/lego-trains-old-track",
+    category: "Home",
+    description: "LEGO says its train-track width never changed. New battery trains run on old rails, while old rail-powered motors go silent on plastic track.",
+    keywords: ["lego", "lego train", "train track", "9v", "12v", "powered up", "power functions", "old track", "plastic track", "metal track", "compatibility", "can new lego trains run on old track"],
+  },
+  {
     title: "DUPLO Looks Like a Different Toy. It Was Designed to Fit LEGO.",
     href: "/home/lego-duplo-hidden-connection",
     category: "Home",

@@ -1,0 +1,19 @@
+.diagram { margin: 26px 0; padding: 20px 22px; border: 1px solid #cbd9eb; border-radius: 14px; background: #f9fbfe; }
+.tag { display: inline-block; margin: 0 0 14px; padding: 4px 10px; border: 1.5px dashed #b8862b; border-radius: 999px; background: #fffaf0; color: #8a5f10; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.card { min-width: 0; padding: 14px 16px; border: 1px solid #cbd9eb; border-radius: 12px; background: #fff; }
+.head { margin: 0 0 10px; font-size: 15px; font-weight: 800; line-height: 1.35; color: #071a46; }
+.flow { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 16px; }
+.flow li { position: relative; padding: 8px 12px; border: 1.5px solid #bdd5ef; border-radius: 8px; background: #f4f9ff; font-size: 14px; font-weight: 650; color: #071a46; }
+.flow li:not(:last-child)::after { content: "↓"; position: absolute; left: 50%; bottom: -15px; z-index: 1; transform: translateX(-50%); font-size: 13px; color: #0668ed; line-height: 1; }
+.flow li.live { border-color: #0668ed; background: #eaf2ff; }
+.strip { display: block; width: 100%; max-width: 280px; height: auto; margin: 6px auto 8px; }
+.note { margin: 0; font-size: 14px; line-height: 1.5; color: #1c2a4a; }
+.twelve { margin-top: 16px; padding: 12px 16px; border-left: 5px solid #d98b12; border-radius: 0 10px 10px 0; background: #fff4de; }
+.twelve p { margin: 0; font-size: 14px; line-height: 1.5; color: #5a3a00; }
+.twelve .head { color: #8a5300; margin-bottom: 4px; }
+.caption { margin: 14px 0 0; font-size: 13px; line-height: 1.5; color: #52627d; }
+@media (max-width: 700px) {
+  .diagram { padding: 16px 14px; }
+  .cards { grid-template-columns: 1fr; }
+}
