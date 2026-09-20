@@ -22,6 +22,7 @@ python scripts/generate-kumia-hero.py \
 - Output: 1672x941 PNG. The same inputs always produce the same file.
 - `--title`: use `|` to force line breaks; otherwise the title wraps and auto-sizes (104px down to 64px).
 - `--icons`: `Label` or `Label:icon`. Without an icon name, icons cycle. `--list-icons` prints the built-in set.
+- The icon row is laid out from each label's measured width: circle and label share one centre line, neighbouring labels keep a visual gap of at least 24px, and items are spread evenly across the row. Labels shrink (never below 17px) only if the row cannot fit at the normal 21px; otherwise the script stops with an error.
 - If the text does not fit the safe area, the script stops with an error instead of shrinking it unreadably. Shorten the copy or use fewer icons.
 - All layout constants (logo, category, title, supporting copy, icons, margins, safe area, veil) live in the `BRAND` block at the top of the script. Per article, only the background, category, title, supporting copy, and icon labels change.
 - Logo: `public/brand/kumia-labs-logo.png`, the official site asset, cropped and scaled, never redrawn.

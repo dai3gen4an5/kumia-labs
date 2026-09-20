@@ -74,7 +74,9 @@ BRAND = {
     # icon row
     "icons_gap": 42,
     "icon_circle": 80,
-    "icon_pitch": 158,
+    "icon_gap_max": 64,        # widest gap between neighbouring icon items (label-aware)
+    "icon_gap_min": 24,        # minimum visual gap between neighbouring labels
+    "icon_label_min_size": 17, # labels shrink only if the row cannot fit at the normal size
     "icon_glyph_ratio": 0.66,
     "icon_label_size": 21,
     "icon_label_weight": 550,
@@ -394,17 +396,35 @@ def compose(args) -> Image.Image:
     # icon row
     icons = parse_icons(args.icons) if args.icons else []
     if icons:
-        pitch_x = min(B["icon_pitch"], (B["icon_row_max_width"] - B["icon_circle"]) / max(len(icons) - 1, 1))
         row_top = sy + B["icons_gap"] - (B["support_size"] * B["support_line_height"] - B["support_size"]) / 2
-        l_font = load_font(B["icon_label_size"], B["icon_label_weight"])
-        need = row_top + B["icon_circle"] + B["icon_label_gap"] + B["icon_label_size"] * 1.3
+        # Measure each label's real ink box. An item is as wide as its circle or its label, whichever is larger.
+        # Items are spread evenly over the row width with a visual gap of at least icon_gap_min.
+        label_size = B["icon_label_size"]
+        while True:
+            l_font = load_font(label_size, B["icon_label_weight"])
+            widths = []
+            for label, _ in icons:
+                x0, _, x1, _ = l_font.getbbox(label)
+                widths.append(x1 - x0)
+            extents = [max(B["icon_circle"], w) for w in widths]
+            n = len(icons)
+            free = B["icon_row_max_width"] - sum(extents)
+            gap = min(B["icon_gap_max"], free / (n - 1)) if n > 1 else 0
+            if n == 1 or gap >= B["icon_gap_min"]:
+                break
+            if label_size <= B["icon_label_min_size"]:
+                sys.exit("Icon labels do not fit on one row with a 24px gap. Shorten the labels or use fewer icons.")
+            label_size -= 1
+        need = row_top + B["icon_circle"] + B["icon_label_gap"] + label_size * 1.3
         if need > H - B["margin_bottom"] + 1:
             sys.exit(f"Layout overflows the safe area by {need - (H - B['margin_bottom']):.0f}px. Shorten the title or supporting copy, or use fewer icons.")
-        for i, (label, icon) in enumerate(icons):
-            cx = B["margin_left"] + B["icon_circle"] / 2 + i * pitch_x
+        x = B["margin_left"]
+        for (label, icon), ext, w in zip(icons, extents, widths):
+            cx = x + ext / 2  # the circle and its label share one centre line
             canvas.alpha_composite(render_icon_circle(icon), (round(cx - B["icon_circle"] / 2), round(row_top)))
-            lw_ = l_font.getlength(label)
-            draw.text((cx - lw_ / 2, row_top + B["icon_circle"] + B["icon_label_gap"]), label, font=l_font, fill=B["ink"])
+            x0 = l_font.getbbox(label)[0]
+            draw.text((cx - w / 2 - x0, row_top + B["icon_circle"] + B["icon_label_gap"]), label, font=l_font, fill=B["ink"])
+            x += ext + gap
     else:
         need = sy
         if need > H - B["margin_bottom"]:
