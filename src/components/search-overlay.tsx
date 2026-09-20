@@ -14,6 +14,13 @@ type SearchItem = {
 
 const searchIndex: SearchItem[] = [
   {
+    title: "DUPLO Looks Like a Different Toy. It Was Designed to Fit LEGO.",
+    href: "/home/lego-duplo-hidden-connection",
+    category: "Home",
+    description: "A regular 2×2 LEGO brick fits one hollow DUPLO stud. The reason reaches back to a 1960s design decision.",
+    keywords: ["lego", "duplo", "2x2 brick", "hollow stud", "toddler", "system in play", "1969", "lego explore", "compatibility", "do lego and duplo fit together"],
+  },
+  {
     title: "The KitchenAid Connection That Reaches Back to 1919",
     href: "/home/kitchenaid-attachments-bowls",
     category: "Home",

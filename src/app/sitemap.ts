@@ -4,6 +4,7 @@ import { absoluteUrl } from "@/lib/site";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: absoluteUrl(), lastModified: "2026-09-14", changeFrequency: "weekly", priority: 1 },
+    { url: absoluteUrl("/home/lego-duplo-hidden-connection"), lastModified: "2026-09-20", changeFrequency: "monthly", priority: 0.9 },
     { url: absoluteUrl("/home/kitchenaid-attachments-bowls"), lastModified: "2026-09-19", changeFrequency: "monthly", priority: 0.9 },
     { url: absoluteUrl("/tools/pressure-washer-hose-and-gun-fit"), lastModified: "2026-09-19", changeFrequency: "monthly", priority: 0.9 },
     { url: absoluteUrl("/tools/dewalt-20v-max-bauer-20v-compatibility"), lastModified: "2026-09-19", changeFrequency: "monthly", priority: 0.9 },

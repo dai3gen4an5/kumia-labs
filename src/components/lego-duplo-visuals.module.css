@@ -1,0 +1,21 @@
+.diagram { margin: 26px 0; padding: 20px 22px; border: 1px solid #cbd9eb; border-radius: 14px; background: #f9fbfe; }
+.tag { display: inline-block; margin: 0 0 14px; padding: 4px 10px; border: 1.5px dashed #b8862b; border-radius: 999px; background: #fffaf0; color: #8a5f10; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.step { min-width: 0; text-align: center; }
+.stepLabel { margin: 0 0 6px; font-size: 13px; font-weight: 800; letter-spacing: .12em; color: #0668ed; }
+.stepLabel span { display: inline-grid; place-items: center; width: 22px; height: 22px; margin-right: 4px; border-radius: 50%; background: #0668ed; color: #fff; font-size: 12px; letter-spacing: 0; }
+.svg { display: block; width: 100%; max-width: 280px; height: auto; margin: 0 auto; }
+.stepNote { margin: 6px auto 0; max-width: 300px; font-size: 15px; line-height: 1.5; color: #1c2a4a; }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
+.card { padding: 12px 14px; border-radius: 10px; border-left: 5px solid; }
+.card p { margin: 0; font-size: 15px; line-height: 1.5; }
+.cardHead { margin-bottom: 4px !important; font-weight: 800; }
+.yes { background: #e6f7df; border-color: #15954a; }
+.yes .cardHead { color: #0f6b33; }
+.no { background: #fdecec; border-color: #c93a3a; }
+.no .cardHead { color: #a52727; }
+.caption { margin: 14px 0 0; font-size: 13px; line-height: 1.5; color: #52627d; }
+@media (max-width: 700px) {
+  .diagram { padding: 16px 14px; }
+  .steps, .cards { grid-template-columns: 1fr; }
+}
