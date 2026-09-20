@@ -13,6 +13,22 @@ Kumia Labs の記事制作を、以下の分業で安定して回す。
 8. ChatGPT: 最終承認
 9. Claude Code: commit / push / Production QA
 
+## 画像の基本原則
+
+> **AI generates the scene. Code generates the Kumia brand layer.**
+
+Heroのブランド要素は画像生成モデルに任せない。
+
+- **画像生成AI（ChatGPT）:** 写真・背景・記事固有の物体だけを生成する。
+- **Kumia brand layer（コード）:** 次の要素を `scripts/generate-kumia-hero.py` で固定テンプレートとして合成する。
+  - Kumia Labs logo（公式asset `public/brand/kumia-labs-logo.png` をそのまま使用）
+  - category label と、その右の blue accent line
+  - title / supporting copy の文字組み
+  - icon row と icon label
+
+記事ごとに変わるのは、背景写真、category text、title、supporting copy、icon labels / icon type だけ。
+Body Editorial ImageとCard Thumbnailは、従来どおり画像生成AIで作る。
+
 ## 基本責任分担
 
 ### ChatGPT Work
@@ -24,7 +40,7 @@ Kumia Labs の記事制作を、以下の分業で安定して回す。
 - Interactive Tool仕様
 - Commerce候補
 - タイトル候補
-- Heroコピー候補
+- Heroコピー候補（category label / title / supporting copy / icon labelの候補）
 - IMAGE PLACEMENT PLAN
 - Body Editorial Imageの必要性判断
 - Technical Visual候補
@@ -45,7 +61,7 @@ Kumia Labs の記事制作を、以下の分業で安定して回す。
 - タイトル確定
 - Supporting Copy確定
 - IMAGE PLACEMENT PLAN最終決定
-- Hero設計
+- Hero背景シーンの設計・生成（ブランド要素は生成しない）
 - Body Editorial Image設計・生成
 - Card Thumbnail設計・生成
 - 最終Visual Review
@@ -70,6 +86,7 @@ Kumia Labs の記事制作を、以下の分業で安定して回す。
 - Kumia UI
 - metadata / JSON-LD / sitemap / search
 - 画像placeholder配置
+- Hero brand layerの合成（scripts/generate-kumia-hero.py）
 - 最終画像統合
 - Desktop / Mobile QA
 - build
@@ -185,7 +202,7 @@ Claudeは最初に:
 最初に FINAL IMAGE ASSET LIST を確定。
 
 生成順:
-1. Hero
+1. Hero background（`kumia-<slug>-hero-bg.png`）
 2. Body Image 1
 3. Body Image 2
 4. Body Image 3（必要なら）
@@ -193,18 +210,22 @@ Claudeは最初に:
 
 同じ用途の画像を一度に複数生成しない。
 
-### Hero固定ルール
-- 16:9
-- 推奨 1672×941
-- Kumia Labs logo
-- short category label
-- short blue line
-- FINAL TITLE
-- FINAL SUPPORTING COPY
-- 必要なら少数のicon
+### Hero固定ルール（背景はAI、ブランド要素はコード）
+**画像生成AIが作るのは背景画像だけ。** ファイル名: `public/images/kumia-<slug>-hero-bg.png`
+
+背景画像の条件:
+- 16:9（1672×941を標準出力とする）
+- textなし
+- logoなし
+- iconなし
+- category labelなし
+- technical labelなし
+- 左45〜50%は比較的静かで明るい（brand layerが載る）
+- 主被写体は中央〜右
 - realistic/editorial visual
 
 禁止:
+- 画像生成AIにlogo / title / supporting copy / category label / accent line / icon row / icon labelを描かせること
 - 勝手なtagline
 - 不要なmascot
 - 不要なcharacter
@@ -212,6 +233,32 @@ Claudeは最初に:
 - fake technical drawing
 - 未承認コピー
 - Cardとの兼用
+
+**最終Hero**（`public/images/kumia-<slug>-hero.png`）は、背景にbrand layerを合成して作る:
+
+```
+python scripts/generate-kumia-hero.py \
+  --background public/images/kumia-<slug>-hero-bg.png \
+  --output public/images/kumia-<slug>-hero.png \
+  --category "<FINAL CATEGORY LABEL>" \
+  --title "<FINAL TITLE>" \
+  --supporting "<FINAL SUPPORTING COPY>" \
+  --icons "Label:icon,Label:icon,..."
+```
+
+- 出力は1672×941 PNG。同じ入力なら常に同じ画像になる。
+- ロゴ、フォント、位置、サイズ、余白などの固定値はscript内の `BRAND` にあり、記事ごとに変更しない。
+- 詳細は `scripts/README.md`。
+- コード実行ができる側（ChatGPTまたはClaude Code）がこのscriptを実行する。どちらでも同じ結果になる。
+
+### 画像のpackage
+画像が揃ったら、次でまとめる:
+
+```
+python scripts/package-kumia-assets.py --slug <slug>
+```
+
+Hero / Body / Cardを `kumia-<slug>-assets.zip` にまとめる（最終ファイル名のまま）。`public/images/` へそのまま展開すればよく、個別のリネーム・移動は不要。`-hero-bg.png` は含めない。
 
 ### Body Editorial Image固定ルール
 - 標準 2〜3枚
@@ -262,6 +309,7 @@ Claudeは最初に:
 
 担当:
 - ChatGPT承認済み画像統合
+- Hero合成（`-hero-bg.png` があり `-hero.png` が未作成なら scripts/generate-kumia-hero.py を実行）
 - alt
 - metadata
 - OG

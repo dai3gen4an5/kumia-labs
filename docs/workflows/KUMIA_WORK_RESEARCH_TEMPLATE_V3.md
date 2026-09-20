@@ -33,6 +33,21 @@ They give the reader a practical answer *after* the story has made them care.
 
 ---
 
+# KUMIA IMAGE PRINCIPLE
+
+> **"AI generates the scene. Code generates the Kumia brand layer."**
+
+The Hero's brand elements are never left to an image model.
+
+- **AI (ChatGPT image generation)** produces only the photograph, background, and article-specific objects.
+- **Code** composes the fixed Kumia brand layer with `scripts/generate-kumia-hero.py`:
+  the official Kumia Labs logo, the category label and its blue accent line, the title and supporting-copy typography, and the icon row with its labels.
+
+Never ask an image model to draw the logo, title, supporting copy, category label, accent line, icon row, or icon labels.
+Body Editorial Images and the Card Thumbnail are still produced by image generation.
+
+---
+
 # 0. Core Editorial Goal
 
 Kumia Labs investigates:
@@ -727,8 +742,10 @@ These are three **separate assets**. Never reuse one for another role.
 
 **HERO**
 - article cover
-- may carry the title, supporting copy, and category label
-- expresses the article's central story in one image
+- two layers: an **AI-generated, text-free background scene** (`kumia-<slug>-hero-bg.png`) plus the **code-composed Kumia brand layer** (logo, category label with blue accent line, title, supporting copy, icon row)
+- the final file is `kumia-<slug>-hero.png`, 1672x941, made by `scripts/generate-kumia-hero.py`; it is never generated as a finished image by a model
+- the background scene expresses the article's central story in one image: left 45 to 50% relatively quiet and bright, main subject center to right, 16:9
+- no text, logo, icons, category label, or technical labels in the background
 
 **BODY (Body Editorial Images)**
 - visualize one story beat each
@@ -759,7 +776,7 @@ For **each** visual, record:
 | Visual type | Editorial photo / AI visual / HTML-CSS-SVG diagram / Interactive UI / Product card / Manufacturer image / Comparison visual |
 | Content | what is shown |
 | What it explains | the one thing the reader understands from it |
-| Produced by | **CHATGPT ASSET** (AI-generated) or **CLAUDE IMPLEMENTATION** (HTML/CSS/SVG/UI) |
+| Produced by | **CHATGPT ASSET** (AI-generated; for the HERO, the background scene only) or **CLAUDE IMPLEMENTATION** (HTML/CSS/SVG/UI, and the code-composed Hero brand layer) |
 | Precision risk | LOW / MEDIUM / HIGH, and why |
 | Source requirement | primary source needed for accuracy, if any |
 | Mobile consideration | how it reads at 360px; no horizontal scroll |
@@ -847,7 +864,7 @@ The Draft must give ChatGPT enough material to decide the following. **Do not fi
 - final title candidates
 - supporting copy candidates
 - category label candidates
-- Hero direction
+- Hero direction (the background scene, safe area, and icon concepts, not a finished Hero)
 - Body image direction
 - Card direction
 - interactive tool scope
@@ -921,7 +938,7 @@ It then contains the following **required sections, using these exact headings**
 12. **IMAGE PLACEMENT PLAN** (format in section 12; every visual marked CHATGPT ASSET or CLAUDE IMPLEMENTATION)
 13. **BODY EDITORIAL IMAGE BRIEFS**
 14. **TECHNICAL VISUAL OPPORTUNITIES**
-15. **HERO CONCEPT**
+15. **HERO CONCEPT** (the background scene, **not** the finished Hero; see "Hero concept contents" below)
 16. **CARD THUMBNAIL CONCEPT**
 17. **VISUAL AVOID LIST**
 
@@ -938,6 +955,21 @@ These stay in FINAL (they are not removed by the contract above):
 - SEO metadata suggestions
 - Freshness / update notes
 - Final Quality Test answers (section 19)
+
+### Hero concept contents
+
+Because the Hero brand layer is composed by code, **HERO CONCEPT describes the background scene, not the final Hero.** It specifies:
+
+- **background scene concept**: what the photograph shows, in one sentence
+- **left-side safe area**: the left 45 to 50% stays relatively quiet and bright, because the brand layer sits there
+- **subject placement**: main subject center to right
+- **photographic mood**: light, materials, environment
+- **icon concepts**: the icon labels and, for each, an icon type from the built-in set (`python scripts/generate-kumia-hero.py --list-icons`)
+
+It must not describe or request any text, logo, icons, category label, accent line, or technical labels inside the image.
+The FINAL TITLE, FINAL SUPPORTING COPY, and FINAL CATEGORY LABEL (items 2 to 4) are the exact strings passed to the composer.
+
+Filenames: background `kumia-<slug>-hero-bg.png`, final Hero `kumia-<slug>-hero.png`.
 
 ### Mapping from the earlier FINAL item list
 

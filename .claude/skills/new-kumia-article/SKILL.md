@@ -38,9 +38,20 @@ Kumia Labsの記事実装用Skill。
 HeroをCardへ流用しない。
 BodyをHeroへ流用しない。
 
+**AI generates the scene. Code generates the Kumia brand layer.**
+
+Heroのブランド要素は画像生成モデルに任せない。
+- 画像生成AIが作るのは、背景画像（写真・背景・記事固有の物体）だけ。textなし、logoなし、iconなし、category labelなし、technical labelなし。
+- Kumia brand layer（Kumia Labs logo / category label / blue accent line / title / supporting copy / icon row / icon label）は `scripts/generate-kumia-hero.py` で合成する。ロゴは公式asset `public/brand/kumia-labs-logo.png` をそのまま使い、描き直さない。
+- 固定値（位置、font、size、余白など）はscript内の `BRAND` にあり、記事ごとに変更しない。記事ごとに変えるのは背景、category、title、supporting copy、icon labelsだけ。
+- 文字やロゴ入りで納品されたHeroは、そのまま統合しない（二重表示・欠けたロゴのため）。背景の再生成をユーザーに依頼するか、確認する。
+
 推奨filename:
 
-Hero:
+Hero background（AI生成、textなし）:
+`public/images/kumia-<slug>-hero-bg.png`
+
+Hero（最終。brand layerを合成したもの）:
 `public/images/kumia-<slug>-hero.png`
 
 Body:
@@ -145,7 +156,7 @@ CLAUDE IMPLEMENTATION
 に分類。
 
 CHATGPT ASSET:
-- Hero
+- Hero（背景シーンのみ。brand layerはコード合成 = CLAUDE IMPLEMENTATION）
 - Body Editorial Image 1
 - Body Editorial Image 2
 - Body Editorial Image 3
@@ -239,6 +250,14 @@ FINAL Work PackageのIMAGE PLACEMENT PLANを読む。
 - Hero
 - Body Editorial Images
 - Card Thumbnail
+
+Heroの合成:
+- `kumia-<slug>-hero-bg.png` があり `kumia-<slug>-hero.png` が未作成なら、FINAL Work Packageの FINAL CATEGORY LABEL / FINAL TITLE / FINAL SUPPORTING COPY / HERO CONCEPTのicon conceptsを入力に `scripts/generate-kumia-hero.py` を実行して最終Heroを作る（1672×941、同じ入力なら常に同じ画像）。
+- 背景が条件（text/logo/iconなし、左45〜50%が静か）を満たしているか確認する。満たさない場合は統合せずユーザーに報告する。
+- 最終Heroは通常のHero patternで表示する（画像がタイトルを持つため、H1はsr-only）。
+
+画像の受け渡し:
+- `scripts/package-kumia-assets.py --slug <slug>` で Hero / Body / Card を `kumia-<slug>-assets.zip` にまとめられる。`public/images/` へそのまま展開でき、個別のリネーム・移動は不要。
 
 必要に応じて:
 - alt
