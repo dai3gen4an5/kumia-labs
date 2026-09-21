@@ -107,6 +107,9 @@ Body Editorial ImageとCard Thumbnailは、従来どおり画像生成AIで作�
 - Primary Candidate Gate（V3 section 3.1の5問）と Specialist Trap（3.2）はWorkが判定し、Draftの冒頭に記録する。
   Specialist Trapに該当し、より広い入口が見つからない場合は、無理にStory-Firstにせず、V2（Checker中心）へ切り替えるか、テーマを見送る（切り替えは理由を記録する）。
 - 「Make people interested in the product before asking them to buy it.」商品リンクは関心を作った後に自然に置く。
+- **Zero-Knowledge Entry**（V3の必須ルール）: 「読者は2つの対象のどちらも知らない」と仮定する。
+  驚きの接続を明かす前に、一般の読者が Object A / Object B が何か、それぞれ通常何に使うか、話に必要な基本ラインナップ・バリエーション、専門用語の意味を理解できる状態にする。
+  Workは Zero-Knowledge Entry Gate（V3 section 3.4の5問）を判定し、Draftに記録する。1〜3がNOなら、先へ進まず入口を作り直す（REVISE THE ENTRY）。愛好家コミュニティで常識だからという理由で、前提知識を黙って仮定しない。
 
 基本入力（テーマだけで開始できる）:
 ```text
@@ -144,7 +147,9 @@ slugの基本ルール:
 `docs/workflows/KUMIA_WORK_RESEARCH_TEMPLATE_V2.md`
 
 V3を原則とし、V2は純粋な技術互換性・fitment重視の記事に限る。
-V3の編集方針は「Broad curiosity, deep verification」。Draftには、Primary Candidate Gateの回答、Specialist Trap判定、5案以上のtitle candidates（数値採点なし）を含める。
+V3の編集方針は「Broad curiosity, deep verification」。Draftには、Primary Candidate Gateの回答、Specialist Trap判定、Zero-Knowledge Entry Gateの回答（orientation案を含む）、5案以上のtitle candidates（数値採点なし）を含める。
+V3の標準の読者フローは ORIENT → EXPLAIN → SURPRISE → ENTERTAIN → CREATE CURIOSITY → TRY / EXPLORE → PRODUCT INTEREST → COMMERCE。
+記事冒頭に、必要に応じて短いorientation（通常2〜4段落、百科事典にしない）を置く。
 V3/V2の選択条件とResearch成果物の要件は、各Research Templateを
 source of truthとする。
 
@@ -161,6 +166,7 @@ source of truthとする。
 確定項目:
 - FINAL ARTICLE ANGLE
 - FINAL ARTICLE STRUCTURE
+- FINAL ZERO-KNOWLEDGE ENTRY（両対象を知らない読者が冒頭を理解できるか）
 - FINAL CHECKER SCOPE
 - FINAL VERDICT DEFINITIONS
 - FINAL TITLE
@@ -186,6 +192,7 @@ source of truthとする。
 （冒頭の `SLUG:` はDraftから変更しない）
 
 これをClaude Codeのsource of truthとする。
+FINALには `# ZERO-KNOWLEDGE ENTRY` セクション（Object A/Bの平易な説明、通常の用途、必須のバリエーション、説明が必要な用語、orientation案、Gate結果）が必須。このセクションが無い、またはGate結果がREVISEのFINALは未完成として扱う（V3 section 16）。
 
 終了:
 `STATUS: READY_FOR_FINAL_CHATGPT_EDITORIAL_REVIEW`

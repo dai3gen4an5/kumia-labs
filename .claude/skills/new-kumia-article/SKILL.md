@@ -118,10 +118,35 @@ docs/research/<slug>-work-package-final.md
 
 STATUS: WAITING_FOR_WORK_PACKAGE
 
+### 1A. V3 Zero-Knowledge Entry確認
+FINAL Work PackageがV3（`Template: KUMIA_WORK_RESEARCH_TEMPLATE_V3.md`）で、
+Zero-Knowledge Entryルール導入（2026-09-21）以降に作成されたものだけが対象。
+詳細ルールは V3 template の「KUMIA ZERO-KNOWLEDGE ENTRY」「3.4」「16」を参照し、ここには複製しない。
+
+実装前に確認:
+- `# ZERO-KNOWLEDGE ENTRY` セクションがある
+- Gate結果（PASS / REVISE）が記載されている
+
+セクションが無い、不完全、またはGate結果がREVISEの場合:
+- 実装せず、Work / editorial reviewへ差し戻す
+- orientation文を自分で作らない
+
+返して停止:
+FINAL Work Packageの ZERO-KNOWLEDGE ENTRY が未完成です。
+Work / editorial reviewで補ってください。
+
+STATUS: WAITING_FOR_WORK_PACKAGE
+
+対象外:
+- 公開済みの既存記事（遡及して適用しない）
+- 2026-09-21より前に作成されたFINAL（日付はFINALのヘッダで確認する。日付が読み取れず、セクションも無い場合は、実装せずユーザーに確認する）
+- V2 Research Templateの記事（V2の挙動は変えない）
+
 ## 2. Source of truth
 FINAL Work Packageをsource of truthとして使用。
 
 優先:
+- ZERO-KNOWLEDGE ENTRY（V3の新規FINALのみ。orientationはCOMPLETE ARTICLE DRAFTに含まれ、削らない）
 - COMPLETE ARTICLE DRAFT
 - COMPATIBILITY MODEL
 - INTERACTIVE TOOL SPEC

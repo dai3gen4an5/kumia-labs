@@ -6,7 +6,7 @@
 **Implementation handoff:** Claude Code  
 **Supersedes:** V2 as the default template  
 **V2 role:** Keep V2 available for narrow, compatibility-heavy articles where the main value is precise MATCH / PARTIAL / NO MATCH coverage.
-**Editorial philosophy:** Broad curiosity, deep verification.
+**Editorial philosophy:** Broad curiosity, deep verification. Zero-Knowledge Entry: assume the reader knows neither object.
 
 ---
 
@@ -72,11 +72,11 @@ The default Kumia reader is:
 
 Do not write for the forum expert. The expert can still be served by Sources, a precise table, or a checker further down the page, but never in the opening.
 
-## Curiosity ladder — EXPLAIN → SURPRISE → ENTERTAIN → CREATE CURIOSITY
+## Curiosity ladder — (ORIENT →) EXPLAIN → SURPRISE → ENTERTAIN → CREATE CURIOSITY
 
-Each article does four jobs, in this order of priority:
+The full default flow, including ORIENT at the start and TRY / EXPLORE → PRODUCT INTEREST → COMMERCE at the end, is defined in “KUMIA ZERO-KNOWLEDGE ENTRY”. Once the reader has been oriented, each article does four jobs, in this order of priority:
 
-1. **Explain** — the everyday reader understands what the objects are and why anyone cares.
+1. **Explain** — the everyday reader understands why the combination exists and why anyone cares (the objects themselves have already been introduced by the orientation).
 2. **Surprise** — at least one fact makes them say “really?”.
 3. **Entertain** — the article is enjoyable to read even if they never buy anything.
 4. **Create curiosity** — they finish wanting to look at the next object, or another combination, differently.
@@ -108,6 +108,102 @@ Rules:
 - Keep verdict wording (MATCH / PARTIAL / NO MATCH / CHECK FIRST etc.) exactly as the existing rules define; plain language wraps it, it does not replace it.
 
 ---
+
+---
+
+# KUMIA ZERO-KNOWLEDGE ENTRY
+
+> **"Assume the reader knows neither object."**
+
+This principle works together with “Compatibility is the entry point, not the article.” and “Broad curiosity, deep verification.” It does not replace either of them.
+
+Before revealing or explaining the surprising connection, make sure a general reader understands:
+
+1. what **Object A** is;
+2. what **Object B** is;
+3. what each is **normally used for**;
+4. any **basic lineup, variants, or categories** required to understand the story;
+5. any **specialist term**, before it is used as assumed knowledge.
+
+Only after that orientation does the article reveal why the combination is surprising.
+
+## The failure mode this prevents
+
+- Experts already know the headline fact.
+- Beginners cannot understand the headline fact.
+- Therefore neither audience gets enough value.
+
+Do not silently assume familiarity because the topic is common inside an enthusiast community. Enthusiast-common is not reader-common.
+
+## Default V3 reader flow
+
+**ORIENT → EXPLAIN → SURPRISE → ENTERTAIN → CREATE CURIOSITY → TRY / EXPLORE → PRODUCT INTEREST → COMMERCE**
+
+| Stage | Job |
+|---|---|
+| ORIENT | A newcomer learns what A and B are, what each is normally for, and any basic lineup the story needs. |
+| EXPLAIN | The reader understands why the combination exists and why anyone cares. |
+| SURPRISE | The simple, repeatable “I didn’t know that” fact lands. |
+| ENTERTAIN | The article is enjoyable even if the reader never buys anything. |
+| CREATE CURIOSITY | The reader ends up looking at the next object, or another combination, differently. |
+| TRY / EXPLORE | Optional Explorer / checker / reuse ideas (support, never the reason the article exists). |
+| PRODUCT INTEREST | The reader has become interested in the objects themselves. |
+| COMMERCE | Natural, reuse-first options, after interest exists. |
+
+This is the single default flow. The “curiosity ladder” below, the Story-First order in section 11, and the commerce philosophy in section 13 all follow it.
+
+## Basic information rule
+
+**Basic information is not filler when it is necessary to make the surprise understandable.**
+
+Useful early context includes:
+
+- what the product actually does;
+- where people normally encounter it;
+- how many major variants exist;
+- what the variants represent;
+- whether the object is hardware, software, an accessory, a collectible, a service, a wearable, and so on;
+- what a specialist term means in ordinary language.
+
+Do not bury this information in a late FAQ if the reader needs it to understand the article.
+
+Orientation must **not** become an encyclopedia introduction. Usually **2–4 short paragraphs** are enough. The test is:
+
+> **Does a newcomer now understand enough to appreciate why the connection is surprising?**
+
+Once the answer is YES, move on.
+
+## Expert / beginner balance
+
+A strong Kumia article provides three layers:
+
+- **Layer 1 — ORIENTATION.** Enough context for a complete beginner.
+- **Layer 2 — SURPRISE.** The simple, repeatable “I didn’t know that” fact.
+- **Layer 3 — DEPTH.** History, exceptions, design decisions, unusual behavior, or lesser-known facts that still reward readers who already knew the headline connection.
+
+Avoid the dead zone: **“Too obvious for enthusiasts, too unexplained for everyone else.”**
+
+## Relationship to the Primary Candidate Gate
+
+The Primary Candidate Gate (section 3.1) stays exactly as it is. The Zero-Knowledge Entry Gate (section 3.4) is an **additional required gate**, not a replacement.
+
+An article may have a strong surprising fact and still **fail V3** if a newcomer cannot understand the two objects being combined.
+
+## Illustrative example (not research)
+
+The example below shows the shape of an orientation. It is **not** a draft and its facts are **not** verified research; never reuse them as article claims without sourcing.
+
+**Bad entry:** “Power-Up Bands also work as amiibo.”
+The problem: a newcomer may not know what either term means.
+
+**Better sequence:**
+
+1. SUPER NINTENDO WORLD is Nintendo’s themed area inside Universal theme parks.
+2. Visitors can buy a Power-Up Band, a character-themed wristband used for interactive park activities.
+3. amiibo are Nintendo NFC figures, cards, and items that can be tapped to compatible Nintendo hardware for in-game features.
+4. **Then** reveal: the same Power-Up Band can act as that character’s amiibo.
+
+Basic lineup can be editorially important too. If there are several character bands, and that choice changes team identity or amiibo identity, introduce the lineup early, before the reveal.
 
 ---
 
@@ -305,6 +401,7 @@ Rules:
 - Questions **1, 4, and 5 must be YES**. Questions 2 and 3 should be YES; a NO on either requires a written plan to fix it.
 - A topic that fails question 4 is not a Story-First article. Either deepen the story until it passes, or reclassify it (see 3.2 and section 18).
 - Record the five answers, each with one line of reasoning, at the top of the Draft package.
+- Passing this gate is **not enough** on its own: the Zero-Knowledge Entry Gate (3.4) must also pass.
 
 ## 3.2 SPECIALIST TRAP
 
@@ -371,6 +468,32 @@ Reject or deprioritize topics that are only:
 - use-case × product without genuine combinational behavior
 
 Camera-body / lens / teleconverter / mount-adapter / camera-battery topics remain excluded by default.
+
+---
+
+## 3.4 Zero-Knowledge Entry Gate (required)
+
+This gate is **in addition to** the Primary Candidate Gate (3.1), not instead of it. See “KUMIA ZERO-KNOWLEDGE ENTRY” near the top of this template.
+
+Before approving the article concept, answer:
+
+1. Can a reader who has never heard of **Object A** understand what it is?
+2. Can a reader who has never heard of **Object B** understand what it is?
+3. Does the reader understand **each object’s normal role** before the surprising connection is revealed?
+4. If basic **variants, lineup, or generations** matter to the story, are they introduced early enough?
+5. Are **specialist terms** explained before the article relies on them?
+
+Requirements:
+
+- Questions **1–3 MUST be YES**.
+- Question **4 MUST be YES** when variants materially affect the story.
+- Question **5 MUST be YES** whenever specialist terminology is present.
+
+If 1–3 fail: **REVISE THE ENTRY before proceeding.** Do not carry a failing entry into deeper research or the Draft.
+
+Do **not** silently assume familiarity because the topic is common inside an enthusiast community.
+
+Record the five answers, each with one line of reasoning, in the Draft package, and carry the result into the FINAL package’s **ZERO-KNOWLEDGE ENTRY** section (section 16, item 18).
 
 ---
 
@@ -767,18 +890,18 @@ Avoid generic “Top 10 decks” unless Kumia has a distinctive combination-focu
 
 ## Story-First recommended order — 11 steps (MODE A default)
 
-Story-First articles follow the curiosity ladder (Explain → Surprise → Entertain → Create curiosity), then become practical:
+Story-First articles follow the default reader flow (Orient → Explain → Surprise → Entertain → Create curiosity), then become practical:
 
 1. **Curiosity hook** — one surprising, plain-language sentence or scene; no jargon.
-2. **What is this thing?** — introduce the everyday objects for a non-owner.
-3. **The surprising discovery** — the “really?” fact, stated clearly and sourced.
-4. **Why it exists** — the design decision, history, or accident behind it.
-5. **The story / trivia** — the enjoyable middle: people, generations, odd exceptions.
-6. **The twist, limit, or exception** — where the neat story stops working.
+2. **Zero-knowledge orientation** — what A is, what B is, what each is normally used for, and any basic lineup or variants the story needs; specialist terms explained in ordinary language. Short (see below).
+3. **The surprising connection** — the “really?” fact, stated clearly and sourced.
+4. **Why it works / why it exists** — the design decision, history, or accident behind it.
+5. **History / design / trivia** — the enjoyable middle: people, generations, odd exceptions.
+6. **Limits / exceptions** — the twist, and where the neat story stops working.
 7. **What this means for you** — the practical takeaway in everyday terms.
 8. **Checker / Explorer / Builder** — optional, only when it adds real value (see 9).
-9. **Natural options** — reuse first, then verified purchase paths (see 13).
-10. **Closing takeaway** — return to the opening surprise.
+9. **Natural choices / products** — reuse first, then verified purchase paths (see 13).
+10. **Takeaway** — return to the opening surprise.
 11. **Sources** — verified source table; precise names, model numbers, and links live here.
 
 Do **not** default to:
@@ -787,9 +910,17 @@ Do **not** default to:
 
 The hook and steps 2–5 must be readable, and enjoyable, by someone who has never owned the product.
 
+### Orientation (step 2)
+
+- Include it whenever the Zero-Knowledge Entry Gate (3.4) shows a newcomer would not already know either object, the basic lineup, or a term the story relies on.
+- Keep it to a short section, usually **2–4 short paragraphs**. It must not become an encyclopedia introduction.
+- The test: *does a newcomer now understand enough to appreciate why the connection is surprising?* When YES, move on.
+- Basic information is not filler when it is needed to make the surprise understandable. Do not bury it in a late FAQ.
+- Orientation must not reveal the surprise itself; it prepares the reader for it.
+
 ## Story-First Combination order — legacy 9-step form (MODE A)
 
-The 11-step order above is the default. Use this shorter form only when the article is deliberately short.
+The 11-step order above is the default. Use this shorter form only when the article is deliberately short. Even in this form, the short zero-knowledge orientation comes right after the hook (before step 2) whenever the Zero-Knowledge Entry Gate requires it.
 
 For Story-First Combination articles, prefer this flow:
 
@@ -818,6 +949,8 @@ The first screen should answer:
 - what combines
 - whether it works
 - why the reader should care
+
+If a newcomer may not know the objects, keep this opening plain and follow it directly with the short zero-knowledge orientation before the surprising part.
 
 ## Quick Verdict
 2–4 concise sentences.
@@ -1010,6 +1143,7 @@ It must contain:
 1. Article mode
 2. Primary Candidate Gate answers (five questions, section 3.1), Specialist Trap check (3.2), and candidate-gate scores (3.3)
    - at least 5 title candidates with a short qualitative reason each and one recommendation (Title philosophy)
+   - Zero-Knowledge Entry Gate answers (section 3.4), with the proposed orientation outline
 3. Hook
 4. Audience / intent
 5. Combination map
@@ -1060,6 +1194,7 @@ Review for:
 
 - Is the opening fact genuinely surprising?
 - Is the topic mainstream enough?
+- Could a reader who knows neither object understand the opening? (Zero-Knowledge Entry Gate)
 - Is the article interesting without the checker?
 - Is there enough trivia/story depth?
 - Are there enough meaningful combinations?
@@ -1115,12 +1250,34 @@ It then contains the following **required sections, using these exact headings**
 15. **HERO CONCEPT** (the background scene, **not** the finished Hero; see "Hero concept contents" below)
 16. **CARD THUMBNAIL CONCEPT**
 17. **VISUAL AVOID LIST**
+18. **ZERO-KNOWLEDGE ENTRY** (mandatory; see “ZERO-KNOWLEDGE ENTRY section” below)
+
+### ZERO-KNOWLEDGE ENTRY section (mandatory in every FINAL package)
+
+Every FINAL Work Package must contain a section headed exactly:
+
+```
+# ZERO-KNOWLEDGE ENTRY
+```
+
+It must contain:
+
+- **Object A in plain English**
+- **Object B in plain English**
+- **Normal use of A**
+- **Normal use of B**
+- **Essential variants / lineup** (or an explicit statement that variants do not affect the story)
+- **Terms that require explanation** (each with its ordinary-language meaning)
+- **Proposed orientation copy or outline** (usually 2–4 short paragraphs; it must also appear in the COMPLETE ARTICLE DRAFT, before the surprising connection is revealed)
+- **Gate result** (the five answers from section 3.4 and PASS / REVISE)
+
+**A FINAL package is not ready if this section is missing**, or if its gate result is REVISE. This rule applies to every FINAL package started after it was added; already-published articles are not reopened by it.
 
 ### V3 editorial sections that are kept in the FINAL package
 
 These stay in FINAL (they are not removed by the contract above):
 
-- Candidate Gate scores (section 3)
+- Candidate Gate scores (section 3) and the Zero-Knowledge Entry Gate result (section 3.4)
 - Trivia Depth Gate result (section 3A)
 - Final story + trivia facts, including Story Behind It (4.5)
 - Historical Claim Safety checks (4.5A)
@@ -1152,6 +1309,7 @@ Filenames: background `kumia-<slug>-hero-bg.png`, final Hero `kumia-<slug>-hero.
 | Final article mode, Approved hook, Final editorial thesis | 1. FINAL ARTICLE CONCEPT |
 | Verified combination dataset; Outcome logic / ranking method / builder logic | 6. COMPATIBILITY MODEL |
 | Final story + trivia facts | kept (see above) |
+| Zero-Knowledge Entry (orientation of both objects) | 18. ZERO-KNOWLEDGE ENTRY |
 | Final source ledger | 9. VERIFIED SOURCE TABLE |
 | Interactive UI specification | 7. INTERACTIVE TOOL SPEC |
 | Visual asset requirements | 12–17 (IMAGE PLACEMENT PLAN and the visual sections) |
@@ -1178,6 +1336,7 @@ The items ChatGPT confirms in the Editorial Review (`KUMIA_ARTICLE_PIPELINE_V2.m
 | FINAL BODY IMAGE 1 / 2 / 3 | 13. BODY EDITORIAL IMAGE BRIEFS |
 | FINAL TECHNICAL VISUALS | 14. TECHNICAL VISUAL OPPORTUNITIES |
 | FINAL CARD THUMBNAIL CONCEPT | 16. CARD THUMBNAIL CONCEPT |
+| FINAL ZERO-KNOWLEDGE ENTRY | 18. ZERO-KNOWLEDGE ENTRY |
 
 The final package should be self-contained enough that Claude Code does not need to redo the research.
 
@@ -1190,6 +1349,8 @@ Claude Code receives only the **FINAL Work Package** as the research authority.
 **Prerequisite:** Claude Code begins only when `docs/research/<slug>-work-package-final.md` exists. If it does not, Claude does not research, draft, or implement; it stops and waits for the FINAL package (`STATUS: WAITING_FOR_WORK_PACKAGE`).
 
 Claude Code treats the FINAL package as the source of truth and does not create a separate research document or a summary copy of it.
+
+The orientation described in the ZERO-KNOWLEDGE ENTRY section is part of the COMPLETE ARTICLE DRAFT. Claude Code keeps it before the surprising connection and does not cut it for length. A FINAL package that lacks the ZERO-KNOWLEDGE ENTRY section is not ready; Claude Code returns it to Work instead of inventing orientation copy.
 
 Claude Code responsibilities:
 - implement article page
@@ -1230,6 +1391,7 @@ If implementation exposes a research gap, return it for research instead of gues
 
 - V3 is never silently downgraded to V2. If a topic falls in the Specialist Trap and no wider door exists, the switch to V2 (or dropping the topic) is a **recorded decision**, not a drift.
 - V2 articles do not inherit V3's story-first requirement, and V3 articles do not inherit V2's table-first structure.
+- The Zero-Knowledge Entry Gate and the ZERO-KNOWLEDGE ENTRY section are V3 requirements. A V2 reference article still names each product plainly, but the gate is not a V2 condition.
 - The V2 Research Template file is a separate document and is not edited by V3 changes.
 
 
@@ -1252,7 +1414,7 @@ Use V2 only when it is **explicitly selected** (including after the Trivia Depth
 
 # 19. Final Quality Test
 
-Before marking the Work package FINAL, check every item. A–H are gates; if any of them is NO, fix it or reconsider the topic.
+Before marking the Work package FINAL, check every item. A–K are gates; if any of them is NO, fix it or reconsider the topic.
 
 **A. Curiosity** — Would an ordinary non-owner be curious about the headline?
 
@@ -1269,6 +1431,12 @@ Before marking the Work package FINAL, check every item. A–H are gates; if any
 **G. Natural commerce** — Do product links appear only after interest is built, only where a decision needs them, and would the article still be worth publishing without them?
 
 **H. Title** — Are there at least 5 title candidates, and does the recommended title work for a non-expert and pay off its promise?
+
+**I. Newcomer entry** — Could someone unfamiliar with **both** objects understand the first part of the article?
+
+**J. Terms introduced** — Are all necessary terms and basic variants introduced before the article relies on them?
+
+**K. Value after orientation** — Does the article still contain new value after the beginner orientation, for a reader who already knew the headline fact?
 
 Supporting checks (answer YES to as many as possible):
 
