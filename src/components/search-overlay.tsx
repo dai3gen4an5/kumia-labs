@@ -14,6 +14,13 @@ type SearchItem = {
 
 const searchIndex: SearchItem[] = [
   {
+    title: "The Theme-Park Wristband Your Nintendo Switch Reads as an amiibo",
+    href: "/gaming/power-up-band-amiibo-identities",
+    category: "Gaming",
+    description: "A SUPER NINTENDO WORLD Power-Up Band keeps its character identity while parks, apps, and Nintendo games give that identity different jobs.",
+    keywords: ["power-up band", "power up band", "amiibo", "super nintendo world", "nintendo switch", "switch 2", "universal studios japan", "universal studios hollywood", "epic universe", "donkey kong bananza", "super smash bros ultimate", "nfc", "qr", "rf"],
+  },
+  {
     title: "LEGO Never Changed the Track Width. It Changed Where the Electricity Lives.",
     href: "/home/lego-trains-old-track",
     category: "Home",
