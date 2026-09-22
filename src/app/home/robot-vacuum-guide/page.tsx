@@ -5,7 +5,7 @@ import { AmazonCta, AmazonDisclosure } from "@/components/amazon-cta";
 import { ArticleDateMeta, ArticleResearchMeta } from "@/components/article-research-meta";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { amazonSearchUrl } from "@/lib/amazon";
+import { amazonProductUrl, amazonSearchUrl } from "@/lib/amazon";
 import { absoluteUrl } from "@/lib/site";
 import styles from "../what-electric-toothbrush-should-you-buy/page.module.css";
 
@@ -280,9 +280,9 @@ const AMAZON_CTAS: Partial<Record<string, { label: string; url: string }[]>> = {
   "everyday-cleaning": [
     { label: "iRobot Roomba 105 Vac + AutoEmpty Dock", url: amazonSearchUrl("Roomba 105 Vac AutoEmpty Dock") },
   ],
-  "pets-mixed-floors": [{ label: "eufy X10 Pro Omni", url: amazonSearchUrl("eufy X10 Pro Omni") }],
-  "mopping-first": [{ label: "Narwal Flow", url: amazonSearchUrl("Narwal Flow robot vacuum") }],
-  "minimum-intervention": [{ label: "Roborock Saros 10R", url: amazonSearchUrl("Roborock Saros 10R") }],
+  "pets-mixed-floors": [{ label: "eufy X10 Pro Omni", url: amazonProductUrl("B0CPFBBHP4") }],
+  "mopping-first": [{ label: "Narwal Flow", url: amazonProductUrl("B0F6CWKBTN") }],
+  "minimum-intervention": [{ label: "Roborock Saros 10R", url: amazonProductUrl("B0DHCJ571Z") }],
 };
 
 const comparisonRows = [

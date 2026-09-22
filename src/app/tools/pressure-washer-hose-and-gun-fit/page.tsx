@@ -7,7 +7,7 @@ import { M22SealDiagram } from "@/components/m22-seal-diagram";
 import { PressureWasherChecker } from "@/components/pressure-washer-checker";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { amazonSearchUrl } from "@/lib/amazon";
+import { amazonProductUrl, amazonSearchUrl } from "@/lib/amazon";
 import { absoluteUrl } from "@/lib/site";
 import styles from "../../home/what-electric-toothbrush-should-you-buy/page.module.css";
 import local from "./page.module.css";
@@ -324,7 +324,7 @@ export default function PressureWasherHoseAndGunFit() {
               url={S.simpson80148.url}
               link="View at Simpson"
             />
-            <AmazonCta href={amazonSearchUrl("Simpson pressure washer replacement gun")} label="Simpson pressure washer replacement gun" />
+            <AmazonCta href={amazonProductUrl("B0773YTNGN")} label="Simpson pressure washer replacement gun" />
             <Example
               problem="A commercial hose and gun system uses ⅜-inch quick connect and hot water"
               name="Simpson Armor 41114 Hose"

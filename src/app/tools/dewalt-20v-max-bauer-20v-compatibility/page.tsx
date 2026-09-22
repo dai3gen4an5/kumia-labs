@@ -6,7 +6,7 @@ import { ArticleDateMeta, ArticleResearchMeta } from "@/components/article-resea
 import { BatteryCompatChecker } from "@/components/battery-compat-checker";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { amazonSearchUrl } from "@/lib/amazon";
+import { amazonProductUrl } from "@/lib/amazon";
 import { absoluteUrl } from "@/lib/site";
 import styles from "../../home/what-electric-toothbrush-should-you-buy/page.module.css";
 import local from "./page.module.css";
@@ -198,7 +198,7 @@ export default function DewaltBauerCompatibility() {
               ))}
             </div>
             <AmazonDisclosure />
-            <AmazonCta href={amazonSearchUrl("DeWalt DCB203 20V MAX battery")} label="DeWalt DCB203 20V MAX battery" />
+            <AmazonCta href={amazonProductUrl("B00BYKVMES")} label="DeWalt DCB203 20V MAX battery" />
           </section>
 
           <section className={local.adapter} aria-labelledby="adapter-title">

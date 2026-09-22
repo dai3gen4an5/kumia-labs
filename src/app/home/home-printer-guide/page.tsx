@@ -5,7 +5,7 @@ import { AmazonCta, AmazonDisclosure } from "@/components/amazon-cta";
 import { SiteFooter } from "@/components/site-footer";
 import { ArticleDateMeta, ArticleResearchMeta } from "@/components/article-research-meta";
 import { SiteHeader } from "@/components/site-header";
-import { amazonSearchUrl } from "@/lib/amazon";
+import { amazonProductUrl, amazonSearchUrl } from "@/lib/amazon";
 import { absoluteUrl } from "@/lib/site";
 import styles from "../what-electric-toothbrush-should-you-buy/page.module.css";
 
@@ -83,12 +83,12 @@ const setups: Setup[] = [
 // Amazon Associates rollout, Phase 1: one representative printer per starting group.
 // See docs/research/amazon-associates-commerce-rollout-2026-09-22.md.
 const AMAZON_CTAS: Partial<Record<string, { label: string; url: string }[]>> = {
-  "mostly-black-documents": [{ label: "Brother HL-L2460DW", url: amazonSearchUrl("Brother HL-L2460DW") }],
+  "mostly-black-documents": [{ label: "Brother HL-L2460DW", url: amazonProductUrl("B0CPL2N5H6") }],
   "family-printing": [
-    { label: "Epson EcoTank ET-2980", url: amazonSearchUrl("Epson EcoTank ET-2980") },
+    { label: "Epson EcoTank ET-2980", url: amazonProductUrl("B0F1F2XRW9") },
     { label: "Canon PIXMA G3270", url: amazonSearchUrl("Canon PIXMA G3270") },
   ],
-  "photos-creative": [{ label: "Epson EcoTank Photo ET-8500", url: amazonSearchUrl("Epson EcoTank Photo ET-8500") }],
+  "photos-creative": [{ label: "Epson EcoTank Photo ET-8500", url: amazonProductUrl("B08R57JK88") }],
 };
 
 const comparisonRows = [

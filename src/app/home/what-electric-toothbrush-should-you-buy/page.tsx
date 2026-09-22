@@ -5,7 +5,7 @@ import { AmazonCta, AmazonDisclosure } from "@/components/amazon-cta";
 import { SiteFooter } from "@/components/site-footer";
 import { ArticleDateMeta, ArticleResearchMeta } from "@/components/article-research-meta";
 import { SiteHeader } from "@/components/site-header";
-import { amazonSearchUrl } from "@/lib/amazon";
+import { amazonProductUrl, amazonSearchUrl } from "@/lib/amazon";
 import { absoluteUrl } from "@/lib/site";
 import styles from "./page.module.css";
 
@@ -251,11 +251,11 @@ const setups: Setup[] = [
 // 01 and 02 only. See docs/research/amazon-associates-commerce-rollout-2026-09-22.md.
 const AMAZON_CTAS: Partial<Record<string, { label: string; url: string }[]>> = {
   "predictable-cost": [
-    { label: "Oral-B Pro 1000", url: amazonSearchUrl("Oral-B Pro 1000 electric toothbrush") },
-    { label: "Oral-B CrossAction replacement heads", url: amazonSearchUrl("Oral-B CrossAction replacement heads") },
+    { label: "Oral-B Pro 1000", url: amazonProductUrl("B003UKM9CO") },
+    { label: "Oral-B CrossAction replacement heads", url: amazonProductUrl("B019MEPPIG") },
   ],
   "simple-charging": [
-    { label: "Philips Sonicare 4100 HX3681/23", url: amazonSearchUrl("Philips Sonicare 4100 HX3681/23") },
+    { label: "Philips Sonicare 4100 HX3681/23", url: amazonProductUrl("B09LD8T445") },
     { label: "Philips Sonicare C2 Plaque Control heads", url: amazonSearchUrl("Philips Sonicare C2 Plaque Control heads") },
   ],
 };
