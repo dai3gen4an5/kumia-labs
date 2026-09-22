@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { AmazonCta, AmazonDisclosure } from "@/components/amazon-cta";
 import { ArticleDateMeta, ArticleResearchMeta } from "@/components/article-research-meta";
 import { LegoTrainsExplorer } from "@/components/lego-trains-explorer";
 import { PowerPathDiagram } from "@/components/lego-trains-visuals";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SOURCES, type SourceId } from "@/data/lego-trains-explorer";
+import { amazonSearchUrl } from "@/lib/amazon";
 import { absoluteUrl } from "@/lib/site";
 import styles from "../what-electric-toothbrush-should-you-buy/page.module.css";
 import local from "./page.module.css";
@@ -304,6 +306,10 @@ export default function LegoTrainsOldTrack() {
               id="S12"
               link="View at LEGO"
             />
+            <p className={local.commerceNote}>These are current sets you can try the connection with, not evidence for the historical width claim.</p>
+            <AmazonDisclosure />
+            <AmazonCta href={amazonSearchUrl("LEGO City train set")} label="LEGO City train set" />
+            <AmazonCta href={amazonSearchUrl("LEGO train track set")} label="LEGO train track set" />
             <p>
               The current Vintage Steam Train and Harbor Freight Train are appealing story-led starting points, but <strong>neither is motorized in the box</strong>.
             </p>

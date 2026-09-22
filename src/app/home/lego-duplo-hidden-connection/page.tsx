@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { AmazonCta, AmazonDisclosure } from "@/components/amazon-cta";
 import { ArticleDateMeta, ArticleResearchMeta } from "@/components/article-research-meta";
 import { LegoDuploExplorer } from "@/components/lego-duplo-explorer";
 import { StudDiagram } from "@/components/lego-duplo-visuals";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SOURCES, type SourceId } from "@/data/lego-duplo-explorer";
+import { amazonSearchUrl } from "@/lib/amazon";
 import { absoluteUrl } from "@/lib/site";
 import styles from "../what-electric-toothbrush-should-you-buy/page.module.css";
 import local from "./page.module.css";
@@ -298,6 +300,8 @@ export default function LegoDuploHiddenConnection() {
               id="S13"
               link="View at LEGO"
             />
+            <AmazonDisclosure />
+            <AmazonCta href={amazonSearchUrl("LEGO DUPLO Classic brick box")} label="LEGO DUPLO Classic brick box" />
             <Product
               problem="A lower-cost open-ended standard-brick companion"
               name="LEGO Medium Creative Brick Box 10696"
@@ -306,6 +310,7 @@ export default function LegoDuploHiddenConnection() {
               id="S11"
               link="View at LEGO"
             />
+            <AmazonCta href={amazonSearchUrl("LEGO Classic brick box")} label="LEGO Classic brick box" />
             <p>The larger LEGO Classic box offers more standard pieces if you want broader free-building.</p>
             <Product
               problem="Optional: more standard bricks"

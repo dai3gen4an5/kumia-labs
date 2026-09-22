@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { AmazonCta, AmazonDisclosure } from "@/components/amazon-cta";
 import { ArticleDateMeta, ArticleResearchMeta } from "@/components/article-research-meta";
 import { M22SealDiagram } from "@/components/m22-seal-diagram";
 import { PressureWasherChecker } from "@/components/pressure-washer-checker";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { amazonSearchUrl } from "@/lib/amazon";
 import { absoluteUrl } from "@/lib/site";
 import styles from "../../home/what-electric-toothbrush-should-you-buy/page.module.css";
 import local from "./page.module.css";
@@ -289,6 +291,8 @@ export default function PressureWasherHoseAndGunFit() {
               url={S.dewalt.url}
               link="View at DeWalt"
             />
+            <AmazonDisclosure />
+            <AmazonCta href={amazonSearchUrl("DEWALT DXPA25PH pressure washer hose")} label="DEWALT DXPA25PH replacement hose" />
 
             <h3>Add one targeted adapter</h3>
             <p>An adapter is appropriate when one known mismatch separates otherwise suitable components.</p>
@@ -320,6 +324,7 @@ export default function PressureWasherHoseAndGunFit() {
               url={S.simpson80148.url}
               link="View at Simpson"
             />
+            <AmazonCta href={amazonSearchUrl("Simpson pressure washer replacement gun")} label="Simpson pressure washer replacement gun" />
             <Example
               problem="A commercial hose and gun system uses ⅜-inch quick connect and hot water"
               name="Simpson Armor 41114 Hose"
