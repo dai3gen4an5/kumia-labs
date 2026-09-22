@@ -40,6 +40,7 @@ export function SiteFooter() {
           ))}
         </div>
       </div>
+      <p className="site-footer-disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
       <div className="site-footer-bottom">
         <p>© 2026 Kumia Labs</p>
         <a className="site-footer-email" href="mailto:contact@kumialabs.com">

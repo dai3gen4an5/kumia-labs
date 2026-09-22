@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { AmazonCta, AmazonDisclosure } from "@/components/amazon-cta";
 import { ArticleDateMeta, ArticleResearchMeta } from "@/components/article-research-meta";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { amazonSearchUrl } from "@/lib/amazon";
 import { absoluteUrl } from "@/lib/site";
 import styles from "../what-electric-toothbrush-should-you-buy/page.module.css";
 
@@ -272,6 +274,17 @@ const setups: Setup[] = [
     ],
   },
 ];
+// Amazon Associates rollout, Phase 1: one representative robot per setup.
+// See docs/research/amazon-associates-commerce-rollout-2026-09-22.md.
+const AMAZON_CTAS: Partial<Record<string, { label: string; url: string }[]>> = {
+  "everyday-cleaning": [
+    { label: "iRobot Roomba 105 Vac + AutoEmpty Dock", url: amazonSearchUrl("Roomba 105 Vac AutoEmpty Dock") },
+  ],
+  "pets-mixed-floors": [{ label: "eufy X10 Pro Omni", url: amazonSearchUrl("eufy X10 Pro Omni") }],
+  "mopping-first": [{ label: "Narwal Flow", url: amazonSearchUrl("Narwal Flow robot vacuum") }],
+  "minimum-intervention": [{ label: "Roborock Saros 10R", url: amazonSearchUrl("Roborock Saros 10R") }],
+};
+
 const comparisonRows = [
   [
     "01 Everyday",
@@ -339,6 +352,7 @@ function ProductCard({ product }: { product: Product }) {
   );
 }
 function SetupSection({ setup }: { setup: Setup }) {
+  const ctas = AMAZON_CTAS[setup.slug];
   return (
     <section
       id={setup.slug}
@@ -397,6 +411,14 @@ function SetupSection({ setup }: { setup: Setup }) {
             <ProductCard key={p.name} product={p} />
           ))}
         </div>
+        {ctas && (
+          <>
+            <AmazonDisclosure />
+            {ctas.map((cta) => (
+              <AmazonCta key={cta.label} href={cta.url} label={cta.label} />
+            ))}
+          </>
+        )}
       </section>
     </section>
   );

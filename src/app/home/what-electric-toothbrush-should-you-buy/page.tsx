@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { AmazonCta, AmazonDisclosure } from "@/components/amazon-cta";
 import { SiteFooter } from "@/components/site-footer";
 import { ArticleDateMeta, ArticleResearchMeta } from "@/components/article-research-meta";
 import { SiteHeader } from "@/components/site-header";
+import { amazonSearchUrl } from "@/lib/amazon";
 import { absoluteUrl } from "@/lib/site";
 import styles from "./page.module.css";
 
@@ -245,6 +247,19 @@ const setups: Setup[] = [
   },
 ];
 
+// Amazon Associates rollout, Phase 1: named combinations already featured in setups
+// 01 and 02 only. See docs/research/amazon-associates-commerce-rollout-2026-09-22.md.
+const AMAZON_CTAS: Partial<Record<string, { label: string; url: string }[]>> = {
+  "predictable-cost": [
+    { label: "Oral-B Pro 1000", url: amazonSearchUrl("Oral-B Pro 1000 electric toothbrush") },
+    { label: "Oral-B CrossAction replacement heads", url: amazonSearchUrl("Oral-B CrossAction replacement heads") },
+  ],
+  "simple-charging": [
+    { label: "Philips Sonicare 4100 HX3681/23", url: amazonSearchUrl("Philips Sonicare 4100 HX3681/23") },
+    { label: "Philips Sonicare C2 Plaque Control heads", url: amazonSearchUrl("Philips Sonicare C2 Plaque Control heads") },
+  ],
+};
+
 const comparisonRows = [
   ["Predictable cost", "Not stated", "Standard base", "Oral-B standard", "$39.94", "No", "Simple first brush"],
   ["Simple charging", "Up to 14 days", "Compact base", "Sonicare click-on", "$42.65", "No", "Longer time between charges"],
@@ -298,7 +313,12 @@ function SetupSection({ setup }: { setup: Setup }) {
       </div>
     </div>
 
-    <section className={styles.readyMade} aria-labelledby={`${setup.slug}-products`}><h3 id={`${setup.slug}-products`}>Ready-made options</h3><p>Prices and availability were checked on September 14, 2026. Confirm the live listing before buying.</p><div>{setup.products.map((product) => <ProductCard key={product.name} product={product} />)}</div></section>
+    <section className={styles.readyMade} aria-labelledby={`${setup.slug}-products`}><h3 id={`${setup.slug}-products`}>Ready-made options</h3><p>Prices and availability were checked on September 14, 2026. Confirm the live listing before buying.</p><div>{setup.products.map((product) => <ProductCard key={product.name} product={product} />)}</div>
+      {AMAZON_CTAS[setup.slug] && <>
+        <AmazonDisclosure />
+        {AMAZON_CTAS[setup.slug]!.map((cta) => <AmazonCta key={cta.label} href={cta.url} label={cta.label} />)}
+      </>}
+    </section>
   </section>;
 }
 

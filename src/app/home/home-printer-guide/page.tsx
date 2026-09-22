@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { AmazonCta, AmazonDisclosure } from "@/components/amazon-cta";
 import { SiteFooter } from "@/components/site-footer";
 import { ArticleDateMeta, ArticleResearchMeta } from "@/components/article-research-meta";
 import { SiteHeader } from "@/components/site-header";
+import { amazonSearchUrl } from "@/lib/amazon";
 import { absoluteUrl } from "@/lib/site";
 import styles from "../what-electric-toothbrush-should-you-buy/page.module.css";
 
@@ -78,6 +80,17 @@ const setups: Setup[] = [
   },
 ];
 
+// Amazon Associates rollout, Phase 1: one representative printer per starting group.
+// See docs/research/amazon-associates-commerce-rollout-2026-09-22.md.
+const AMAZON_CTAS: Partial<Record<string, { label: string; url: string }[]>> = {
+  "mostly-black-documents": [{ label: "Brother HL-L2460DW", url: amazonSearchUrl("Brother HL-L2460DW") }],
+  "family-printing": [
+    { label: "Epson EcoTank ET-2980", url: amazonSearchUrl("Epson EcoTank ET-2980") },
+    { label: "Canon PIXMA G3270", url: amazonSearchUrl("Canon PIXMA G3270") },
+  ],
+  "photos-creative": [{ label: "Epson EcoTank Photo ET-8500", url: amazonSearchUrl("Epson EcoTank Photo ET-8500") }],
+};
+
 const comparisonRows = [
   ["01 Black documents", "Mono laser", "Toner + drum", "No", "Yes", "Model dependent", "Text and forms"],
   ["02 Occasional color", "Color inkjet", "Cartridges", "Yes", "Yes", "Brother only", "Low upfront cost"],
@@ -87,7 +100,13 @@ const comparisonRows = [
 ];
 
 function ProductCard({ product }: { product: Product }) { return <article className={styles.productCard}><p>{product.role} · {product.source}</p><h4>{product.name}</h4><p className={styles.details}>{product.details}</p><dl><div><dt>Why pick it</dt><dd>{product.why}</dd></div><div><dt>Watch for</dt><dd>{product.watch}</dd></div></dl><a href={product.url} target="_blank" rel="noopener noreferrer">View official product <span aria-hidden="true">→</span></a></article>; }
-function SetupSection({ setup }: { setup: Setup }) { return <section id={setup.slug} className={styles.setup} aria-labelledby={`${setup.slug}-title`}><header><span>{setup.number}</span><div><p>SETUP {setup.number}</p><h2 id={`${setup.slug}-title`}>{setup.title}</h2></div></header><figure><Image src={setup.image} alt={setup.imageAlt} width={1600} height={900} sizes="(max-width: 700px) 100vw, 1120px"/></figure><div className={styles.ownership}><p className={styles.eyebrow}>WHAT OWNERSHIP LOOKS LIKE</p><h3>Supplies, paper, and daily workflow</h3><dl>{setup.ownership.map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl></div><div className={styles.who}><p className={styles.eyebrow}>WHO IT&rsquo;S FOR</p><h3>{setup.persona}</h3></div><div className={styles.reasoning}><h3>Why this combination works</h3><div><p className={styles.reasoningLead}>{setup.lead}</p>{setup.reasoning.map(text=><p key={text}>{text}</p>)}</div></div><section className={styles.readyMade} aria-labelledby={`${setup.slug}-products`}><h3 id={`${setup.slug}-products`}>Ready-made options</h3><p>Models and availability were checked on September 14, 2026. Confirm the live manufacturer page before buying.</p><div>{setup.products.map(product=><ProductCard key={product.name} product={product}/>)}</div></section></section>; }
+function SetupSection({ setup }: { setup: Setup }) {
+  const ctas = AMAZON_CTAS[setup.slug];
+  return <section id={setup.slug} className={styles.setup} aria-labelledby={`${setup.slug}-title`}><header><span>{setup.number}</span><div><p>SETUP {setup.number}</p><h2 id={`${setup.slug}-title`}>{setup.title}</h2></div></header><figure><Image src={setup.image} alt={setup.imageAlt} width={1600} height={900} sizes="(max-width: 700px) 100vw, 1120px"/></figure><div className={styles.ownership}><p className={styles.eyebrow}>WHAT OWNERSHIP LOOKS LIKE</p><h3>Supplies, paper, and daily workflow</h3><dl>{setup.ownership.map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl></div><div className={styles.who}><p className={styles.eyebrow}>WHO IT&rsquo;S FOR</p><h3>{setup.persona}</h3></div><div className={styles.reasoning}><h3>Why this combination works</h3><div><p className={styles.reasoningLead}>{setup.lead}</p>{setup.reasoning.map(text=><p key={text}>{text}</p>)}</div></div><section className={styles.readyMade} aria-labelledby={`${setup.slug}-products`}><h3 id={`${setup.slug}-products`}>Ready-made options</h3><p>Models and availability were checked on September 14, 2026. Confirm the live manufacturer page before buying.</p><div>{setup.products.map(product=><ProductCard key={product.name} product={product}/>)}</div>{ctas && <>
+      <AmazonDisclosure />
+      {ctas.map((cta) => <AmazonCta key={cta.label} href={cta.url} label={cta.label} />)}
+    </>}</section></section>;
+}
 
 export default function HomePrinterGuide() {
   const articleJsonLd = { "@context":"https://schema.org", "@type":"Article", headline:title, description:subtitle, datePublished:publishedDate, dateModified:updatedDate, author:{"@type":"Person",name:"Kumia"}, publisher:{"@type":"Organization",name:"Kumia Labs",url:absoluteUrl()}, mainEntityOfPage:absoluteUrl(canonicalPath), image:absoluteUrl("/images/kumia-printer-hero-laser-inkjet-tank.png") };

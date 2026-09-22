@@ -685,7 +685,8 @@ button { font: inherit; }
 .site-footer-social a:hover, .site-footer-social a:focus-visible { color: var(--blue); background: #eaf2fc; }
 .site-footer-social svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .site-footer-social-label { display: none; }
-.site-footer-bottom { padding-top: 16px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 20px; color: var(--muted); font-size: 12px; }
+.site-footer-disclosure { margin: 0 0 16px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--ink); font-size: 13px; font-weight: 650; }
+.site-footer-bottom { padding-top: 0; border-top: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 20px; color: var(--muted); font-size: 12px; }
 .site-footer-bottom p { margin: 0; }
 .site-footer-email { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); font-size: 12px; text-decoration: none; }
 .site-footer-email svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }

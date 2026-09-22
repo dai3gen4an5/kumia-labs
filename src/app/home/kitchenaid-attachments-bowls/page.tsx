@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { AmazonCta, AmazonDisclosure } from "@/components/amazon-cta";
 import { ArticleDateMeta, ArticleResearchMeta } from "@/components/article-research-meta";
 import { KitchenAidExplorer } from "@/components/kitchenaid-explorer";
 import { BowlFamilies, BowlSupportSketches, EvolutionCompare, HubFlowDiagram, IceCreamBridge } from "@/components/kitchenaid-visuals";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SOURCES, type SourceId } from "@/data/kitchenaid-explorer";
+import { amazonSearchUrl } from "@/lib/amazon";
 import { absoluteUrl } from "@/lib/site";
 import styles from "../what-electric-toothbrush-should-you-buy/page.module.css";
 import local from "./page.module.css";
@@ -292,6 +294,8 @@ export default function KitchenAidAttachmentsBowls() {
               url={SOURCES.S20.url}
               link="View at KitchenAid"
             />
+            <AmazonDisclosure />
+            <AmazonCta href={amazonSearchUrl("KitchenAid KSMB60 6 quart bowl")} label="KSMB60 six-quart bowl" />
             <Product
               problem="A second bowl for an older bowl-lift mixer"
               name="KN2B6PEH six-quart bowl"
@@ -395,6 +399,8 @@ export default function KitchenAidAttachmentsBowls() {
               url={SOURCES.S12.url}
               link="View at KitchenAid"
             />
+            <AmazonDisclosure />
+            <AmazonCta href={amazonSearchUrl("KitchenAid KSM2CB5BGS Bread Bowl")} label="KSM2CB5BGS Bread Bowl" />
 
             <h3>Ice cream on a supported tilt-head or bowl-lift mixer</h3>
             <p>
@@ -408,6 +414,7 @@ export default function KitchenAidAttachmentsBowls() {
               url={SOURCES.S14.url}
               link="View at KitchenAid"
             />
+            <AmazonCta href={amazonSearchUrl("KitchenAid KSMICM Ice Cream Maker")} label="KSMICM Ice Cream Maker" />
 
             <h3>Small batches through two different systems</h3>
             <p>

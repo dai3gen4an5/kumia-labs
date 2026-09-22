@@ -2,6 +2,7 @@
 // Source of truth: docs/research/power-up-band-amiibo-identities-work-package-final.md
 // Only the eight standard character identities are encoded. Limited editions are
 // deliberately excluded, and no game behavior is inferred beyond the two verified examples.
+import { amazonProductUrl } from "@/lib/amazon";
 
 export const VERIFIED_DATE = "2026-09-21";
 
@@ -254,16 +255,15 @@ export function getBandIdentity(id: CharacterId): BandIdentity {
 }
 
 // Amazon.com (US) product targets, verified against the live listing on 2026-09-21.
-// url is a plain, untagged amazon.com product URL — no Associates tag exists in the
-// repository yet. When one is confirmed, add it as a query param here; the component
-// does not need to change. image is null until a rights-cleared product image is
-// available; the component omits the image area rather than showing a placeholder.
+// url carries the kumialabs-20 Associates tag via amazonProductUrl(). image is null
+// until a rights-cleared product image is available; the component omits the image
+// area rather than showing a placeholder.
 export const COMMERCE_CANDIDATES = {
   bananza: {
     name: "Donkey Kong Bananza",
     asin: "B0F66KLYVH",
     role: "PRIMARY",
-    url: "https://www.amazon.com/dp/B0F66KLYVH",
+    url: amazonProductUrl("B0F66KLYVH"),
     image: null as string | null,
     imageAlt: null as string | null,
   },
@@ -271,7 +271,7 @@ export const COMMERCE_CANDIDATES = {
     name: "Super Smash Bros. Ultimate",
     asin: "B01N5OKGLH",
     role: "SECONDARY",
-    url: "https://www.amazon.com/dp/B01N5OKGLH",
+    url: amazonProductUrl("B01N5OKGLH"),
     image: null as string | null,
     imageAlt: null as string | null,
   },

@@ -235,6 +235,20 @@
   text-decoration: underline;
 }
 
+.commerceCtaRow {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.paidLink {
+  font-size: 12px;
+  font-weight: 650;
+  color: #7a879c;
+}
+
 .switchNote {
   margin: 0 0 8px !important;
   padding: 13px 15px;

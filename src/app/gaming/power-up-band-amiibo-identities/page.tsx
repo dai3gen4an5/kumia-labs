@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { AmazonDisclosure } from "@/components/amazon-cta";
 import { ArticleDateMeta, ArticleResearchMeta } from "@/components/article-research-meta";
 import { PowerUpBandExplorer } from "@/components/power-up-band-explorer";
 import { OneBandThreeReaders } from "@/components/power-up-band-visuals";
@@ -94,9 +95,12 @@ function CommerceCandidate({
         <p className={local.eyebrow}>{eyebrow}</p>
         <h3>{name}</h3>
         <p>{children}</p>
-        <a className={local.commerceCta} href={url} target="_blank" rel="noopener noreferrer">
-          View {name} on Amazon.com →
-        </a>
+        <span className={local.commerceCtaRow}>
+          <a className={local.commerceCta} href={url} target="_blank" rel="noopener noreferrer sponsored">
+            View {name} on Amazon.com →
+          </a>
+          <span className={local.paidLink}>(paid link)</span>
+        </span>
       </div>
     </article>
   );
@@ -332,6 +336,7 @@ export default function PowerUpBandAmiiboIdentitiesPage() {
               <figcaption className={local.videoCaption}>Official Super Smash Bros. Ultimate video by Nintendo of America.</figcaption>
             </figure>
 
+            <AmazonDisclosure />
             <div className={local.commerceStack}>
               <CommerceCandidate
                 variant="primary"
@@ -358,7 +363,7 @@ export default function PowerUpBandAmiiboIdentitiesPage() {
               Donkey Kong Bananza requires a Nintendo Switch 2. If you don&apos;t already own one, that&apos;s a separate purchase from the game or the Band.
             </p>
             <p className={local.disclosureNote}>
-              These are direct links to Amazon.com, not affiliate links today. See the <Link href="/affiliate-disclosure">Affiliate Disclosure</Link> for how that may change.
+              As an Amazon Associate, Kumia Labs earns from qualifying purchases. See the <Link href="/affiliate-disclosure">Affiliate Disclosure</Link> for details.
             </p>
             <div className={local.officialCard}>
               <p className={local.eyebrow}>OFFICIAL · NON-AFFILIATE</p>
@@ -385,7 +390,7 @@ export default function PowerUpBandAmiiboIdentitiesPage() {
           <section className={styles.sources}>
             <h2>Sources and methodology</h2>
             <p>
-              This article uses Nintendo and Universal first-party pages reviewed for the final Kumia research package and checked September 21, 2026. Kumia did not reverse-engineer or physically test a Power-Up Band. Japan/Hollywood mutual reuse is stated only with separate app and progress contexts; the article does not claim complete three-park interoperability. Limited-edition mappings are omitted unless a first-party source states them. Product ASINs are retained as unlinked candidates because the repository has no confirmed Amazon Associates tag. Prices, sellers, stock, resale Bands, and unofficial NFC products are outside this article.
+              This article uses Nintendo and Universal first-party pages reviewed for the final Kumia research package and checked September 21, 2026. Kumia did not reverse-engineer or physically test a Power-Up Band. Japan/Hollywood mutual reuse is stated only with separate app and progress contexts; the article does not claim complete three-park interoperability. Limited-edition mappings are omitted unless a first-party source states them. Amazon links use verified ASINs for the two named products above; Kumia Labs earns from qualifying purchases through those links. Prices, sellers, stock, resale Bands, and unofficial NFC products are outside this article.
             </p>
             <ul className={local.sourceList}>
               {ARTICLE_SOURCE_IDS.map((id) => (

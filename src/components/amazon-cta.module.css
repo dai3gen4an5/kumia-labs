@@ -1,0 +1,32 @@
+.disclosure {
+  margin: 8px 0 14px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #647089;
+}
+
+.cta {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0;
+  font-size: 15px;
+}
+
+.cta a {
+  color: #0a4fb4;
+  font-weight: 750;
+  text-decoration: underline;
+}
+
+.cta a:hover,
+.cta a:focus-visible {
+  color: #0668ed;
+}
+
+.paidLink {
+  font-size: 12px;
+  font-weight: 650;
+  color: #7a879c;
+}

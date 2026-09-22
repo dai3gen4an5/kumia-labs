@@ -20,7 +20,8 @@ export default function AffiliateDisclosurePage() {
       eyebrow="Disclosure"
       lead="Kumia Labs may use affiliate links. Here is exactly what that does, and does not, change."
     >
-      <p>Kumia Labs may use affiliate links. If you click one and make a purchase, Kumia Labs may receive a commission from the retailer or seller.</p>
+      <p><strong>As an Amazon Associate I earn from qualifying purchases.</strong></p>
+      <p>Kumia Labs may also use other affiliate links. If you click one and make a purchase, Kumia Labs may receive a commission from the retailer or seller.</p>
       <p>This does not increase the price you pay. The commission comes from the seller, not from you.</p>
 
       <h2>What this does not change</h2>
@@ -32,7 +33,7 @@ export default function AffiliateDisclosurePage() {
       <h2>Current status</h2>
       <div className="info-note">
         <p className="info-note-label">Note</p>
-        <p>Not every outbound link on Kumia Labs is an affiliate link today. Where a guide notes that an affiliate link is not yet configured, that link goes directly to the manufacturer or retailer with no commission involved. This page will be kept up to date as that changes.</p>
+        <p>Amazon.com links marked <strong>(paid link)</strong> on Kumia Labs use Kumia Labs&rsquo; Amazon Associates tracking ID and are paid links. Manufacturer and retailer links elsewhere in a guide (for example Brother, Oral-B, Philips, Epson, Canon, HP, iRobot, Roborock, eufy, Narwal, Dreame, LEGO, Nintendo, and Universal) are not affiliate links unless a page states otherwise. This page will be kept up to date as that changes.</p>
       </div>
     </InfoPageLayout>
   );
