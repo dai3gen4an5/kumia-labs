@@ -2,6 +2,8 @@
 
 > AI generates the scene. Code generates the Kumia brand layer.
 
+For the full editorial/production rules these scripts implement (safe area, Body image count, Technical Visual boundary, Card, asset reuse, packaging, QA, accessibility), see `docs/workflows/KUMIA_IMAGE_STANDARD_V1.md`, the source of truth. This file documents script usage only; script behavior is unchanged.
+
 Only Pillow is required (`pip install pillow`).
 
 ## Hero: `generate-kumia-hero.py`

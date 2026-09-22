@@ -28,39 +28,29 @@ Kumia Labsの記事実装用Skill。
 同じUIを記事ごとに不必要に再実装しない。
 
 ## IMAGE ASSET CONVENTION
-画像は用途ごとに別assetとして扱う。
-- Hero
-- Body Editorial Image 1
-- Body Editorial Image 2
-- Body Editorial Image 3（必要な場合）
-- Card Thumbnail
+画像制作ルールのsource of truthは
+`docs/workflows/KUMIA_IMAGE_STANDARD_V1.md`
+とする。詳細（safe area、Body枚数、Technical Visualとの切り分け、asset reuse禁止、QA等）はここに複製せず、そちらを参照する。
+このImage Standardは、FINAL Work PackageがV3/V2のどちらであっても、新規記事画像に等しく適用する。
 
-HeroをCardへ流用しない。
-BodyをHeroへ流用しない。
-
-**AI generates the scene. Code generates the Kumia brand layer.**
-
-Heroのブランド要素は画像生成モデルに任せない。
-- 画像生成AIが作るのは、背景画像（写真・背景・記事固有の物体）だけ。textなし、logoなし、iconなし、category labelなし、technical labelなし。
-- Kumia brand layer（Kumia Labs logo / category label / blue accent line / title / supporting copy / icon row / icon label）は `scripts/generate-kumia-hero.py` で合成する。ロゴは公式asset `public/brand/kumia-labs-logo.png` をそのまま使い、描き直さない。
-- 固定値（位置、font、size、余白など）はscript内の `BRAND` にあり、記事ごとに変更しない。記事ごとに変えるのは背景、category、title、supporting copy、icon labelsだけ。
+要点:
+- 画像は用途ごとに別assetとして扱う（Hero / Body Editorial Image 0〜N / Card Thumbnail）。Body枚数は固定ではない。
+- HeroをCardへ流用しない。BodyをHeroへ流用しない。
+- **AI generates the scene. Code generates the Kumia brand layer.**
+  画像生成AIが作るのは背景画像だけ（textなし、logoなし、iconなし、category labelなし、technical labelなし）。
+  Kumia brand layer（logo / category label / accent line / title / supporting copy / icon row）は `scripts/generate-kumia-hero.py` で合成する。ロゴは公式asset `public/brand/kumia-labs-logo.png` をそのまま使い、描き直さない。
 - 文字やロゴ入りで納品されたHeroは、そのまま統合しない（二重表示・欠けたロゴのため）。背景の再生成をユーザーに依頼するか、確認する。
 
-推奨filename:
+filename（標準はKUMIA_IMAGE_STANDARD_V1.mdの FILENAMES を参照）:
 
-Hero background（AI生成、textなし）:
-`public/images/kumia-<slug>-hero-bg.png`
-
-Hero（最終。brand layerを合成したもの）:
-`public/images/kumia-<slug>-hero.png`
-
-Body:
-`public/images/kumia-<slug>-body-01.png`
-`public/images/kumia-<slug>-body-02.png`
-`public/images/kumia-<slug>-body-03.png`
-
-Card:
-`public/images/kumia-<slug>-card-16x9.png`
+```
+public/images/kumia-<slug>-hero-bg.png
+public/images/kumia-<slug>-hero.png
+public/images/kumia-<slug>-body-01.png
+public/images/kumia-<slug>-body-02.png
+...
+public/images/kumia-<slug>-card-16x9.png
+```
 
 Work PackageまたはChatGPT Reviewで別名が指定された場合は、
 承認済み名称を優先する。
@@ -182,9 +172,7 @@ CLAUDE IMPLEMENTATION
 
 CHATGPT ASSET:
 - Hero（背景シーンのみ。brand layerはコード合成 = CLAUDE IMPLEMENTATION）
-- Body Editorial Image 1
-- Body Editorial Image 2
-- Body Editorial Image 3
+- Body Editorial Image 0〜N（枚数はFINAL Work Package次第。固定枚数ではない）
 - Card Thumbnail
 
 最終画像は作らない。placeholderを配置。

@@ -220,6 +220,16 @@ The Hero's brand elements are never left to an image model.
 Never ask an image model to draw the logo, title, supporting copy, category label, accent line, icon row, or icon labels.
 Body Editorial Images and the Card Thumbnail are still produced by image generation.
 
+**`docs/workflows/KUMIA_IMAGE_STANDARD_V1.md` is the source of truth for image production.** The full rules (Hero background, safe area, Body image count, Technical Visual boundary, Card, asset reuse, packaging, QA, accessibility) live there and are not duplicated in full here. This template adds only what Work must produce:
+
+- Work always produces an **IMAGE PLACEMENT PLAN** (format and columns: see the standard).
+- A **Hero background brief is required**, and it must call out the left 45–50% safe area.
+- A **Card brief is required**.
+- **Body briefs are 0–N.** The number of Body images depends on the article; it is not fixed at two or three.
+- Work distinguishes **Technical Visual candidates from AI-image candidates**: anything precision-sensitive (connector geometry, dimensions, fitment, and similar) is a Technical Visual candidate for Claude, never an AI-image brief.
+- Work adds a **Visual Avoid List** when the article needs one.
+- When real product imagery is used, Work records its **source and rights basis**.
+
 ---
 
 # 0. Core Editorial Goal
@@ -1006,13 +1016,13 @@ The visual should make the combination understandable before the reader reads de
 
 ## Visual Storytelling
 
-Story-First articles must not become “a Hero image plus text.”
+Story-First articles must not become “a Hero image plus text,” but this does not mean every article needs several Body images.
 
-Standard target:
+Default counts (see `KUMIA_IMAGE_STANDARD_V1.md`):
 
 - Hero: 1
-- Body Editorial Images: 2–3
-- Technical Visuals: 1–2
+- Body Editorial Images: **0–N** (article-dependent; two or three is a typical example, not a quota)
+- Technical Visuals: 0–N, editorially justified
 - Card Thumbnail: 1
 
 Body images are not decoration. Each one shows a **story beat** of the article, for example:
@@ -1050,11 +1060,11 @@ These are three **separate assets**. Never reuse one for another role.
 
 ## IMAGE PLACEMENT PLAN — Required Format
 
-Every Work Package includes an **IMAGE PLACEMENT PLAN**. Standard target (a guideline, not a quota; adjust to the article):
+Every Work Package includes an **IMAGE PLACEMENT PLAN**. Default counts, from `KUMIA_IMAGE_STANDARD_V1.md` (a guideline, not a quota; adjust to the article):
 
 - Hero: 1
-- Body Editorial Images: 2–3
-- Technical Visuals: 1–2
+- Body Editorial Images: **0–N**
+- Technical Visuals: 0–N, editorially justified
 - Card Thumbnail: 1
 
 For **each** visual, record:

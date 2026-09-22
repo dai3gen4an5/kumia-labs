@@ -17,17 +17,16 @@ Kumia Labs の記事制作を、以下の分業で安定して回す。
 
 > **AI generates the scene. Code generates the Kumia brand layer.**
 
-Heroのブランド要素は画像生成モデルに任せない。
+画像制作の詳細ルール（Hero背景・safe area・Body枚数・Technical Visualとの切り分け・Card・asset reuse・packaging・QA・accessibility）のsource of truthは
+`docs/workflows/KUMIA_IMAGE_STANDARD_V1.md`
+とする。ここでは重複させず、このPipelineに固有の分業・実行順序だけを記載する。
 
-- **画像生成AI（ChatGPT）:** 写真・背景・記事固有の物体だけを生成する。
-- **Kumia brand layer（コード）:** 次の要素を `scripts/generate-kumia-hero.py` で固定テンプレートとして合成する。
-  - Kumia Labs logo（公式asset `public/brand/kumia-labs-logo.png` をそのまま使用）
-  - category label と、その右の blue accent line
-  - title / supporting copy の文字組み
-  - icon row と icon label
+**このImage Standardは、Research Template V3 / V2のどちらを使う記事かに関係なく、今後作るすべての新規Kumia Labs記事画像に適用する。** 例外はChatGPT Editorial Reviewで明示的に承認された記事固有のものだけ。
 
-記事ごとに変わるのは、背景写真、category text、title、supporting copy、icon labels / icon type だけ。
-Body Editorial ImageとCard Thumbnailは、従来どおり画像生成AIで作る。
+要点だけ再掲:
+- **画像生成AI（ChatGPT）:** 写真・背景・記事固有の物体だけを生成する。ブランド要素（logo / category label / accent line / title / supporting copy / icon row）は描かせない。
+- **Kumia brand layer（コード）:** `scripts/generate-kumia-hero.py` で固定テンプレートとして合成する。
+- Body Editorial ImageとCard Thumbnailは画像生成AIで作る。Body枚数は0〜Nで、記事内容次第（固定枚数ではない）。
 
 ## 基本責任分担
 
@@ -174,16 +173,14 @@ source of truthとする。
 - FINAL CATEGORY LABEL
 - FINAL IMAGE PLACEMENT PLAN
 - FINAL HERO CONCEPT
-- FINAL BODY IMAGE 1
-- FINAL BODY IMAGE 2
-- FINAL BODY IMAGE 3（必要な場合のみ）
+- FINAL BODY IMAGE 1..N（0〜N。枚数は記事内容次第、固定枚数ではない）
 - FINAL TECHNICAL VISUALS
 - FINAL CARD THUMBNAIL CONCEPT
 
-標準目安:
+標準目安（`KUMIA_IMAGE_STANDARD_V1.md`参照。枚数はquotaではない）:
 - Hero: 1
-- Body Editorial Images: 2〜3
-- Technical Visuals: 1〜2
+- Body Editorial Images: 0〜N
+- Technical Visuals: 0〜N
 - Card Thumbnail: 1
 
 ## PHASE 3 — Work 最終改稿
@@ -220,36 +217,14 @@ Claudeは最初に:
 
 生成順:
 1. Hero background（`kumia-<slug>-hero-bg.png`）
-2. Body Image 1
-3. Body Image 2
-4. Body Image 3（必要なら）
-5. Card Thumbnail
+2. Body Image 1..N（FINAL IMAGE PLACEMENT PLANの枚数。0〜Nで固定枚数ではない）
+3. Card Thumbnail
 
 同じ用途の画像を一度に複数生成しない。
 
-### Hero固定ルール（背景はAI、ブランド要素はコード）
-**画像生成AIが作るのは背景画像だけ。** ファイル名: `public/images/kumia-<slug>-hero-bg.png`
-
-背景画像の条件:
-- 16:9（1672×941を標準出力とする）
-- textなし
-- logoなし
-- iconなし
-- category labelなし
-- technical labelなし
-- 左45〜50%は比較的静かで明るい（brand layerが載る）
-- 主被写体は中央〜右
-- realistic/editorial visual
-
-禁止:
-- 画像生成AIにlogo / title / supporting copy / category label / accent line / icon row / icon labelを描かせること
-- 勝手なtagline
-- 不要なmascot
-- 不要なcharacter
-- generic product collage
-- fake technical drawing
-- 未承認コピー
-- Cardとの兼用
+Hero背景・Body・Card・Technical Visualの詳細ルール（条件・禁止事項・left safe area等）は
+`docs/workflows/KUMIA_IMAGE_STANDARD_V1.md`
+を参照する（ここでは重複させない）。
 
 **最終Hero**（`public/images/kumia-<slug>-hero.png`）は、背景にbrand layerを合成して作る:
 
@@ -276,49 +251,6 @@ python scripts/package-kumia-assets.py --slug <slug>
 ```
 
 Hero / Body / Cardを `kumia-<slug>-assets.zip` にまとめる（最終ファイル名のまま）。`public/images/` へそのまま展開すればよく、個別のリネーム・移動は不要。`-hero-bg.png` は含めない。
-
-### Body Editorial Image固定ルール
-- 標準 2〜3枚
-- 必要なら4枚
-- 原則文字なし
-- Kumia Labs logoなし
-- titleなし
-- category labelなし
-- 1画像1メッセージ
-- 360pxでも意味が分かる
-- Heroとは別構図
-- exact technical geometryをAIで作らない
-- horizontal scroll前提にしない
-
-### Technical Visual固定ルール
-以下はClaude実装優先:
-- connector geometry
-- pinout
-- terminal
-- thread
-- dimension
-- seal location
-- rail
-- fitment measurement
-- electrical contact
-
-方法:
-- HTML
-- CSS
-- SVG
-- Interactive UI
-- verified manufacturer imagery
-
-### Card Thumbnail固定ルール
-- 16:9
-- text 0
-- logo 0
-- title 0
-- category label 0
-- Heroとは別構図
-- 小さくても意味が分かる
-- 1 visual idea
-- clutterを避ける
 
 ## PHASE 6 — Claude Code finalize
 実行:

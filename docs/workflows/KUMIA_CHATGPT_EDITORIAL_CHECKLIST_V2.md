@@ -20,21 +20,22 @@
 - 根拠が明確か
 
 ## 画像生成前に必ず確定
+For all new V2 articles, image production rules are governed by `docs/workflows/KUMIA_IMAGE_STANDARD_V1.md`.
+
 FINAL TITLE
 FINAL SUPPORTING COPY
 FINAL CATEGORY LABEL
 FINAL IMAGE PLACEMENT PLAN
 FINAL HERO CONCEPT
-FINAL BODY IMAGE 1
-FINAL BODY IMAGE 2
-FINAL BODY IMAGE 3（必要な場合）
+FINAL BODY IMAGE 1..N（0〜N。必要な場合のみ）
 FINAL TECHNICAL VISUALS
 FINAL CARD THUMBNAIL CONCEPT
 
 ## 標準目安
+Image production/count/composition rules follow `docs/workflows/KUMIA_IMAGE_STANDARD_V1.md`.
 - Hero 1
-- Body Editorial 2〜3
-- Technical 1〜2
+- Body Editorial 0〜N, as editorially justified
+- Technical 0〜N, as editorially justified
 - Card 1
 
 ## Hero
@@ -59,7 +60,7 @@ FINAL CARD THUMBNAIL CONCEPT
 最初は1案のみ生成。
 
 ## Body Editorial
-- 標準2〜3枚
+- 0〜N, as editorially justified（`KUMIA_IMAGE_STANDARD_V1.md`）
 - text 0
 - logo 0
 - title 0

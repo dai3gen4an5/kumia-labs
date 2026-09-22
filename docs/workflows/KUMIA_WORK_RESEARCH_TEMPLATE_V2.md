@@ -167,10 +167,12 @@ TOP 3:
 ## 9. IMAGE PLACEMENT PLAN
 必須。
 
+For all new V2 articles, image production rules are governed by `docs/workflows/KUMIA_IMAGE_STANDARD_V1.md`.
+
 標準目安:
 - Hero: 1
-- Body Editorial Images: 2〜3
-- Technical Visuals: 1〜2
+- Body Editorial Images: 0〜N, as editorially justified. Image production/count/composition rules follow `docs/workflows/KUMIA_IMAGE_STANDARD_V1.md`.
+- Technical Visuals: 0〜N, as editorially justified
 - Home Card Thumbnail: 1
 
 各大セクションについて:

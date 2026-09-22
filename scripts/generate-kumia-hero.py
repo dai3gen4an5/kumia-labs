@@ -18,6 +18,8 @@ Only the inputs below change per article. Every layout constant lives in BRAND, 
     --icons "1919:calendar,Power hub:gear,Attachments:link,Bowls:bowl,Exceptions:alert"
 
 Requires only Pillow. Run with --list-icons to see the built-in icon set.
+
+See docs/workflows/KUMIA_IMAGE_STANDARD_V1.md for editorial image rules.
 """
 from __future__ import annotations
 

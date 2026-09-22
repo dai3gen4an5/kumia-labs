@@ -8,8 +8,12 @@ filenames, so nothing has to be renamed or moved by hand. Unzip it straight into
 
 Expected files in --source-dir (default: public/images):
   kumia-<slug>-hero.png          required   1672x941 (composed by generate-kumia-hero.py)
-  kumia-<slug>-body-01.png ...   optional   one or more, numbered from 01, no gaps
+  kumia-<slug>-body-NN.png ...   optional   zero or more, numbered from 01, no gaps
   kumia-<slug>-card-16x9.png     required   16:9
+
+Body images are optional: zero is a normal, valid case (e.g. when a Technical Visual or
+an Explorer already carries the story), not an error condition. See
+docs/workflows/KUMIA_IMAGE_STANDARD_V1.md for the full editorial image rules.
 
 The intermediate kumia-<slug>-hero-bg.png is deliberately NOT packaged.
 Requires only Pillow.
