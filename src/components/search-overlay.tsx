@@ -14,6 +14,13 @@ type SearchItem = {
 
 const searchIndex: SearchItem[] = [
   {
+    title: "Three Companies Built Wooden Trains That Somehow Speak the Same Language",
+    href: "/home/brio-thomas-ikea-wooden-railway",
+    category: "Home",
+    description: "BRIO set the grammar in 1958. Thomas and IKEA show how an unwritten wooden-railway standard became more valuable than starting over.",
+    keywords: ["brio", "thomas wooden railway", "thomas wood", "ikea", "lillabo", "wooden train", "wooden railway", "track compatibility", "clickety-clack", "clackety track", "adapter", "1958"],
+  },
+  {
     title: "The Theme-Park Wristband Your Nintendo Switch Reads as an amiibo",
     href: "/gaming/power-up-band-amiibo-identities",
     category: "Gaming",
