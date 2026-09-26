@@ -28,7 +28,7 @@ import math
 import sys
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageStat
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent
@@ -51,13 +51,21 @@ BRAND = {
     "logo_top": 46,
     "logo_width": 412,
     # category label (top-right) and its blue accent line
-    "category_size": 19,
+    "category_size": 22,
     "category_weight": 650,
     "category_tracking_em": 0.16,
     "category_center_y": 82,
     "accent_line_length": 56,
     "accent_line_thickness": 2,
     "accent_line_gap": 18,
+    # category label readability guarantee: the label sits outside the left-side
+    # veil (below), so on a background that is dark there too, a soft local
+    # backing (the same white as the veil) is added behind it automatically.
+    # No-op on the bright corner this zone normally has. Not a per-article knob.
+    "category_contrast_luma_min": 150,
+    "category_backing_pad_x": 14,
+    "category_backing_pad_y": 10,
+    "category_backing_radius": 10,
     # title
     "title_top": 176,
     "title_weight": 800,
@@ -69,7 +77,7 @@ BRAND = {
     "title_preferred_lines": 3,
     # supporting copy
     "support_gap": 40,
-    "support_size": 38,
+    "support_size": 44,
     "support_weight": 500,
     "support_line_height": 1.24,
     "support_max_width": 700,
@@ -78,9 +86,9 @@ BRAND = {
     "icon_circle": 80,
     "icon_gap_max": 64,        # widest gap between neighbouring icon items (label-aware)
     "icon_gap_min": 24,        # minimum visual gap between neighbouring labels
-    "icon_label_min_size": 17, # labels shrink only if the row cannot fit at the normal size
+    "icon_label_min_size": 19, # labels shrink only if the row cannot fit at the normal size
     "icon_glyph_ratio": 0.66,
-    "icon_label_size": 21,
+    "icon_label_size": 24,
     "icon_label_weight": 550,
     "icon_label_gap": 14,
     "icon_row_max_width": 860,
@@ -373,8 +381,32 @@ def compose(args) -> Image.Image:
     text_x = line_start - B["accent_line_gap"] - cat_w
     asc, desc = cat_font.getmetrics()
     text_y = B["category_center_y"] - (asc + desc) / 2
-    draw_tracked(draw, (text_x, text_y), cat, cat_font, B["ink"], cat_tr)
     ly = B["category_center_y"]
+
+    # Readability guarantee: this zone sits outside the left-side veil, so on a
+    # background that is dark on the right too, add the same white backing the
+    # veil already uses, sized to the label. Bright corners get no backing.
+    px, py = B["category_backing_pad_x"], B["category_backing_pad_y"]
+    probe_box = (
+        max(0, round(text_x - px)),
+        max(0, round(text_y - py)),
+        min(W, round(line_end + px)),
+        min(H, round(ly + B["accent_line_thickness"] + py)),
+    )
+    probe = canvas.convert("L").crop(probe_box)
+    mean_luma = ImageStat.Stat(probe).mean[0]
+    if mean_luma < B["category_contrast_luma_min"]:
+        # Fully opaque, not the veil's softer alpha: this small badge still has to
+        # read correctly after a browser's lossy re-encode (WebP/AVIF) of the
+        # served image, which erodes soft, partially-transparent edges first.
+        backing = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
+        ImageDraw.Draw(backing).rounded_rectangle(
+            probe_box, radius=B["category_backing_radius"], fill=(255, 255, 255, 255)
+        )
+        canvas.alpha_composite(backing)
+        draw = ImageDraw.Draw(canvas)
+
+    draw_tracked(draw, (text_x, text_y), cat, cat_font, B["ink"], cat_tr)
     draw.rectangle([line_start, ly - B["accent_line_thickness"] / 2, line_end, ly + B["accent_line_thickness"] / 2], fill=B["blue"])
 
     # title
