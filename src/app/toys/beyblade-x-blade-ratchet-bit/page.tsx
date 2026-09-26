@@ -24,125 +24,59 @@ const canonicalPath = "/toys/beyblade-x-blade-ratchet-bit",
   bodyOneImage = "/images/kumia-beyblade-x-blade-ratchet-bit-body-01.png";
 
 const SOURCES = {
-  // U.S. primary sources first: this is a U.S.-audience article, and Hasbro's
-  // own official pages independently confirm the Blade/Ratchet/Bit structure,
-  // the Xtreme Battle Set contents, and current CX products for this market.
+  P1: {
+    short: "Beyblade — Parents Guide",
+    label: "Beyblade X official English site — Parents Guide",
+    url: "https://beyblade.com/parent-guide/",
+    claim: "Official English overview: Beyblade X tops are made of three parts, those parts can be mixed and matched, tops can accelerate in battle, and the four types are Attack, Stamina, Defense, and Balance.",
+  },
   H1: {
     short: "Hasbro — Xtreme Battle Set",
     label: "Hasbro — Beyblade X Xtreme Battle Set (F9588) official instructions",
     url: "https://instructions.hasbro.com/en-us/instruction/beyblade-x-xtreme-battle-set-with-beystadium-2-right-spinning-top-toys-and-2-launchers",
-    claim: "U.S. product page: Beystadium, two tops (Dagger Dran 4-60R, Tusk Mammoth 3-60T), two launchers, and interchangeable Blade/Ratchet/Bit “mix and match” customization.",
+    claim: "U.S. product page: three interchangeable Blade/Ratchet/Bit pieces, mix-and-match customization, X-Celerator Gear System, set contents, and safety guidance.",
   },
-  H2: {
-    short: "Hasbro — Beyblade Day",
-    label: "Hasbro Newsroom — BEYBLADE X Universe Expands on BEYBLADE Day",
-    url: "https://newsroom.hasbro.com/node/35576/pdf",
-    claim: "Official U.S. release: Xtreme Battle Set ranked #1 in Action Figures for 2024 per Circana; Amazon carried new Beyblade X tops including the first Hasbro CX product.",
+  B1: {
+    short: "Official U.S. Beyblade site",
+    label: "Beyblade X official U.S. site — product lineup",
+    url: "https://usa.beyblade.com/index.html",
+    claim: "English U.S. lineup: Sword Dran 3-60F and official Attack, Defense, Stamina, and Balance examples, including Flat- and Taper-Bit behavior.",
   },
-  S19: {
-    short: "Hasbro 2026 Lookbook",
-    label: "Hasbro 2026 Lookbook",
-    url: "https://newsroom.hasbro.com/static-files/bd7a8f8c-7280-468e-b732-1e39efae6f4c",
-    claim: "CX Infinity four-piece Blades and current U.S. line labels.",
-  },
-  S20: {
-    short: "Hasbro 2026 Lookbook (alt.)",
-    label: "Hasbro 2026 Lookbook — alternate host",
-    url: "https://corp.hasbro.com/static-files/5836743c-70fc-436f-b385-ab8faaf1d9e1",
-    claim: "Sneak Attack Battle Set; UX Infinity tops with Ratchet-integrated Blades.",
-  },
-  S22: {
-    short: "Hasbro 2024 Lookbook",
-    label: "Hasbro 2024 Holiday Lookbook",
-    url: "https://newsroom.hasbro.com/static-files/572c0fc1-d4f3-478a-81c0-a7302cf0f56c",
-    claim: "U.S. “Sword Dran 3-60F” name and three interchangeable parts.",
-  },
-  // Takara Tomy primary sources: kept in full. The Japanese-market guides,
-  // manuals, and product pages remain the clearest first-party evidence for
-  // the name syntax, the 3-60 decode, Bit typing, and the 72-combination set.
-  S1: {
-    short: "Takara Tomy guide",
-    label: "Takara Tomy — Beyblade X Beginner Guide",
-    url: "https://beyblade.takaratomy.co.jp/beyblade-x/guide/",
-    claim: "Names are composed from Blade, Ratchet, and Bit names; the Bit determines official type.",
-  },
-  S3: {
-    short: "BX-01 product page",
-    label: "Takara Tomy — BX-01 Dran Sword 3-60F",
-    url: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/bx01.html",
-    claim: "Foundational build; Japanese product name and 2023 release.",
-  },
-  S4: {
-    short: "BX-01 manual",
-    label: "Takara Tomy — BX-01 manual",
-    url: "https://beyblade.takaratomy.co.jp/beyblade-x/manual/BX-01_manual.pdf",
-    claim: "Box contents separately list the Dran Sword Blade, 3-60 Ratchet, and F Bit.",
-  },
-  S10: {
-    short: "UX-10 product page",
-    label: "Takara Tomy — UX-10 Customize Set U",
-    url: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/ux10.html",
-    claim: "Four Blades, three Ratchets, six Bits, and an explicit 72 combinations.",
-  },
-  S11: {
-    short: "UX-10 manual",
-    label: "Takara Tomy — UX-10 manual",
-    url: "https://beyblade.takaratomy.co.jp/beyblade-x/manual/UX-10_manual.pdf",
-    claim: "Exact included part list for UX-10.",
-  },
-  S2: {
-    short: "Gear structure",
-    label: "Takara Tomy — Gear Structure",
-    url: "https://beyblade.takaratomy.co.jp/gear/",
-    claim: "Plain-language roles of Blade, Ratchet, and Bit.",
-  },
-  S5: {
+  V1: {
     short: "Official video",
     label: "Official English Beyblade video — Meet Sword Dran 3-60F",
     url: "https://www.youtube.com/watch?v=IeplsaDSTX0",
-    claim: "First-party confirmation that 3-60 has three Ratchet blades and a 6 mm height.",
+    claim: "English first-party explanation of Sword Dran, the 3-60 Ratchet's three blades and 6 mm height, and the Flat Bit.",
   },
-  S6: {
-    short: "BX-02 product page",
-    label: "Takara Tomy — BX-02 Hells Scythe 4-60T",
-    url: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/bx02.html",
-    claim: "Taper stock build's balance-oriented behavior.",
+  H2: {
+    short: "Hasbro — Fang Leon CX",
+    label: "Hasbro — Fang Leon T 4-60U CX official product page",
+    url: "https://instructions.hasbro.com/en-us/instruction/bey-blade-bbx-fang-leon",
+    claim: "U.S. product page: interchangeable Blade/Ratchet/Bit layers, three-part CX Blade, X-Celerator Gear System, and system-only compatibility.",
   },
-  S7: {
-    short: "BX-03 product page",
-    label: "Takara Tomy — BX-03 Wizard Arrow 4-80B",
-    url: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/bx03.html",
-    claim: "Ball stock build's endurance / long-spin behavior.",
+  H4: {
+    short: "Hasbro — X-treme Battlers Pack",
+    label: "Hasbro — Beyblade X X-treme Battlers Pack official product page",
+    url: "https://instructions.hasbro.com/en-us/instruction/beyblade-x-x-treme-battlers-pack-3-takara-tomy-tops",
+    claim: "Official U.S. example of a combo Ratchet-Bit alongside standard interchangeable Blade/Ratchet/Bit layers.",
   },
-  S8: {
-    short: "BX-04 product page",
-    label: "Takara Tomy — BX-04 Knight Shield 3-80N",
-    url: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/bx04.html",
-    claim: "Needle stock build's center-holding, defense-oriented behavior.",
+  T1: {
+    short: "Takara Tomy Asia — CX-13",
+    label: "Takara Tomy Asia — CX-13 Starter BahamutBlitz Bk 1-50I official English product page",
+    url: "https://www.takaratomyasia.com/en/toys/beyblade-x/cx-line/cx-13-starter-bahamutblitz-bk-1-50i/",
+    claim: "Official English catalog entry identifying BahamutBlitz Bk 1-50I as the CX-13 starter, with first-party product images.",
   },
-  S9: {
-    short: "F/T/B/N Bit set",
-    label: "Takara Tomy — F/T/B/N Bit Set",
-    url: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/bx00-bit_silver_white.html",
-    claim: "Official Flat, Taper, Ball, and Needle names and four-type framing.",
+  H5: {
+    short: "Hasbro — 2026 Lookbook",
+    label: "Hasbro — 2026 Lookbook (official English PDF)",
+    url: "https://newsroom.hasbro.com/static-files/bd7a8f8c-7280-468e-b732-1e39efae6f4c",
+    claim: "Official U.S. product descriptions: CX Infinity Blades separate into four pieces, and UX Infinity tops convert to reveal hidden features.",
   },
-  S12: {
-    short: "CX-07 product page",
-    label: "Takara Tomy — CX-07 Pegasus Blast ATr",
-    url: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/cx07.html",
-    claim: "Three-component CX Blade and a Ratchet-integrated Bit.",
-  },
-  S14: {
-    short: "UX Expand warning",
-    label: "Takara Tomy — UX Expand customization warning",
-    url: "https://beyblade.takaratomy.co.jp/beyblade-x/help/noratchet/",
-    claim: "A Ratchet-integrated Blade cannot accept a normal Ratchet or Ratchet-integrated Bit.",
-  },
-  S17: {
-    short: "CX-13 product page",
-    label: "Takara Tomy — CX-13 Bahamut Blitz BK1-50I",
-    url: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/cx13.html",
-    claim: "A CX Expand Blade separating into four parts.",
+  R1: {
+    short: "Toys“R”Us — UX-10",
+    label: "Toys“R”Us Thailand — UX-10 Customize Set U (English product page)",
+    url: "https://www.toysrus.co.th/en-th/takara-tomy-beyblade-x-ux-10-customize-set-u-10060420.html",
+    claim: "Native-English retail product description: four Blades, three Ratchets, six Bits, and 72 combinations.",
   },
 } as const;
 
@@ -184,7 +118,7 @@ function NameDecoder() {
         </div>
       </div>
       <figcaption>
-        Verified for this build only: the official English explanation confirms 3-60 as three Ratchet blades and a 6 mm height. <Src id="S5" /> <Src id="S4" />
+        Verified for this build only: the official English explanation confirms 3-60 as three Ratchet blades and a 6 mm height. <Src id="V1" />
       </figcaption>
     </figure>
   );
@@ -257,7 +191,7 @@ export default function BeybladeXBladeRatchetBit() {
 
           <section className={local.prose} aria-label="Opening">
             <p className={local.lead}>
-              At first glance, <strong>Sword Dran 3-60F</strong> &mdash; known as <strong>Dran Sword 3-60F</strong> in Takara Tomy&rsquo;s Japanese line &mdash; looks like a dramatic name followed by a model number. If you are new to Beyblade X, the letters and digits can feel like a code you are expected to understand before entering the hobby.
+              At first glance, <strong>Sword Dran 3-60F</strong> looks like a dramatic name followed by a model number. If you are new to Beyblade X, the letters and digits can feel like a code you are expected to understand before entering the hobby.
             </p>
             <p>They are actually trying to help.</p>
             <div className={local.claim}>
@@ -275,17 +209,17 @@ export default function BeybladeXBladeRatchetBit() {
           <section className={local.prose} aria-labelledby="what-is-it">
             <h2 id="what-is-it">First: what is Beyblade X?</h2>
             <p>
-              Beyblade X is a battling-top system. Players launch their tops into a dedicated stadium, where the tops collide, race around the rim, lose spin, or knock one another out. The toothed gear around the bottom component can catch the stadium&rsquo;s rail and send the top into the system&rsquo;s signature high-speed dash.
+              Beyblade X is a battling-top system. Players launch their tops into a dedicated stadium, where the tops collide, race around the rim, lose spin, or knock one another out. The gear around the Bit can catch the stadium&rsquo;s X-Celerator Rail and send the top into the system&rsquo;s signature Xtreme Dash. <Src id="H1" />
             </p>
             <p>You do not need to learn tournament rules or memorize a catalog to understand the hardware. Start with the stack.</p>
-            <p>A standard Beyblade X top has three main parts:</p>
+            <p>A standard Beyblade X top has three main parts: <Src id="P1" /> <Src id="H1" /></p>
             <ol>
               <li><strong>Blade</strong> &mdash; the upper contact piece</li>
               <li><strong>Ratchet</strong> &mdash; the middle connector</li>
               <li><strong>Bit</strong> &mdash; the bottom tip that touches the stadium</li>
             </ol>
             <p>
-              Twist the top apart and those three layers separate. Twist compatible pieces back together and they become a new build. Hasbro&rsquo;s own U.S. instructions for the Xtreme Battle Set describe the same three &ldquo;easy-to-assemble pieces&rdquo; and call the swapping itself &ldquo;mix and match&rdquo; customization. <Src id="S1" /> <Src id="S2" /> <Src id="H1" />
+              Twist the top apart and those three layers separate. Twist compatible pieces back together and they become a new build. The official Parents Guide says Beyblade X tops are made of three parts and invites players to mix and match them; Hasbro&rsquo;s U.S. Xtreme Battle Set page names those layers as Blade, Ratchet, and Bit. <Src id="P1" /> <Src id="H1" />
             </p>
           </section>
 
@@ -316,24 +250,23 @@ export default function BeybladeXBladeRatchetBit() {
             <h2 id="ratchet-section">The Ratchet sets the middle of the build</h2>
             <p>The <strong>Ratchet</strong> connects the Blade to the Bit. It affects the top&rsquo;s height, balance, contact exposure, and the way the layers lock together.</p>
             <p>
-              In <strong>3-60</strong>, the first number points to the Ratchet&rsquo;s three protruding blades, while <strong>60</strong> identifies its 6-millimeter height. That reading is confirmed in the official English explanation for Sword Dran 3-60F. <Src id="S5" />
+              In <strong>3-60</strong>, the first number points to the Ratchet&rsquo;s three protruding blades, while <strong>60</strong> identifies its 6-millimeter height. That reading is confirmed in the official English explanation for Sword Dran 3-60F. <Src id="V1" />
             </p>
             <p>Changing the Ratchet while keeping the other two parts changes where the complete top carries the Blade and exposes its middle layer. The difference may be subtler than replacing the Blade or Bit, but it is still a meaningful design choice.</p>
             <p>This decoder should not be forced onto every newer code. Integrated parts can use different naming patterns. For this foundational example, however, 3-60 gives a newcomer a useful clue: the middle component has its own geometry and height.</p>
           </section>
 
           <section className={local.prose} aria-labelledby="bit-section">
-            <h2 id="bit-section">The Bit determines the official type</h2>
-            <p>The <strong>Bit</strong> is the bottom tip. It touches the stadium floor, and its toothed outer gear can engage the stadium&rsquo;s rail for an Xtreme Dash. The shape of the tip strongly affects how the top moves.</p>
-            <p>The official beginner guide makes an especially helpful point: the Bit determines whether a build is classified as Attack, Defense, Stamina, or Balance type. <Src id="S1" /></p>
-            <p>Four early Bits make the relationship easy to see:</p>
+            <h2 id="bit-section">The Bit makes movement easy to see</h2>
+            <p>The <strong>Bit</strong> is the bottom tip. It touches the stadium floor, and its toothed outer gear can engage the X-Celerator Rail for an Xtreme Dash. The shape of the tip strongly affects how the top moves. <Src id="H1" /></p>
+            <p>The official Parents Guide and Hasbro&rsquo;s U.S. lineup classify complete tops as Attack, Defense, Stamina, or Balance. Four early stock builds show those categories without pretending that one component controls every result: <Src id="P1" /></p>
             <ul>
-              <li><strong>F: Flat</strong> supports aggressive movement and attack-oriented behavior. <Src id="S3" /></li>
-              <li><strong>B: Ball</strong> supports stable, long-spinning movement associated with Stamina builds. <Src id="S7" /></li>
-              <li><strong>N: Needle</strong> tends to hold position near the center for Defense-oriented behavior. <Src id="S8" /></li>
-              <li><strong>T: Taper</strong> mixes movement and stability for a Balance approach. <Src id="S6" /></li>
+              <li><strong>Sword Dran 3-60F</strong> is an Attack Type; its Flat-tipped Bit is described as engaging the rail for Xtreme Dashes.</li>
+              <li><strong>Arrow Wizard 4-80B</strong> is a Stamina Type built to keep spinning and outlast an opponent.</li>
+              <li><strong>Helm Knight 3-80N</strong> is a Defense Type whose Blade is described as dampening attacks.</li>
+              <li><strong>Scythe Incendio 4-60T</strong> is a Balance Type; its tapered Bit balances early attack power with endurance. <Src id="B1" /></li>
             </ul>
-            <p>These are tendencies, not remote controls. A Flat Bit does not make every launch follow the same path, and a Needle Bit does not make a top impossible to knock away. The important point is that swapping the Bit changes the part that meets the stadium. Even a newcomer can usually see the result. <Src id="S9" /></p>
+            <p>These are stock-build descriptions, not isolated laboratory tests of each Bit. A Flat Bit does not make every launch follow the same path, and a Defense label does not make a top impossible to knock away. The important point is that swapping the Bit changes the part that meets the stadium. Even a newcomer can usually see the result.</p>
           </section>
 
           <section className={local.prose} aria-labelledby="whole-name">
@@ -344,7 +277,7 @@ export default function BeybladeXBladeRatchetBit() {
               <p>Sword Dran + 3-60 + F = Sword Dran 3-60F</p>
             </div>
             <p>
-              The <strong>name segment before the Ratchet code identifies the Blade</strong>. The middle code identifies the Ratchet. The final letter identifies the Bit&mdash;in this case, Flat.
+              The <strong>name segment before the Ratchet code identifies the Blade</strong>. The middle code identifies the Ratchet. The final letter identifies the Bit&mdash;in this case, Flat. <Src id="V1" />
             </p>
             <p>Once you see the pattern, the name stops looking random. The fantasy-style words identify the top layer. The number code identifies the middle layer. The ending identifies the tip.</p>
             <p>You do not have to memorize what every part does. The useful first step is separating a complete name into its component slots.</p>
@@ -366,27 +299,27 @@ export default function BeybladeXBladeRatchetBit() {
             <h2 id="seventy-two">Four Blades, three Ratchets, six Bits: 72 builds</h2>
             <p>Customization is not an unofficial enthusiast workaround. It is part of the official Beyblade X play system.</p>
             <p>
-              Takara Tomy&rsquo;s UX-10 Customize Set U makes that especially clear. It includes four Blades, three Ratchets, and six Bits. The number of possible three-part builds is:
+              Hasbro&rsquo;s U.S. product pages repeatedly invite players to switch the interchangeable Blade, Ratchet, and Bit with parts from other Beyblade X tops. The manufacturer presents rebuilding as a feature, not a loophole. <Src id="H1" /> <Src id="H2" />
+            </p>
+            <p>
+              Takara Tomy&rsquo;s Japanese-market UX-10 Customize Set U makes the multiplication especially clear. Its native-English retail product description lists four Blades, three Ratchets, and six Bits, allowing 72 combinations:
             </p>
             <div className={local.claim}>
               <span>THE MATH</span>
               <p className={local.mathLine}>4 &times; 3 &times; 6 = 72</p>
             </div>
-            <p>
-              Those are 72 combinations from one set&rsquo;s listed parts&mdash;not 72 claims of equal strength and not 72 guaranteed tournament answers. Some builds will make more sense than others. The point is that a modest group of components becomes a large design space because every slot multiplies the choices in the other slots.
-            </p>
-            <p>A new Bit is not just one new object. It can be tested under several Blades and Ratchets already in a collection. A new Blade can be paired with multiple existing middle pieces and tips. Each compatible part adds possibilities across the whole system. <Src id="S10" /> <Src id="S11" /></p>
-            <p>UX-10 is a Japanese-market product, so it is evidence for the official customization concept rather than an automatic U.S. shopping recommendation.</p>
+            <p>Those are 72 arrangements of the listed parts, not 72 claims of equal strength or 72 guaranteed tournament answers. A new Bit can be tested under several compatible Blades and Ratchets already in the set, and each compatible part expands the design space. <Src id="R1" /></p>
+            <p>Compatibility still has boundaries. Stay within the Beyblade X system, follow the instructions for the specific product, and do not assume that every newer integrated design accepts the same three separate pieces.</p>
           </section>
 
           <section className={local.prose} aria-labelledby="try-it">
             <h2 id="try-it">Try the simplest experiment</h2>
             <p>If you already own two compatible standard Beyblade X tops, begin with their Bits.</p>
             <p>
-              Launch each stock build a few times so you know how it normally behaves. Then exchange only the Bits and repeat under similar conditions. A Flat, Ball, Needle, or Taper tip will not erase the influence of the other parts, but changing the contact point with the stadium is often the easiest difference to observe.
+              Launch each stock build a few times so you know how it normally behaves. Then exchange only the Bits and repeat under similar conditions. A different Bit will not erase the influence of the other parts, but changing the contact point with the stadium is often the easiest difference to observe.
             </p>
             <p>After that, return the Bits and try the Ratchets. Finally, try the Blades. You are building intuition for the three slots instead of memorizing a chart.</p>
-            <p className={local.safety}>Use a compatible Beyblade X stadium and follow the instructions supplied with the product. Keep faces away from the stadium during play, and do not mix Beyblade X parts with earlier systems such as Beyblade Burst.</p>
+            <p className={local.safety}>Use only Beyblade X tops with a Beyblade X Beystadium and follow the instructions supplied with the product. Keep faces away from the stadium during play, and do not lean over the stadium while tops are in motion. <Src id="H1" /></p>
           </section>
 
           <section className={local.prose} aria-labelledby="try-beyblade">
@@ -405,7 +338,7 @@ export default function BeybladeXBladeRatchetBit() {
               <p>Blade &times; Ratchet &times; Bit is the basic idea. Newer Beyblade X systems take that idea even further.</p>
             </div>
             <p>
-              In CX models, the Blade itself can separate into additional components. <Src id="S12" /> <Src id="S17" /> Some newer designs also integrate the Ratchet function into either the Blade or the Bit. <Src id="S14" /> That means that, as of 2026, not every Beyblade X is physically arranged as three separate pieces. Hasbro&rsquo;s own U.S. materials confirm the same CX and Infinity systems reaching this market. <Src id="S19" /> <Src id="S20" /> <Src id="H2" />
+              Takara Tomy Asia&rsquo;s official English catalog lists BahamutBlitz Bk 1-50I as the CX-13 starter. <Src id="T1" /> In CX models, the Blade itself can separate into three components, while Hasbro&rsquo;s CX Infinity expands that Blade to four. <Src id="H2" /> <Src id="H5" /> Hasbro also describes UX Infinity tops as converting to reveal hidden features, and offers tops that combine the Ratchet and Bit. <Src id="H5" /> <Src id="H4" /> That means that, as of 2026, not every Beyblade X is physically arranged as three separate pieces.
             </p>
             <p>
               The beginner model is still useful: learn what makes contact, what controls the middle connection and height, and what touches the stadium. The newer systems split or combine those functions in more ways. If a future name does not fit the Sword Dran pattern neatly, check its official product page rather than forcing it through the first decoder you learned.
@@ -436,7 +369,7 @@ export default function BeybladeXBladeRatchetBit() {
           <section className={styles.sources}>
             <h2>Sources and methodology</h2>
             <p>
-              Kumia Labs reviewed Hasbro&rsquo;s U.S. product pages and newsroom releases alongside Takara Tomy&rsquo;s official guides, product pages, and manuals, and an official English product video, on September 25–26, 2026. The Ratchet decode for 3-60 is confirmed for that specific part only, not as a universal Ratchet code. U.S. and Japanese product names are kept separate rather than blended. The featured Amazon U.S. listing (Beyblade X Xtreme Battle Set, ASIN B0CS8CM4YB) was reverified for product identity and in-stock status immediately before publication. No compatibility checker, build simulator, or name parser is implemented; this article does not decode integrated-part naming such as ATr, HOp, H, or LF.
+              Kumia Labs reviewed Hasbro&rsquo;s official U.S. product and instruction pages and 2026 Lookbook, the official English Beyblade Parents Guide and U.S. product lineup, Takara Tomy Asia&rsquo;s official English catalog, an official English product video, and a native-English retail product description for UX-10 on September 25–26, 2026. Every research source linked below was published natively in English. The Ratchet decode for 3-60 is confirmed for that specific part only, not as a universal Ratchet code. The featured Amazon U.S. listing (Beyblade X Xtreme Battle Set, ASIN B0CS8CM4YB) was reverified for product identity and in-stock status immediately before publication. No compatibility checker, build simulator, or name parser is implemented; this article does not decode integrated-part naming such as ATr, HOp, H, or LF.
             </p>
             <ul className={local.sourceList}>
               {(Object.keys(SOURCES) as SourceId[]).map((id) => (
