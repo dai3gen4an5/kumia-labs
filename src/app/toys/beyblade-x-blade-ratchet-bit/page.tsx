@@ -7,10 +7,10 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { amazonProductUrl } from "@/lib/amazon";
 import { absoluteUrl } from "@/lib/site";
-import styles from "../what-electric-toothbrush-should-you-buy/page.module.css";
+import styles from "../../home/what-electric-toothbrush-should-you-buy/page.module.css";
 import local from "./page.module.css";
 
-const canonicalPath = "/home/beyblade-x-blade-ratchet-bit",
+const canonicalPath = "/toys/beyblade-x-blade-ratchet-bit",
   title = "Beyblade X Names Are Secret Build Recipes",
   seoTitle = "What Does “Sword Dran 3-60F” Mean? Beyblade X Names Explained",
   metaDescription =
@@ -224,7 +224,7 @@ export default function BeybladeXBladeRatchetBit() {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl() },
-      { "@type": "ListItem", position: 2, name: "Home research", item: absoluteUrl("/#latest") },
+      { "@type": "ListItem", position: 2, name: "Toys research", item: absoluteUrl("/#latest") },
       { "@type": "ListItem", position: 3, name: title, item: absoluteUrl(canonicalPath) },
     ],
   };
@@ -236,7 +236,7 @@ export default function BeybladeXBladeRatchetBit() {
       <SiteHeader />
       <article>
         <div className={styles.breadcrumb}>
-          <Link href="/">Home</Link><span>/</span><Link href="/#latest">Home research</Link><span>/</span><span>Beyblade X names</span>
+          <Link href="/">Home</Link><span>/</span><Link href="/#latest">Toys research</Link><span>/</span><span>Beyblade X names</span>
           <ArticleDateMeta publishedAt={publishedDate} updatedAt={updatedDate} />
         </div>
 

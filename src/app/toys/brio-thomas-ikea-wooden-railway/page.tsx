@@ -7,10 +7,10 @@ import { ArticleDateMeta, ArticleResearchMeta } from "@/components/article-resea
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { absoluteUrl } from "@/lib/site";
-import styles from "../what-electric-toothbrush-should-you-buy/page.module.css";
+import styles from "../../home/what-electric-toothbrush-should-you-buy/page.module.css";
 import local from "./page.module.css";
 
-const canonicalPath = "/home/brio-thomas-ikea-wooden-railway";
+const canonicalPath = "/toys/brio-thomas-ikea-wooden-railway";
 const title = "Three Companies Built Wooden Trains That Somehow Speak the Same Language";
 const seoTitle = "Why BRIO, Thomas, and IKEA Wooden Railway Tracks Often Connect";
 const metaDescription =
@@ -317,7 +317,7 @@ export default function BrioThomasIkeaWoodenRailway() {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl() },
-      { "@type": "ListItem", position: 2, name: "Home research", item: absoluteUrl("/#latest") },
+      { "@type": "ListItem", position: 2, name: "Toys research", item: absoluteUrl("/#latest") },
       { "@type": "ListItem", position: 3, name: title, item: absoluteUrl(canonicalPath) },
     ],
   };
@@ -329,7 +329,7 @@ export default function BrioThomasIkeaWoodenRailway() {
       <SiteHeader />
       <article>
         <div className={styles.breadcrumb}>
-          <Link href="/">Home</Link><span>/</span><Link href="/#latest">Home research</Link><span>/</span><span>Wooden railway language</span>
+          <Link href="/">Home</Link><span>/</span><Link href="/#latest">Toys research</Link><span>/</span><span>Wooden railway language</span>
           <ArticleDateMeta publishedAt={publishedDate} updatedAt={updatedDate} />
         </div>
 

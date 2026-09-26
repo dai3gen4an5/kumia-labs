@@ -10,10 +10,10 @@ import { SiteHeader } from "@/components/site-header";
 import { SOURCES, type SourceId } from "@/data/lego-trains-explorer";
 import { amazonSearchUrl } from "@/lib/amazon";
 import { absoluteUrl } from "@/lib/site";
-import styles from "../what-electric-toothbrush-should-you-buy/page.module.css";
+import styles from "../../home/what-electric-toothbrush-should-you-buy/page.module.css";
 import local from "./page.module.css";
 
-const canonicalPath = "/home/lego-trains-old-track",
+const canonicalPath = "/toys/lego-trains-old-track",
   title = "LEGO Never Changed the Track Width. It Changed Where the Electricity Lives.",
   seoTitle = "Can New LEGO Trains Run on Old Track? The Width Stayed the Same",
   metaDescription =
@@ -89,7 +89,7 @@ export default function LegoTrainsOldTrack() {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl() },
-      { "@type": "ListItem", position: 2, name: "Home research", item: absoluteUrl("/#latest") },
+      { "@type": "ListItem", position: 2, name: "Toys research", item: absoluteUrl("/#latest") },
       { "@type": "ListItem", position: 3, name: title, item: absoluteUrl(canonicalPath) },
     ],
   };
@@ -102,7 +102,7 @@ export default function LegoTrainsOldTrack() {
         <div className={styles.breadcrumb}>
           <Link href="/">Home</Link>
           <span>/</span>
-          <Link href="/#latest">Home research</Link>
+          <Link href="/#latest">Toys research</Link>
           <span>/</span>
           <span>LEGO trains and old track</span>
           <ArticleDateMeta publishedAt={publishedDate} updatedAt={updatedDate} />
@@ -208,7 +208,7 @@ export default function LegoTrainsOldTrack() {
             <p>That promise belonged to its own era; it is not proof that every part made since then plugs into every other part. But it shows the idea LEGO was selling: a system could change without making earlier play meaningless.</p>
             <p>The surviving track width is a remarkably visible version of that idea. An old wagon can still roll in a new layout. A newer battery locomotive can travel over an older rail. The electricity may have changed address, but the wheels still know where home is.</p>
             <p>
-              LEGO preserved another surprising bridge between generations of play in a completely different size: <Link href="/home/lego-duplo-hidden-connection">DUPLO looks separate, yet was designed to connect back to standard LEGO</Link>.
+              LEGO preserved another surprising bridge between generations of play in a completely different size: <Link href="/toys/lego-duplo-hidden-connection">DUPLO looks separate, yet was designed to connect back to standard LEGO</Link>.
             </p>
           </section>
 

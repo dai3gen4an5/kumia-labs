@@ -10,10 +10,10 @@ import { SiteHeader } from "@/components/site-header";
 import { SOURCES, type SourceId } from "@/data/lego-duplo-explorer";
 import { amazonProductUrl } from "@/lib/amazon";
 import { absoluteUrl } from "@/lib/site";
-import styles from "../what-electric-toothbrush-should-you-buy/page.module.css";
+import styles from "../../home/what-electric-toothbrush-should-you-buy/page.module.css";
 import local from "./page.module.css";
 
-const canonicalPath = "/home/lego-duplo-hidden-connection",
+const canonicalPath = "/toys/lego-duplo-hidden-connection",
   title = "DUPLO Looks Like a Different Toy. It Was Designed to Fit LEGO.",
   seoTitle = "DUPLO Was Designed to Fit LEGO — Here’s the Hidden Connection",
   metaDescription =
@@ -89,7 +89,7 @@ export default function LegoDuploHiddenConnection() {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl() },
-      { "@type": "ListItem", position: 2, name: "Home research", item: absoluteUrl("/#latest") },
+      { "@type": "ListItem", position: 2, name: "Toys research", item: absoluteUrl("/#latest") },
       { "@type": "ListItem", position: 3, name: title, item: absoluteUrl(canonicalPath) },
     ],
   };
@@ -102,7 +102,7 @@ export default function LegoDuploHiddenConnection() {
         <div className={styles.breadcrumb}>
           <Link href="/">Home</Link>
           <span>/</span>
-          <Link href="/#latest">Home research</Link>
+          <Link href="/#latest">Toys research</Link>
           <span>/</span>
           <span>LEGO and DUPLO</span>
           <ArticleDateMeta publishedAt={publishedDate} updatedAt={updatedDate} />

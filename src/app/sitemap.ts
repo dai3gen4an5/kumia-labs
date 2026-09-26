@@ -4,11 +4,11 @@ import { absoluteUrl } from "@/lib/site";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: absoluteUrl(), lastModified: "2026-09-14", changeFrequency: "weekly", priority: 1 },
-    { url: absoluteUrl("/home/beyblade-x-blade-ratchet-bit"), lastModified: "2026-09-25", changeFrequency: "monthly", priority: 0.9 },
-    { url: absoluteUrl("/home/brio-thomas-ikea-wooden-railway"), lastModified: "2026-09-23", changeFrequency: "monthly", priority: 0.9 },
+    { url: absoluteUrl("/toys/beyblade-x-blade-ratchet-bit"), lastModified: "2026-09-26", changeFrequency: "monthly", priority: 0.9 },
+    { url: absoluteUrl("/toys/brio-thomas-ikea-wooden-railway"), lastModified: "2026-09-26", changeFrequency: "monthly", priority: 0.9 },
     { url: absoluteUrl("/gaming/power-up-band-amiibo-identities"), lastModified: "2026-09-21", changeFrequency: "monthly", priority: 0.9 },
-    { url: absoluteUrl("/home/lego-trains-old-track"), lastModified: "2026-09-20", changeFrequency: "monthly", priority: 0.9 },
-    { url: absoluteUrl("/home/lego-duplo-hidden-connection"), lastModified: "2026-09-20", changeFrequency: "monthly", priority: 0.9 },
+    { url: absoluteUrl("/toys/lego-trains-old-track"), lastModified: "2026-09-26", changeFrequency: "monthly", priority: 0.9 },
+    { url: absoluteUrl("/toys/lego-duplo-hidden-connection"), lastModified: "2026-09-26", changeFrequency: "monthly", priority: 0.9 },
     { url: absoluteUrl("/home/kitchenaid-attachments-bowls"), lastModified: "2026-09-19", changeFrequency: "monthly", priority: 0.9 },
     { url: absoluteUrl("/tools/pressure-washer-hose-and-gun-fit"), lastModified: "2026-09-19", changeFrequency: "monthly", priority: 0.9 },
     { url: absoluteUrl("/tools/dewalt-20v-max-bauer-20v-compatibility"), lastModified: "2026-09-19", changeFrequency: "monthly", priority: 0.9 },

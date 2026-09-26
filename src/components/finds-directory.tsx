@@ -5,13 +5,14 @@ import Image from "next/image";
 import type { KumiaFind } from "@/data/finds";
 
 const CATEGORY_LABELS: Record<string, string> = {
+  TOYS: "Toys",
   GAMING: "Gaming",
   TECH: "Tech",
   TOOLS: "Tools",
   HOME: "Home",
   AUTO: "Auto",
 };
-const CATEGORY_ORDER = ["GAMING", "TECH", "TOOLS", "HOME", "AUTO"];
+const CATEGORY_ORDER = ["TOYS", "GAMING", "TECH", "TOOLS", "HOME", "AUTO"];
 
 const formatNumber = (number: number) => number.toString().padStart(3, "0");
 const formatDate = (date: string) => date.slice(0, 10).replaceAll("-", ".");
