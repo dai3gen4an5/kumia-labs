@@ -18,7 +18,7 @@ const searchIndex: SearchItem[] = [
     href: "/toys/beyblade-x-blade-ratchet-bit",
     category: "Toys",
     description: "“Sword Dran 3-60F” looks like a model number. It is really a map of the three interchangeable parts inside: Blade, Ratchet, and Bit.",
-    keywords: ["beyblade", "beyblade x", "sword dran", "dran sword", "3-60f", "blade ratchet bit", "takara tomy", "hasbro", "ux-10", "72 combinations", "flat bit", "ball bit", "needle bit", "taper bit", "what does 3-60f mean"],
+    keywords: ["beyblade", "beyblade x", "sword dran", "dran sword", "3-60f", "blade ratchet bit", "takara tomy", "hasbro", "mix and match", "flat bit", "ball bit", "needle bit", "taper bit", "what does 3-60f mean"],
   },
   {
     title: "Three Companies Built Wooden Trains That Somehow Speak the Same Language",

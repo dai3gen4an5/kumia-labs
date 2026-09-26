@@ -72,12 +72,6 @@ const SOURCES = {
     url: "https://newsroom.hasbro.com/static-files/bd7a8f8c-7280-468e-b732-1e39efae6f4c",
     claim: "Official U.S. product descriptions: CX Infinity Blades separate into four pieces, and UX Infinity tops convert to reveal hidden features.",
   },
-  R1: {
-    short: "Toys“R”Us — UX-10",
-    label: "Toys“R”Us Thailand — UX-10 Customize Set U (English product page)",
-    url: "https://www.toysrus.co.th/en-th/takara-tomy-beyblade-x-ux-10-customize-set-u-10060420.html",
-    claim: "Native-English retail product description: four Blades, three Ratchets, six Bits, and 72 combinations.",
-  },
 } as const;
 
 type SourceId = keyof typeof SOURCES;
@@ -295,20 +289,15 @@ export default function BeybladeXBladeRatchetBit() {
             <p>Changing one part at a time also prevents a common beginner problem: replacing all three, seeing a different result, and having no idea which component caused it.</p>
           </section>
 
-          <section className={local.prose} aria-labelledby="seventy-two">
-            <h2 id="seventy-two">Four Blades, three Ratchets, six Bits: 72 builds</h2>
+          <section className={local.prose} aria-labelledby="many-builds">
+            <h2 id="many-builds">Three interchangeable parts create many possible combinations</h2>
             <p>Customization is not an unofficial enthusiast workaround. It is part of the official Beyblade X play system.</p>
             <p>
-              Hasbro&rsquo;s U.S. product pages repeatedly invite players to switch the interchangeable Blade, Ratchet, and Bit with parts from other Beyblade X tops. The manufacturer presents rebuilding as a feature, not a loophole. <Src id="H1" /> <Src id="H2" />
+              Hasbro&rsquo;s U.S. product pages repeatedly invite players to switch the interchangeable Blade, Ratchet, and Bit with parts from other Beyblade X tops, and the official Parents Guide frames mixing and matching those three parts as the basic way to play. The manufacturer presents rebuilding as a feature, not a loophole. <Src id="P1" /> <Src id="H1" /> <Src id="H2" />
             </p>
             <p>
-              Takara Tomy&rsquo;s Japanese-market UX-10 Customize Set U makes the multiplication especially clear. Its native-English retail product description lists four Blades, three Ratchets, and six Bits, allowing 72 combinations:
+              Because each layer can be swapped on its own, a small personal collection of compatible tops already holds more possible builds than the number of tops in it. Keep one Blade and try it with a different Ratchet or Bit, or carry one favorite Bit across several Blades, and the number of combinations worth testing grows quickly. <Src id="P1" /> <Src id="H1" />
             </p>
-            <div className={local.claim}>
-              <span>THE MATH</span>
-              <p className={local.mathLine}>4 &times; 3 &times; 6 = 72</p>
-            </div>
-            <p>Those are 72 arrangements of the listed parts, not 72 claims of equal strength or 72 guaranteed tournament answers. A new Bit can be tested under several compatible Blades and Ratchets already in the set, and each compatible part expands the design space. <Src id="R1" /></p>
             <p>Compatibility still has boundaries. Stay within the Beyblade X system, follow the instructions for the specific product, and do not assume that every newer integrated design accepts the same three separate pieces.</p>
           </section>
 
@@ -369,7 +358,7 @@ export default function BeybladeXBladeRatchetBit() {
           <section className={styles.sources}>
             <h2>Sources and methodology</h2>
             <p>
-              Kumia Labs reviewed Hasbro&rsquo;s official U.S. product and instruction pages and 2026 Lookbook, the official English Beyblade Parents Guide and U.S. product lineup, Takara Tomy Asia&rsquo;s official English catalog, an official English product video, and a native-English retail product description for UX-10 on September 25–26, 2026. Every research source linked below was published natively in English. The Ratchet decode for 3-60 is confirmed for that specific part only, not as a universal Ratchet code. The featured Amazon U.S. listing (Beyblade X Xtreme Battle Set, ASIN B0CS8CM4YB) was reverified for product identity and in-stock status immediately before publication. No compatibility checker, build simulator, or name parser is implemented; this article does not decode integrated-part naming such as ATr, HOp, H, or LF.
+              Kumia Labs reviewed Hasbro&rsquo;s official U.S. product and instruction pages and 2026 Lookbook, the official English Beyblade Parents Guide and U.S. product lineup, Takara Tomy Asia&rsquo;s official English catalog, and an official English product video, on September 25–26, 2026. Every research source linked below is an official manufacturer page published natively in English, with no third-party retailer or translated page used as evidence. The Ratchet decode for 3-60 is confirmed for that specific part only, not as a universal Ratchet code. The featured Amazon U.S. listing (Beyblade X Xtreme Battle Set, ASIN B0CS8CM4YB) was reverified for product identity and in-stock status immediately before publication. No compatibility checker, build simulator, or name parser is implemented; this article does not decode integrated-part naming such as ATr, HOp, H, or LF.
             </p>
             <ul className={local.sourceList}>
               {(Object.keys(SOURCES) as SourceId[]).map((id) => (
