@@ -5,6 +5,8 @@ import styles from "../supplier-check.module.css";
 
 export const metadata: Metadata = {
   title: "We’ve got your supplier check | Kumia Research",
+  // Transactional step in the purchase flow: kept out of search; self-canonical instead of the site root.
+  alternates: { canonical: "/research/supplier-check/received" },
   robots: { index: false, follow: false },
 };
 

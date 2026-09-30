@@ -6,11 +6,20 @@ import styles from "./supplier-check.module.css";
 const title = "Japan Supplier Evidence Check | Kumia Research";
 const description = "Japanese-source research before you spend time contacting a supplier. $29 pilot for up to 3 named Japanese suppliers, delivered within 3 business days.";
 
+const canonicalPath = SUPPLIER_CHECK.basePath;
+
 export const metadata: Metadata = {
   title,
   description,
-  // Pilot pages stay out of search until launch is approved.
-  robots: { index: false, follow: false },
+  alternates: { canonical: canonicalPath },
+  robots: { index: true, follow: true },
+  openGraph: {
+    title: "Japan Supplier Evidence Check",
+    description,
+    url: canonicalPath,
+    siteName: SUPPLIER_CHECK.brand,
+    type: "website",
+  },
 };
 
 const deliverables = [

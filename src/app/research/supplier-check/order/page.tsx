@@ -7,6 +7,8 @@ import { OrderForm } from "./order-form";
 
 export const metadata: Metadata = {
   title: "Tell us what you want checked | Kumia Research",
+  // Transactional step in the purchase flow: kept out of search; self-canonical instead of the site root.
+  alternates: { canonical: "/research/supplier-check/order" },
   robots: { index: false, follow: false },
 };
 
