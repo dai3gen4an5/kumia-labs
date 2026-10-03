@@ -14,6 +14,13 @@ type SearchItem = {
 
 const searchIndex: SearchItem[] = [
   {
+    title: "Camper Built a Sneaker With No Glue — So You Can Take the Whole Shoe Apart",
+    href: "/home/camper-roku-glue-free-modular-sneaker",
+    category: "Home",
+    description: "ROKU turns a normally permanent stack of fabric, foam, and rubber into four replaceable packs—but taking a shoe apart is not the same as closing its recycling loop.",
+    keywords: ["camper", "roku", "camper roku", "no glue sneaker", "modular sneaker", "take apart sneaker", "mallorca", "fluxa", "wabi", "right niko", "circular footwear", "recyclable sneaker", "repairable shoe"],
+  },
+  {
     title: "Beyblade X Names Are Secret Build Recipes",
     href: "/toys/beyblade-x-blade-ratchet-bit",
     category: "Toys",

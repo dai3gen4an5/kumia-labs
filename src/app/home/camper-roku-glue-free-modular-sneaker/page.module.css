@@ -1,0 +1,80 @@
+.prose { max-width: 800px; margin: 0 auto; padding: 48px 0 8px; }
+.prose h2 { margin: 0 0 22px; font-size: clamp(30px, 4vw, 42px); line-height: 1.04; letter-spacing: -.045em; }
+.prose p, .prose li { font-size: 17px; line-height: 1.72; }
+.prose p { margin: 0 0 17px; }
+.prose ol, .prose ul { margin: 0 0 18px; padding-left: 22px; }
+.prose li { margin-bottom: 6px; }
+.prose a { color: #0a4fb4; }
+.lead { color: #063d88; font-size: 22px !important; font-weight: 720; line-height: 1.44 !important; letter-spacing: -.018em; }
+
+.src { display: inline-block; margin: 3px 0 0 5px; padding: 1px 9px; border: 1px solid #bdd5ef; border-radius: 999px; background: #f4f9ff; color: #0a4fb4; font-size: 12px; font-weight: 800; line-height: 1.6; text-decoration: none; vertical-align: baseline; }
+.src:hover, .src:focus-visible { border-color: #0668ed; background: #0668ed; color: #fff; }
+
+.analysisNote { margin: 22px 0; padding: 18px 22px; border: 1px dashed #b8862b; border-radius: 12px; background: #fffaf0; }
+.analysisNote span { display: block; margin-bottom: 7px; color: #8a5f10; font-size: 11px; font-weight: 850; letter-spacing: .12em; }
+.analysisNote p { margin: 0; color: #3a3320; font-size: 16px !important; }
+
+.editorialSlot { width: 100%; margin: 48px 0 8px; }
+.editorialImg { display: block; width: 100%; height: auto; }
+.assetPlaceholder { aspect-ratio: 16 / 9; display: grid; place-content: center; gap: 10px; min-width: 0; padding: 30px; border: 1.5px dashed #9bb5d5; background: linear-gradient(145deg, #f7fbff, #e4f0fb); text-align: center; color: #123d72; }
+.assetPlaceholder span { font-size: 11px; font-weight: 850; letter-spacing: .14em; }
+.assetPlaceholder strong { font-size: clamp(22px, 4vw, 38px); letter-spacing: -.035em; }
+.assetPlaceholder small { max-width: 520px; overflow-wrap: anywhere; color: #52627d; }
+.caption { max-width: 800px; margin: 9px auto 0; color: #52627d; font-size: 14px; line-height: 1.5; }
+.heroNote { width: min(1288px, calc(100% - 48px)); margin: 8px auto 0; color: #8795aa; font-size: 12px; line-height: 1.4; }
+
+.techFigure, .timelineFigure { margin: 52px 0 14px; padding: 30px; border: 1px solid #cbd9eb; background: #f8fbff; }
+.techHeading { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 22px; }
+.techHeading span { display: block; margin-bottom: 8px; color: #0668ed; font-size: 11px; font-weight: 850; letter-spacing: .12em; }
+.techHeading h3 { margin: 0; font-size: clamp(24px, 3.4vw, 32px); line-height: 1.08; letter-spacing: -.03em; }
+.techHeading > p { max-width: 300px; margin: 0; color: #52627d; font-size: 15px; line-height: 1.45; }
+.techFigure figcaption, .timelineFigure figcaption { margin-top: 20px; padding-top: 16px; border-top: 1px solid #cbd9eb; color: #52627d; font-size: 14px; line-height: 1.5; }
+
+/* TECH-1: cemented joint vs ROKU connection path */
+.connectionPanels { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.connectionPanels section { min-width: 0; padding: 22px; border: 1px solid #cbd9eb; background: #fff; }
+.connectionEyebrow { margin: 0; color: #0668ed; font-size: 12px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+.connectionPanels h4 { margin: 6px 0 16px; font-size: 20px; letter-spacing: -.02em; }
+.connectionPanels section > p:last-child { margin: 16px 0 0; font-size: 15px; line-height: 1.55; }
+.stackDiagram, .rokuFlow { margin: 0 0 4px; padding: 0; list-style: none; counter-reset: step; }
+.stackDiagram li, .rokuFlow li { position: relative; margin: 0 0 8px; padding: 11px 14px; border: 1.5px solid #bdd5ef; border-radius: 8px; background: #f4f9ff; font-size: 14px; font-weight: 700; color: #071a46; }
+.stackDiagram li.glueBand { border-color: #c93a3a; background: #fdecec; color: #8a1f1f; }
+.rokuFlow li { border-color: #9bb5d5; background: #eef6ff; }
+.stackDiagram li:not(:last-child)::after, .rokuFlow li:not(:last-child)::after { content: ""; position: absolute; left: 50%; bottom: -9px; width: 2px; height: 8px; background: #9bb5d5; transform: translateX(-50%); }
+
+/* TECH-2: six build phases */
+.phaseList { margin: 0; padding: 0; list-style: none; counter-reset: phases; display: grid; gap: 14px; }
+.phaseList li { display: grid; grid-template-columns: 44px 1fr; gap: 16px; padding: 16px 0; border-top: 1px solid #cbd9eb; }
+.phaseList li:first-child { border-top: none; padding-top: 0; }
+.phaseList li > span { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: #0668ed; color: #fff; font-size: 15px; font-weight: 850; }
+.phaseList strong { display: block; margin-bottom: 4px; font-size: 17px; }
+.phaseList p { margin: 0; color: #374a63; font-size: 15px !important; line-height: 1.5 !important; }
+
+/* Optional history timeline */
+.timeline { display: flex; gap: 0; margin: 0; padding: 0; list-style: none; overflow-x: auto; scrollbar-width: thin; }
+.timeline li { flex: 0 0 auto; width: 150px; padding: 16px 16px 0; border-top: 3px solid #0668ed; }
+.timeline span { display: block; margin-bottom: 6px; font-size: 20px; font-weight: 850; letter-spacing: -.02em; color: #071a46; }
+.timeline p { margin: 0; color: #52627d; font-size: 13px; line-height: 1.4; }
+
+.sourceList { columns: 2; column-gap: 42px; padding: 0 !important; list-style: none; }
+.sourceList li { break-inside: avoid; margin: 0 0 16px; }
+.sourceList a { color: #071a46; font-weight: 750; }
+.sourceList span { display: block; margin-top: 3px; color: #52627d; font-size: 14px; line-height: 1.45; }
+
+@media (max-width: 800px) {
+  .prose { padding-top: 38px; }
+  .prose p, .prose li { font-size: 16px; }
+  .lead { font-size: 20px !important; }
+  .techFigure, .timelineFigure { margin-inline: -16px; padding: 22px 16px; }
+  .techHeading { display: block; }
+  .techHeading > p { margin-top: 10px; }
+  .connectionPanels { grid-template-columns: 1fr; }
+  .phaseList li { grid-template-columns: 36px 1fr; gap: 12px; }
+  .timeline li { width: 128px; }
+  .sourceList { columns: 1; }
+}
+
+@media (max-width: 430px) {
+  .assetPlaceholder { padding: 18px; }
+  .assetPlaceholder strong { font-size: 22px; }
+}
