@@ -11,6 +11,24 @@
 - 弱い根拠の断定
 - absence of evidence と NO MATCH の混同
 
+## Affiliate Review（V3新規記事）
+DraftのAFFILIATE ASSESSMENTを確認する（基準はV3 section 13・15）。
+- Status（READY / PENDING / NOT SUITABLE）と理由が妥当か
+- 商品推薦に合理的な理由があるか
+- 本文の結論と一致するか
+- 初心者にも分かりやすいか
+- 不要な購入を促していないか（Reuse before buy）
+- ASINと商品名・バリエーションが一致しているか
+- 米国向け商品か（amazon.co.jp等のASINで代用していないか）
+- 購入リンクの配置が自然か（商品を理解した後）
+- CTAが多すぎないか
+- Amazon以外の販売経路が適切な場合は検討したか
+- 未確認情報を確定事項としていないか
+- 検索リンクを使う場合: 検索語と対象市場（Amazon.com）が確認済みで、検索だと分かるCTAになっており、商品詳細リンクと区別された独立のopportunityとして承認するか（未確認ASINの商品自体はPENDINGのまま）
+- 価格・在庫・評価・Amazon商品画像を記事に載せる計画になっていないか
+
+承認結果はFINALのCOMMERCE OPPORTUNITIES（AFFILIATE IMPLEMENTATION PLAN）に反映させる。
+
 ## Checker
 - 本当に必要か
 - 入力が多すぎないか
@@ -109,6 +127,8 @@ Claudeへ回す:
 - 1440 / 390 / 360
 - build pass
 - no overflow
+- READY商品のCTAがFINALどおり（商品・ASIN・配置・(paid link)・Disclosure）
+- PENDING / NOT SUITABLEの商品に直接購入リンクが無い（検索リンクはFINALで承認されたものだけ）
 
 問題なければ:
 FINAL APPROVED

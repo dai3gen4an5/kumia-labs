@@ -458,6 +458,8 @@ After the Primary Candidate Gate passes, score the proposed topic from 1–5 on:
 | Monetization potential | /5 |
 | Update burden | /5, where 5 = low burden |
 
+Monetization potential is a **supporting score only**. A high score never lets a topic pass the Primary Candidate Gate (3.1), never outranks editorial quality, and is never a reason to adopt an unsuitable topic (see section 13).
+
 ### Recommended threshold
 
 Proceed as a full Kumia article only if the topic has:
@@ -685,6 +687,30 @@ Examples:
 - Which are historically interesting?
 
 Aim for at least 5 meaningful alternative combinations in the article itself, even if the interactive tool contains many more.
+
+## 4.7 Product & Purchase Path Research
+
+Run this in parallel with the factual research. It feeds the **Affiliate Assessment** (section 13), which is required for every new V3 article. A purchase link is not required; the assessment is.
+
+For each product the reader might need or want, record:
+
+- official product name
+- model number / specification / generation or variant
+- whether it is a US-market product
+- why it is relevant to this article, and which reader needs it
+- whether something the reader already owns can be reused instead
+- whether buying is required or optional
+- the matching Amazon.com product and its ASIN
+- whether the ASIN's listing title matches the exact product / variant
+- product detail URL (verified ASIN only); if no ASIN is verified, whether an exact-query Amazon.com search link would be a useful separate opportunity (section 13)
+- other affiliate programs that are actually available to Kumia Labs (approved and active, not merely possible)
+- check date and verification method
+- what remains unverified
+- the natural place in the article where a purchase path would fit
+
+Keep product facts and technical facts separate. A retailer listing (Amazon or otherwise) identifies the purchase destination; it is **not** a primary source for compatibility, safety, or specifications. Those come from first-party manufacturer sources (section 5).
+
+Do not ask the user to buy products or do hands-on testing for the article.
 
 ---
 
@@ -1129,6 +1155,43 @@ or:
 
 Never manufacture a purchase recommendation when reuse is the better answer.
 
+## Affiliate Assessment (required for every new V3 article)
+
+The goal is that a new article ships with its approved purchase links already in place at first publication, instead of adding them afterwards. The assessment is mandatory; links are not. Accuracy always outranks monetization.
+
+Every Draft and FINAL records one status:
+
+| Status | Meaning | Result |
+|---|---|---|
+| **READY** | A suitable product exists, its identity (exact model / variant) is verified, the target market is clear, a usable affiliate link exists, and it fits the article flow naturally. | Implemented in the first article build. |
+| **PENDING** | A candidate exists, but something is unverified (ASIN, destination page, program approval, variant). | Research further. If still unresolved at FINAL, the product gets **no direct purchase link** and is not recommended; record why. |
+| **NOT SUITABLE** | No suitable product, the purchase path would feel forced, there is a safety or accuracy concern, or reusing what the reader owns is the better answer. | No link. Record why. |
+
+Status can differ per product; record the article-level status plus each product's own status.
+
+**Program priority**
+1. **Amazon.com Associates** (Tracking ID `kumialabs-20`). The tag lives only in `src/lib/amazon.ts`; packages and article code never hard-code it.
+2. Other affiliate programs only when Kumia Labs is actually approved and active in them. An unapproved program, an invented referral link, or an unchecked product URL is never treated as usable.
+
+**Verification rules**
+- A direct product link needs an Amazon.com ASIN whose listing title matches the exact product and variant, with a check date and method. Never use an amazon.co.jp (or other non-US) ASIN as a substitute.
+- If the ASIN cannot be verified, the product stays **PENDING**: no product-detail link, no direct purchase CTA for it, and no recommendation to buy it. Never guess an ASIN.
+
+**Search-link opportunity.** An Amazon.com search link (`amazonSearchUrl()`) is never a stand-in for an unverified product page. It may be offered only as its own, separate opportunity, which is **READY** when all of these hold:
+- the exact search query and the target market (Amazon.com, US) are verified;
+- the CTA and surrounding copy say clearly that it is a search (e.g. label "Search for <exact query>", rendered "Search for … on Amazon.com"), and do not read as a link to one specific product;
+- ChatGPT approved it in the FINAL package.
+
+The underlying product can remain PENDING while an approved search-link opportunity is READY. The three statuses READY / PENDING / NOT SUITABLE are unchanged.
+- If retailer access limits (CAPTCHA, regional redirects) block verification, record the item as **unverified**. Do not mark it verified.
+- Price, stock, ratings, review counts, and Amazon product images are never recorded as article content; they are not shown unless obtained through an approved Amazon API / Program Content workflow.
+
+**Placement:** purchase paths sit in the PRODUCT INTEREST → COMMERCE part of the reader flow, after the reader understands the product (for example *Should you buy one or two?*, *What you need*, *Recommended combinations*, *Starting with one*, *Upgrade options*, *Where to buy*). There is no quota for links or products.
+
+**Disclosure (Amazon):** `tag=kumialabs-20`, `target="_blank"`, `rel="noopener noreferrer sponsored"`, a visible **(paid link)** beside each CTA, the group-level `AmazonDisclosure` near each group, and the site-wide Amazon Associate statement. Other programs follow their own terms, which must be checked. Implementation details: `docs/research/amazon-associates-commerce-rollout-2026-09-22.md`.
+
+This assessment applies to V3 packages started on or after 2026-10-12. Already-published articles are not reopened by it.
+
 ---
 
 # 14. Work Deliverables
@@ -1175,6 +1238,27 @@ It must contain:
 
 The Draft package must also record the **Trivia Depth Gate** result (section 3A) and the **Historical Claim Safety** checks (section 4.5A).
 
+Item 14, **Monetization opportunities**, must contain an **AFFILIATE ASSESSMENT** block (section 13, research from 4.7) so ChatGPT can review the affiliate plan at Draft time:
+
+```
+AFFILIATE ASSESSMENT
+- Status: READY / PENDING / NOT SUITABLE (article level; per-product status below)
+- Product candidates
+- Exact product / model / variant
+- Target market
+- Verified ASINs and URLs (or "none verified")
+- Search-link opportunities, if proposed (exact query, target market; kept separate from product links)
+- Verification date and method
+- Intended reader
+- Reuse-first alternative
+- Suggested CTA labels
+- Suggested article placement
+- Disclosure requirements
+- Unresolved issues
+```
+
+For NOT SUITABLE, the block can be short, but the reason is required.
+
 ## 14A. Draft → ChatGPT Editorial Review handoff material
 
 The Draft must give ChatGPT enough material to decide the following. **Do not finalize any of them at Draft time.**
@@ -1217,6 +1301,22 @@ Review for:
 - Are visuals essential and clearly specified?
 - Is monetization natural rather than forced?
 
+**Affiliate Review** (of the AFFILIATE ASSESSMENT block):
+
+- Is there a reasonable editorial reason to point readers to each product?
+- Does each recommendation agree with the article's conclusion?
+- Would a beginner understand what to buy and why?
+- Does it avoid encouraging unnecessary purchases (reuse first)?
+- Does every ASIN match its product name and variant?
+- Is every product a US-market product?
+- Is the link placement natural, after the reader understands the product?
+- Are there too many CTAs?
+- Was a non-Amazon route considered where it would be more appropriate?
+- Is any unverified item presented as confirmed?
+- Is the status (READY / PENDING / NOT SUITABLE) justified?
+
+The approved result is written into FINAL section 8, COMMERCE OPPORTUNITIES.
+
 Possible decisions:
 
 - APPROVE
@@ -1250,7 +1350,7 @@ It then contains the following **required sections, using these exact headings**
 5. **COMPLETE ARTICLE DRAFT** (final copy and article structure)
 6. **COMPATIBILITY MODEL** (verified combination dataset; outcome logic / ranking method / builder logic)
 7. **INTERACTIVE TOOL SPEC** (or an explicit statement that no interactive tool is used)
-8. **COMMERCE OPPORTUNITIES** (affiliate opportunities; problem-first, no invented URLs, prices, or stock)
+8. **COMMERCE OPPORTUNITIES** (affiliate opportunities; problem-first, no invented URLs, prices, or stock; contains the approved Affiliate Implementation Plan — see "COMMERCE OPPORTUNITIES contents" below)
 9. **VERIFIED SOURCE TABLE** (= final source ledger)
 10. **WEAK / UNVERIFIED CLAIMS** (includes the explicit do-not-claim list)
 11. **IMPLEMENTATION NOTES FOR CLAUDE CODE** (= the "IMPLEMENTATION NOTES" that `new-kumia-article` reads)
@@ -1282,6 +1382,38 @@ It must contain:
 - **Gate result** (the five answers from section 3.4 and PASS / REVISE)
 
 **A FINAL package is not ready if this section is missing**, or if its gate result is REVISE. This rule applies to every FINAL package started after it was added; already-published articles are not reopened by it.
+
+### COMMERCE OPPORTUNITIES contents
+
+The heading stays **COMMERCE OPPORTUNITIES**; the affiliate plan lives inside it, not in a new required section. It must let Claude Code make every implementation decision without further guessing.
+
+It starts with:
+
+```
+AFFILIATE IMPLEMENTATION PLAN
+Status: READY / PENDING / NOT SUITABLE
+```
+
+For each **READY** product:
+
+- Product name
+- Exact model / variant
+- Target market
+- Affiliate platform
+- ASIN (direct link) or affiliate URL
+- Verified / unverified status (what was verified, and what was not, e.g. US stock)
+- Last checked (date and method)
+- CTA text
+- CTA placement (the exact section / paragraph it follows)
+- Disclosure
+- Compatibility warnings (from first-party sources, not retailer listings)
+- Implementation instructions
+
+For each approved **search-link opportunity** (READY, listed separately from product items): the exact search query, target market (Amazon.com), the words "search link", CTA text that reads as a search, CTA placement, disclosure, and a note that ChatGPT approved it. It never inherits a PENDING product's identity.
+
+For **PENDING** and **NOT SUITABLE** products (or the whole article): the reason, what is still unresolved, and the explicit instruction "no direct purchase link". If an approved search-link opportunity covers that need, name it.
+
+A product whose identity is unverified at FINAL is not READY. A FINAL started on or after 2026-10-12 without an AFFILIATE IMPLEMENTATION PLAN is not ready for implementation.
 
 ### V3 editorial sections that are kept in the FINAL package
 
@@ -1347,6 +1479,7 @@ The items ChatGPT confirms in the Editorial Review (`KUMIA_ARTICLE_PIPELINE_V2.m
 | FINAL TECHNICAL VISUALS | 14. TECHNICAL VISUAL OPPORTUNITIES |
 | FINAL CARD THUMBNAIL CONCEPT | 16. CARD THUMBNAIL CONCEPT |
 | FINAL ZERO-KNOWLEDGE ENTRY | 18. ZERO-KNOWLEDGE ENTRY |
+| FINAL AFFILIATE PLAN | 8. COMMERCE OPPORTUNITIES (AFFILIATE IMPLEMENTATION PLAN) |
 
 The final package should be self-contained enough that Claude Code does not need to redo the research.
 
@@ -1381,6 +1514,11 @@ Claude Code must not:
 - convert UNKNOWN into MATCH
 - fabricate trivia
 - add new affiliate claims without evidence
+- guess an ASIN, or present a search link as a product page
+
+Affiliate implementation follows the AFFILIATE IMPLEMENTATION PLAN in COMMERCE OPPORTUNITIES:
+- **READY** (verified products and approved search-link opportunities): implement the CTAs in the first article build, using the existing `amazonProductUrl()` / `amazonSearchUrl()` (`src/lib/amazon.ts`) and `AmazonCta` / `AmazonDisclosure` (`src/components/amazon-cta.tsx`). No new affiliate system.
+- **PENDING / NOT SUITABLE:** add no direct purchase link for that product, and state the reason in the QA report. A search link appears only if FINAL lists it as a separate READY search-link opportunity.
 
 If implementation exposes a research gap, return it for research instead of guessing.
 
@@ -1438,7 +1576,7 @@ Before marking the Work package FINAL, check every item. A–K are gates; if any
 
 **F. Story over spec** — Does the article lead with story and discovery rather than specifications or a compatibility table?
 
-**G. Natural commerce** — Do product links appear only after interest is built, only where a decision needs them, and would the article still be worth publishing without them?
+**G. Natural commerce** — Do product links appear only after interest is built, only where a decision needs them, and would the article still be worth publishing without them? Is the Affiliate Assessment status recorded with its reason, and is every READY product's identity verified?
 
 **H. Title** — Are there at least 5 title candidates, and does the recommended title work for a non-expert and pay off its promise?
 

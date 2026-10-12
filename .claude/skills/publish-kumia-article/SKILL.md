@@ -102,6 +102,30 @@ Production alias確認。
 - 390
 - 360
 
+### 8A. Affiliate QA
+FINALの COMMERCE OPPORTUNITIES（AFFILIATE IMPLEMENTATION PLAN）と照合する。
+
+READY商品:
+- FINALで承認された商品だけが掲載されている
+- リンク先のASIN / URLと商品名・バリエーションが一致
+- 正しいTracking ID（`tag=kumialabs-20`）
+- `rel="noopener noreferrer sponsored"` と `target="_blank"`
+- 各CTA横の(paid link)
+- AmazonDisclosure と サイトのAmazon Associate開示
+- リンク切れ・誤誘導（別商品・amazon.co.jp等）がない
+- メーカー公式Sourcesが残り、Amazonタグが付いていない
+- 価格・在庫・評価などの表記がない
+- Sources / methodologyの記述とアフィリエイトの有無が矛盾しない
+- 検索リンク（`/s?k=`）はFINALで承認されたsearch-link opportunityだけで、検索語がFINALと一致し、CTAが検索だと分かる（商品詳細リンクに見せていない）
+- 1440 / 390 / 360で表示崩れ・横スクロールがない
+
+Amazon等のアクセス制限（CAPTCHA、地域リダイレクト等）で商品ページを確認できない場合は、
+確認済みとしてPASSにせず「未確認」と報告する。
+
+PENDING / NOT SUITABLE:
+- その商品の商品詳細リンク・直接購入CTAが無いこと、その理由がFINALと一致することを確認する。
+- 検索リンクがある場合は、FINALで別途READYとして承認されたものであることを確認する。
+
 ## 9. Final git status
 確認:
 - main == origin/main
@@ -120,5 +144,6 @@ Production alias確認。
 8. Final git status
 9. 公開ファイル一覧
 10. 除外ファイル一覧
+11. Affiliate Assessment結果（Status、掲載商品・ASIN、未確認事項）
 
 STATUS: PUBLISHED

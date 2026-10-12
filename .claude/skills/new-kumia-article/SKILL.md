@@ -201,11 +201,36 @@ AI technical artwork禁止。
 Speech bubbleには必ずKumia character image。
 characterなしbubbleはQA failure。
 
-## 8. Commerce
+## 8. Commerce / Affiliate
 FINAL Packageで確認されたものだけ。
 price / discount / stock hard-code禁止。
 best ranking禁止。
 CHECK FIRSTで未確認商品を推奨しない。
+
+FINALの COMMERCE OPPORTUNITIES 内の AFFILIATE IMPLEMENTATION PLAN を必ず確認する
+（ルールは V3 template section 13・16・17。ここには複製しない）。
+
+READY:
+- 初回実装と同時にCTAを追加する（後から追加する二度手間を作らない）。
+- Amazonは既存の `amazonProductUrl()` / `amazonSearchUrl()`（src/lib/amazon.ts）と
+  `AmazonCta` / `AmazonDisclosure`（src/components/amazon-cta.tsx）を再利用する。新しいアフィリエイト管理の仕組みは作らない。
+- Tracking IDを記事コードに直接書かない（`tag=` はamazon.tsだけ）。
+- FINALで確認済みのASINだけ `amazonProductUrl()` で商品詳細リンクにする。
+- 未確認のASINを推測しない。
+- 検索リンク（`amazonSearchUrl()`）は、FINALが独立した READY の search-link opportunity として承認したものだけ。
+  FINALの検索語をそのまま使い、CTA文言は検索であると分かる形（例: label "Search for <query>"）にする。
+  個別商品の直接購入リンクと混同させない。未確認商品の代わりに自分で検索リンクを作らない。
+- CTA文言・配置・Disclosureは FINAL のとおり。共通コンポーネントの見た目調整が必要なら記事固有の `className` で行う。
+- 商品画像・価格・評価・レビュー数・在庫は表示しない。
+- Sources / methodologyにアフィリエイトと矛盾する文（例: "No affiliate links are used."）を書かない。
+
+PENDING / NOT SUITABLE:
+- その商品の商品詳細リンク・直接購入CTAを追加しない。購入推奨もしない。理由をCHATGPT REVIEW PACKAGEに記載する。
+- 検索リンクは、FINALで別のREADY search-link opportunityとして承認されている場合だけ（上記READYのルール）。
+
+AFFILIATE IMPLEMENTATION PLANが無い場合:
+- 2026-10-12以降に作成されたV3 FINALなら、実装前にWork / editorial reviewへ差し戻す（STATUS: WAITING_FOR_WORK_PACKAGE）。リンクを自分で選ばない。
+- それより前のFINALは従来どおり（FINALで確認された商品だけ）。
 
 ## 9. QA
 実行:
@@ -224,6 +249,7 @@ CHECK FIRSTで未確認商品を推奨しない。
 - Kumia
 - Product Cards
 - Sources
+- Affiliate（READYの場合）: 商品・ASINがFINALと一致、`tag=kumialabs-20`、`target="_blank"`、`rel="noopener noreferrer sponsored"`、各CTA横の(paid link)、AmazonDisclosure、メーカー公式リンクにタグなし、価格・在庫表記なし
 
 ## 10. STOP
 commit / push / deploy 禁止。
@@ -237,7 +263,7 @@ CHATGPT REVIEW PACKAGE
 4. Checker implementation
 5. Complete checker rules
 6. Technical diagrams
-7. Product / commerce implementation
+7. Product / commerce implementation（Affiliate Assessment結果: READYなら実装した商品・ASIN・配置、PENDING / NOT SUITABLEなら理由）
 8. Source handling
 9. IMAGE PLACEMENT MAP
 10. Hero placeholder

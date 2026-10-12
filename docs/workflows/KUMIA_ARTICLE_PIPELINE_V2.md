@@ -37,7 +37,7 @@ Kumia Labs の記事制作を、以下の分業で安定して回す。
 - 互換性モデル
 - 記事初稿
 - Interactive Tool仕様
-- Commerce候補
+- Commerce候補 / Affiliate Assessment（V3 section 4.7・13。READY / PENDING / NOT SUITABLE）
 - タイトル候補
 - Heroコピー候補（category label / title / supporting copy / icon labelの候補）
 - IMAGE PLACEMENT PLAN
@@ -57,6 +57,7 @@ Kumia Labs の記事制作を、以下の分業で安定して回す。
 - 冗長部分の削除
 - Checker範囲の最終判断
 - Verdictの最終判断
+- Affiliate Review（Affiliate Assessmentの承認）
 - タイトル確定
 - Supporting Copy確定
 - IMAGE PLACEMENT PLAN最終決定
@@ -82,6 +83,7 @@ Kumia Labs の記事制作を、以下の分業で安定して回す。
 - Interactive Tool実装
 - HTML/CSS/SVG Technical Visual
 - Product Card
+- READY商品のAffiliate CTA（既存のamazon.ts / AmazonCta / AmazonDisclosureを再利用）
 - Kumia UI
 - metadata / JSON-LD / sitemap / search
 - 画像placeholder配置
@@ -152,6 +154,8 @@ V3の標準の読者フローは ORIENT → EXPLAIN → SURPRISE → ENTERTAIN �
 V3/V2の選択条件とResearch成果物の要件は、各Research Templateを
 source of truthとする。
 
+V3の新規記事では、事実調査と並行して商品・購入経路を調査し（V3 section 4.7）、DraftのMonetization opportunitiesに **AFFILIATE ASSESSMENT** を記載する（V3 section 13・14）。Assessmentは必須、リンクは必須ではない。記事の結論を販売に合わせて変えない。
+
 成果物:
 `docs/research/<slug>-work-package-draft.md`
 （冒頭に `SLUG:` を記載。`<slug>` はPHASE 0で決定したslug）
@@ -176,6 +180,7 @@ source of truthとする。
 - FINAL BODY IMAGE 1..N（0〜N。枚数は記事内容次第、固定枚数ではない）
 - FINAL TECHNICAL VISUALS
 - FINAL CARD THUMBNAIL CONCEPT
+- FINAL AFFILIATE PLAN（Affiliate Review。V3 section 15。承認結果はFINALのCOMMERCE OPPORTUNITIESへ）
 
 標準目安（`KUMIA_IMAGE_STANDARD_V1.md`参照。枚数はquotaではない）:
 - Hero: 1
@@ -190,6 +195,7 @@ source of truthとする。
 
 これをClaude Codeのsource of truthとする。
 FINALには `# ZERO-KNOWLEDGE ENTRY` セクション（Object A/Bの平易な説明、通常の用途、必須のバリエーション、説明が必要な用語、orientation案、Gate結果）が必須。このセクションが無い、またはGate結果がREVISEのFINALは未完成として扱う（V3 section 16）。
+COMMERCE OPPORTUNITIESには、承認済みの **AFFILIATE IMPLEMENTATION PLAN**（Status、READY商品ごとのASIN/URL・確認日・CTA文言・配置・開示、PENDING / NOT SUITABLEの理由）を記載する（V3 section 16「COMMERCE OPPORTUNITIES contents」）。新しい必須セクションは増やさない。
 
 終了:
 `STATUS: READY_FOR_FINAL_CHATGPT_EDITORIAL_REVIEW`
@@ -203,6 +209,8 @@ Claudeは最初に:
 を確認する。
 
 存在しない場合は停止。
+
+COMMERCE OPPORTUNITIESのAFFILIATE IMPLEMENTATION PLANがREADYなら、初回実装でCTAまで実装する。PENDING / NOT SUITABLEの商品には直接購入リンクを置かず、理由をCHATGPT REVIEW PACKAGEに記載する。Amazon検索リンクは、FINALで独立したREADYのsearch-link opportunityとして承認されたものだけ（V3 section 13）。
 
 禁止:
 - commit
@@ -295,6 +303,7 @@ ChatGPTのFINAL APPROVED後のみ:
 - Search
 - 1440 / 390 / 360
 - overflow
+- Affiliate QA（publish-kumia-article Skill参照。READY商品のリンク・tag・rel・(paid link)・Disclosure、PENDING / NOT SUITABLEの理由がFINALと一致）
 
 除外:
 - docs/research/
