@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Image, { getImageProps } from "next/image";
 import Link from "next/link";
+import { AmazonCta, AmazonDisclosure } from "@/components/amazon-cta";
 import { ArticleDateMeta, ArticleResearchMeta } from "@/components/article-research-meta";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { amazonProductUrl } from "@/lib/amazon";
 import { absoluteUrl } from "@/lib/site";
 import styles from "../../home/what-electric-toothbrush-should-you-buy/page.module.css";
 import local from "./page.module.css";
@@ -622,6 +624,24 @@ export default function TamagotchiParadiseConnectTwo() {
             <p>
               Consider <strong>two</strong> if two people want separate pets, if you want cross-device social play and gifts, or if you specifically want the Orange Tropics / White Glacier cooperative and competitive games. Compare fields and feature generations before choosing by shell color alone.
             </p>
+            <div className={local.buyBlock}>
+              <AmazonDisclosure />
+              <div className={local.buyGroups}>
+                <section className={local.buyCard} aria-labelledby="buy-one">
+                  <h3 id="buy-one">Starting with one Paradise?</h3>
+                  <p>You only need one Paradise to raise characters and breed new generations. Choose a starting world you like.</p>
+                  {/* U.S. Amazon ASINs verified by product title on Amazon.com, 2026-10-12. */}
+                  <AmazonCta href={amazonProductUrl("B0F2QB96LL")} label="View Pink Land" className={local.buyCta} />
+                  <AmazonCta href={amazonProductUrl("B0DX8B8XGW")} label="View Blue Water" className={local.buyCta} />
+                </section>
+                <section className={local.buyCard} aria-labelledby="buy-two">
+                  <h3 id="buy-two">Want two-player mini-games?</h3>
+                  <p>Orange Tropics and White Glacier support the newer cooperative and competitive Link Play mini-games. Two compatible devices are needed for two-device play.</p>
+                  <AmazonCta href={amazonProductUrl("B0GPGVWMTF")} label="View Orange Tropics" className={local.buyCta} />
+                  <AmazonCta href={amazonProductUrl("B0GTWSPMCZ")} label="View White Glacier" className={local.buyCta} />
+                </section>
+              </div>
+            </div>
             <p>
               For the real product design, current retailer links, and any published suggested price, check <a href={bandaiUsPage} target="_blank" rel="noopener noreferrer">Bandai America&rsquo;s official Paradise product page</a>. U.S. availability, retailer pricing, and stock vary. Confirm that a listing says <strong>Tamagotchi Paradise</strong>, not Original, Connection, Uni, or a decorative shell for another model.
             </p>
@@ -655,7 +675,7 @@ export default function TamagotchiParadiseConnectTwo() {
           <section className={styles.sources}>
             <h2>Sources and methodology</h2>
             <p>
-              Kumia Labs reviewed Bandai&rsquo;s official Tamagotchi Paradise announcement, FAQ, English manuals, How to Play guide, product pages, and Lab Tama news, plus Bandai and Bandai Namco corporate history pages, on {checkedDate}. No device was purchased or hands-on tested for this article. Bandai does not publish match odds, gene probabilities, or the formula behind &ldquo;over 50,000 variations,&rdquo; and none is implied here. Community threads and fan guides were read only to understand common questions, not as evidence. Neon Planets is pre-release on the check date. The Hero, in-article, and card images are conceptual illustrations, not Bandai photography or actual Paradise hardware; no Bandai image is reproduced. No affiliate links are used.
+              Kumia Labs reviewed Bandai&rsquo;s official Tamagotchi Paradise announcement, FAQ, English manuals, How to Play guide, product pages, and Lab Tama news, plus Bandai and Bandai Namco corporate history pages, on {checkedDate}. No device was purchased or hands-on tested for this article. Bandai does not publish match odds, gene probabilities, or the formula behind &ldquo;over 50,000 variations,&rdquo; and none is implied here. Community threads and fan guides were read only to understand common questions, not as evidence. Neon Planets is pre-release on the check date. The Hero, in-article, and card images are conceptual illustrations, not Bandai photography or actual Paradise hardware; no Bandai image is reproduced. Amazon.com purchase links are paid links. Product facts and compatibility claims are based on Bandai&rsquo;s official sources, not retailer listings.
             </p>
             <ul className={local.sourceList}>
               {(Object.keys(SOURCES) as SourceId[]).map((id) => (
