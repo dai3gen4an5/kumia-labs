@@ -14,6 +14,13 @@ type SearchItem = {
 
 const searchIndex: SearchItem[] = [
   {
+    title: "What Happens When You Connect Two Tamagotchi Paradise Devices?",
+    href: "/toys/tamagotchi-paradise-connect-two",
+    category: "Toys",
+    description: "Two pocket pets can play, fight, exchange gifts, or produce a new baby that may inherit colors from both parents.",
+    keywords: ["tamagotchi", "tamagotchi paradise", "bandai", "virtual pet", "digital pet", "playdate", "breeding", "tamagotchi breeding", "genes", "inherit colors", "50000 variations", "link play", "jade forest", "orange tropics", "white glacier", "lab tama", "do i need two tamagotchis"],
+  },
+  {
     title: "Camper Built a Sneaker With No Glue — So You Can Take the Whole Shoe Apart",
     href: "/home/camper-roku-glue-free-modular-sneaker",
     category: "Home",
